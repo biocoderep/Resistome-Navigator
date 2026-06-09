@@ -33,3 +33,5 @@ data/results/*
 # Uploads
 data/uploads/*data/databases/
 *.LIB
+data/databases/
+*.LIB
