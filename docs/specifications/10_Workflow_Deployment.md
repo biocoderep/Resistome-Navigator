@@ -1613,22 +1613,3 @@ Version 1.0 --- CONFIDENTIAL --- Direct Implementation Ready
   Security patches (OS-level)                            Immediately on Critical CVE                                         Rebuild affected containers → CI → deploy                                                                   Brief container restart
   ------------------------------------------------------ ------------------------------------------------------------------- ----------------------------------------------------------------------------------------------------------- ------------------------------------------------
 
-> **SECTION 24 --- IMPLEMENTATION ROADMAP**
-
-  ----------- --------------------------- -------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------------
-  **Phase**   **Name**                    **Duration**   **Deliverables**                                                                                                                                                                                                          **Acceptance Criteria**
-
-  Phase 1     Infrastructure Foundation   2 weeks        Docker Compose stack (all services healthy); PostgreSQL schema v1; Redis operational; MinIO buckets created; GitHub Actions lint + unit test pipeline; .env template; secrets management                                  All containers pass health checks; pytest unit tests pass in CI; alembic upgrade head runs cleanly
-
-  Phase 2     Backend Services            3 weeks        FastAPI app with auth/users/projects/samples/files endpoints; JWT auth flow; RBAC; file upload to MinIO; Celery worker operational; job submission and status polling; WebSocket progress                                 End-to-end: register → login → create project → upload FASTA → job QUEUED → status poll works; WebSocket receives events
-
-  Phase 3     Workflow Integration        2 weeks        Nextflow main.nf with all 8 processes wired; validation gate working; parallel AMR + mutation stages; subworkflows complete; nf-test tests pass; Celery → Nextflow subprocess handoff                                     Reference genome runs end-to-end in Nextflow: COMPLETED status; all output files written to MinIO
-
-  Phase 4     Biological Engines          4 weeks        All 6 analysis engines (1A--1F) integrated; CARD/AMRFinder/ResFinder/Abricate running in Docker; mutation detection with knowledgebase; phenotype prediction with EUCAST rules; virulence profiling; confidence scoring   5 reference genomes produce expected gene/mutation/phenotype calls; recall ≥ 0.90 on benchmark
-
-  Phase 5     Reporting                   2 weeks        JSON/TSV/PDF reports for all engines; module2_input.csv export; presigned URL download; report API endpoints; PDF rendering with WeasyPrint                                                                               PDF reports render correctly; module2_input.csv passes schema validation; all 7 output file types generated
-
-  Phase 6     Testing                     2 weeks        Full pytest suite (unit + integration + contract + load); nf-test workflow suite; ZAP DAST scan on staging; regression test baseline established; performance benchmarks within targets                                   ≥ 90% unit coverage; zero Critical security findings; all benchmark targets met; regression tests pass
-
-  Phase 7     Production Deployment       1 week         Production environment deployed; monitoring stack live; alerting configured; backup scripts tested; DR runbook written; operator training; go-live                                                                        Production health checks pass; monitoring dashboards populated; backup restore tested; first real genome successfully analysed
-  ----------- --------------------------- -------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------------

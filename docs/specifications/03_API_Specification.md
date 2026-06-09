@@ -1648,26 +1648,3 @@ Accepts multipart/form-data with a CSV manifest file. CSV columns: isolate_name 
   56       WSS          /api/v1/ws/projects/{pid}                     JWT (frame)     Persistent
   -------- ------------ --------------------------------------------- --------------- ------------
 
-**24.2 Implementation Roadmap**
-
-  ----------------------------------------- ------------------------------------------------ -------------- -----------------------------------
-  **Phase**                                 **Endpoints**                                    **Duration**   **Dependencies**
-
-  Phase 1 --- Auth & Users                  auth/\*, users/\*                                1 week         PostgreSQL, Redis, JWT keypair
-
-  Phase 2 --- Projects & Samples            projects/\*, samples/\*                          1 week         Phase 1 complete
-
-  Phase 3 --- File Upload                   files/\*                                         1 week         MinIO/S3 integration, ClamAV
-
-  Phase 4 --- Genome Validation             module1/validate/\*                              1 week         Celery, Nextflow skeleton
-
-  Phase 5 --- AMR Detection                 module1/amr-detection/\*, module1/mutations/\*   2 weeks        CARD, AMRFinderPlus containers
-
-  Phase 6 --- Classification & Prediction   module1/mechanisms/\*, module1/predict/\*        2 weeks        EUCAST/CLSI breakpoint tables
-
-  Phase 7 --- Virulence & Reporting         module1/virulence/\*, reports/\*                 1 week         VFDB, WeasyPrint/ReportLab
-
-  Phase 8 --- Workflow & WebSocket          workflow/\*, ws/\*                               1 week         All Phase 1-7 endpoints
-
-  Phase 9 --- Hardening                     Rate limiting, DAST, load tests                  1 week         All phases complete
-  ----------------------------------------- ------------------------------------------------ -------------- -----------------------------------
