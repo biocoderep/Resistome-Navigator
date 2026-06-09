@@ -109,16 +109,17 @@ class ResistanceDeterminant:
     
     # Identity
     gene_name: str
-    mutation_notation: Optional[str] = None
-    aro_accession: Optional[str] = None
     
     # Mechanism
     mechanism_code: str
     mechanism_name: str
-    mechanism_subclass: Optional[str] = None
     
     # Drug associations
     drug_class: str
+    
+    mutation_notation: Optional[str] = None
+    aro_accession: Optional[str] = None
+    mechanism_subclass: Optional[str] = None
     drugs_affected: List[str] = field(default_factory=list)
     sir_prediction: SIRPrediction = SIRPrediction.UNKNOWN
     
