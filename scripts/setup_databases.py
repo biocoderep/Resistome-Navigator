@@ -17,9 +17,7 @@ def main():
     amrfinder_db_dir = data_dir / "amrfinderplus"
     amrfinder_db_dir.mkdir(parents=True, exist_ok=True)
     
-    # We will use staphb/amrfinderplus which is well maintained if ncbi/ doesn't exist
-    # Actually ncbi/amrfinderplus:3.12.8 exists, we'll try latest.
-    amrfinder_img = "ncbi/amrfinderplus:3.12.8"
+    amrfinder_img = "staphb/ncbi-amrfinderplus:latest"
     abricate_img = "staphb/abricate:latest"
     
     try:
