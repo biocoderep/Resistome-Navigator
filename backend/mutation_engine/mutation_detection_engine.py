@@ -26,7 +26,7 @@ class MutationDetectionEngine:
         if progress_cb: progress_cb(5, "LOADING_GENOME")
         
         # Stub: normally we load references here
-        references = {"gyrA": "ATGCGT...", "rpoB": "ATGGCTC..."}
+        references = {"gyrA": "ATGCGTACGTTAGC", "rpoB": "ATGGCTC"}
         
         if progress_cb: progress_cb(10, "GENE_LOCALIZATION")
         locations = localise_genes(fasta_path, references)
