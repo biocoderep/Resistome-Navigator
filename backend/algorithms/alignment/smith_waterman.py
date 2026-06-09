@@ -56,9 +56,9 @@ def needleman_wunsch(query: str, target: str) -> AlignmentResult:
     
     # We need the aligned strings (with gaps) to do variant calling.
     # A Bio.Align.Alignment object format prints as three lines: seqA, match/mismatch, seqB
-    # We just need the actual query and target aligned sequences
-    target_aligned = best_aln[0] # The target sequence with gaps
-    query_aligned = best_aln[1] # The query sequence with gaps
+    # best_aln[0] is the first argument (query), best_aln[1] is the second argument (target)
+    query_aligned = best_aln[0]
+    target_aligned = best_aln[1]
     
     return AlignmentResult(
         query_seq=query_aligned,

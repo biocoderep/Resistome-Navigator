@@ -15,8 +15,8 @@ def main():
     
     # 1. Create a mock FASTA
     fasta_path = Path("mock_genome.fasta")
-    # A short sequence that contains "ATGCGT" (the mock reference for gyrA in the engine)
-    fasta_path.write_text(">contig_1\nATGCGTACGTTAGC\n>contig_2\nATGGCTC\n")
+    # A short sequence with a mutation (C -> T at the end) compared to reference
+    fasta_path.write_text(">contig_1\nATGCGTACGTTAGT\n>contig_2\nATGGCTC\n")
 
     # 2. Run Mutation Detection
     print("\n--- Phase 1: Mutation Detection ---")

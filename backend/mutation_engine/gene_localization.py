@@ -55,9 +55,9 @@ def _blast_localise(fasta_path: Path, references: Dict[str, str], min_identity: 
         for record in records:
             # Check forward strand
             idx = FMIndex(str(record.seq).upper())
-            # For simplicity, we search the first 20 chars as a seed
-            seed = ref_seq[:20].upper()
-            if len(seed) >= 20:
+            # For simplicity, we search the first 10 chars as a seed
+            seed = ref_seq[:10].upper()
+            if len(seed) > 0:
                 pos_list = idx.locate(seed)
                 for pos in pos_list:
                     # Found a potential hit on forward strand
@@ -73,7 +73,7 @@ def _blast_localise(fasta_path: Path, references: Dict[str, str], min_identity: 
             # Check reverse strand
             rev_seq = str(record.seq.reverse_complement()).upper()
             idx_rev = FMIndex(rev_seq)
-            if len(seed) >= 20:
+            if len(seed) > 0:
                 pos_list = idx_rev.locate(seed)
                 for pos in pos_list:
                     start = pos
