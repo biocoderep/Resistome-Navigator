@@ -3,12 +3,12 @@ import uuid
 import json
 from pathlib import Path
 
-# Add backend directory to path
-sys.path.append(str(Path(__file__).parent))
+# Add project root directory to path
+sys.path.append(str(Path(__file__).parent.parent))
 
-from mutation_engine.mutation_detection_engine import MutationDetectionEngine
-from mutation_engine.mechanism_classification_engine import MechanismClassificationEngine
-from mutation_engine.result_models import MutationMapping, MutationClassification
+from backend.mutation_engine.mutation_detection_engine import MutationDetectionEngine
+from backend.mutation_engine.mechanism_classification_engine import MechanismClassificationEngine
+from backend.mutation_engine.result_models import MutationMapping, MutationClassification
 
 def main():
     print("=== Testing Mutation & Mechanism Engine ===")
