@@ -49,7 +49,8 @@ def needleman_wunsch(query: str, reference: str, params: Dict[str, int] = DEFAUL
         inputs={"query_len": m, "ref_len": n, "params": params},
         metrics=metrics, 
         score=float(F[m][n]),
-        confidence=min(metrics["identity_pct"]/100.0, 1.0)
+        confidence=min(metrics["identity_pct"]/100.0, 1.0),
+        metadata={"q_aln": q_aln, "r_aln": r_aln}
     )
 
 def _nw_traceback(TB: list, q: str, r: str, i: int, j: int):

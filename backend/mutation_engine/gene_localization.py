@@ -8,7 +8,8 @@ from pathlib import Path
 from Bio import SeqIO
 from Bio.Seq import Seq
 
-from ..algorithms.alignment.smith_waterman import needleman_wunsch, AlignmentResult
+from ..algorithms.alignment.needleman_wunsch import needleman_wunsch
+from ..algorithms.utilities.result_models import AlgorithmResult as AlignmentResult
 from ..algorithms.search.fmindex_engine import FMIndex
 
 @dataclass
@@ -90,11 +91,13 @@ def _blast_localise(fasta_path: Path, references: Dict[str, str], min_identity: 
 def _build_location(hit: BlastHit, nw_result: AlignmentResult, ref_len: int) -> GeneLocation:
     """Build a GeneLocation object from a hit and its refined alignment."""
     # Compute coverage based on how much of the reference was aligned without huge gaps
-    aligned_ref_bases = len(nw_result.target_seq.replace("-", ""))
+    r_aln = nw_result.metadata.get("r_aln", "")
+    aligned_ref_bases = len(r_aln.replace("-", ""))
     coverage = (aligned_ref_bases / ref_len) * 100 if ref_len > 0 else 0.0
     
     # Clean the query sequence from gaps for the extracted_seq
-    extracted = nw_result.query_seq.replace("-", "")
+    q_aln = nw_result.metadata.get("q_aln", "")
+    extracted = q_aln.replace("-", "")
     
     return GeneLocation(
         gene_name=hit.gene_name,
@@ -130,7 +133,8 @@ def localise_genes(fasta_path: str, references: Dict[str, str],
         identity = nw_result.metrics.get("identity_pct", 0.0)
         
         # Calculate coverage
-        aligned_ref_bases = len(nw_result.target_seq.replace("-", ""))
+        r_aln = nw_result.metadata.get("r_aln", "")
+        aligned_ref_bases = len(r_aln.replace("-", ""))
         coverage = (aligned_ref_bases / len(ref_seq)) * 100 if len(ref_seq) > 0 else 0.0
         
         if identity >= min_identity and coverage >= min_coverage:

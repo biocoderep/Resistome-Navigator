@@ -1,4 +1,10 @@
 sample_id,isolate_name,species,antibiotic,antibiotic_class,drug_class,predicted_sir,confidence_score,confidence_tier,amr_gene,mutation_notation,mechanism_code,supporting_rules,breakpoint_source,explanation,schema_version
+SAMPLE_001,ISOLATE_X,Klebsiella pneumoniae,ceftriaxone,cephalosporin,cephalosporin,R,0.9603,HIGH,blaCTX-M-15,,,RULE_GENE_BLACTXM_CEFTRIAXONE_001,EUCAST,"Predicted: R
+Drug: ceftriaxone (cephalosporin)
+Confidence: HIGH (0.960)
+
+Supporting Evidence:
+  > Gene: blaCTX-M-15",1.0.0
 SAMPLE_001,ISOLATE_X,Klebsiella pneumoniae,ciprofloxacin,fluoroquinolone,fluoroquinolone,R,0.97,HIGH,,S83L,,RULE_COMBO_GYRA_PARC_FQ_HIGH_001;RULE_MUT_GYRA_S83L_CIPRO_001,EUCAST,"Predicted: R
 Drug: ciprofloxacin (fluoroquinolone)
 Confidence: HIGH (0.970)
@@ -8,9 +14,3 @@ Supporting Evidence:
   > Mutation: S83L | Evidence level: 1
 
 Note: Conflicting evidence was detected. Resistance call takes priority (R > I > S).",1.0.0
-SAMPLE_001,ISOLATE_X,Klebsiella pneumoniae,ceftriaxone,cephalosporin,cephalosporin,R,0.9603,HIGH,blaCTX-M-15,,,RULE_GENE_BLACTXM_CEFTRIAXONE_001,EUCAST,"Predicted: R
-Drug: ceftriaxone (cephalosporin)
-Confidence: HIGH (0.960)
-
-Supporting Evidence:
-  > Gene: blaCTX-M-15",1.0.0
