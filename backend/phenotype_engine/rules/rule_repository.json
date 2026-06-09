@@ -1,0 +1,69 @@
+{
+    "schema_version": "1.0.0",
+    "rules": [
+        {
+            "rule_id": "RULE_GENE_BLACTXM_CEFTRIAXONE_001",
+            "rule_name": "blaCTX-M family -> Ceftriaxone Resistant",
+            "rule_type": "gene_family",
+            "drug": "ceftriaxone",
+            "drug_class": "cephalosporin",
+            "antibiotic_class": "beta-lactam",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "CTX-M beta-lactamase",
+                "hit_types": ["Perfect", "Strict"],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.97
+        },
+        {
+            "rule_id": "RULE_MUT_GYRA_S83L_CIPRO_001",
+            "rule_type": "mutation",
+            "drug": "ciprofloxacin",
+            "drug_class": "fluoroquinolone",
+            "antibiotic_class": "fluoroquinolone",
+            "condition": {
+                "type": "mutation_exact",
+                "gene": "gyrA",
+                "protein_position": 83,
+                "alt_amino_acid": "L"
+            },
+            "action": "I",
+            "evidence_level": 1,
+            "confidence_weight": 0.90
+        },
+        {
+            "rule_id": "RULE_MECH_EFFLUX_MULTI_001",
+            "rule_type": "mechanism",
+            "drug": "class-level",
+            "drug_class": "tetracycline",
+            "antibiotic_class": "tetracycline",
+            "condition": {
+                "mechanism_code": "efflux_pump"
+            },
+            "action": "I",
+            "evidence_level": 3,
+            "confidence_weight": 0.75
+        },
+        {
+            "rule_id": "RULE_COMBO_GYRA_PARC_FQ_HIGH_001",
+            "rule_type": "combinatorial",
+            "drug": "ciprofloxacin",
+            "drug_class": "fluoroquinolone",
+            "antibiotic_class": "fluoroquinolone",
+            "condition": {
+                "type": "all_of",
+                "conditions": [
+                    {"type": "mutation_exact", "gene": "gyrA", "protein_position": 83, "alt_amino_acid": "L"},
+                    {"type": "mutation_domain", "gene": "parC", "domain": "QRDR"}
+                ]
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.97
+        }
+    ]
+}
