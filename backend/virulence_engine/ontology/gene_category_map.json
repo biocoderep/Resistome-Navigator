@@ -1,0 +1,15 @@
+{
+    "fimh": "adhesin",
+    "stx1": "toxin",
+    "stx2": "toxin",
+    "hlya": "toxin",
+    "iuca": "iron_acquisition",
+    "fyua": "iron_acquisition",
+    "kpsmt": "capsule",
+    "inva": "invasin",
+    "csga": "biofilm",
+    "hcp": "secretion_system",
+    "iss": "immune_evasion",
+    "rpos": "stress_response",
+    "hipa": "amr_tolerance"
+}
