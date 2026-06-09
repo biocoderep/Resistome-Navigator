@@ -1,0 +1,7060 @@
+{
+  "cohort": [
+    {
+      "isolate_id": "ISO_001",
+      "amr_genes": [
+        {
+          "gene_name": "blaNDM-1",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.77,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 91.65,
+              "coverage": 91.3,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mph(A)",
+          "antibiotic_class": "Macrolide",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.96,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 97.52,
+              "coverage": 97.84,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mcr-1",
+          "antibiotic_class": "Polymyxin",
+          "resistance_mechanism": "antibiotic target alteration",
+          "confidence_score": 0.84,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.38,
+              "coverage": 90.48,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.9,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 99.95,
+              "coverage": 94.82,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "R",
+          "evidence_name": "mcr-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_002",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 1.0,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 95.68,
+              "coverage": 99.27,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.72,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 87.99,
+              "coverage": 96.01,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.87,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.74,
+              "coverage": 97.74,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.77,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.82,
+              "coverage": 96.49,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_003",
+      "amr_genes": [
+        {
+          "gene_name": "blaNDM-1",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.95,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.38,
+              "coverage": 95.53,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mph(A)",
+          "antibiotic_class": "Macrolide",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.67,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 88.25,
+              "coverage": 91.75,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mcr-1",
+          "antibiotic_class": "Polymyxin",
+          "resistance_mechanism": "antibiotic target alteration",
+          "confidence_score": 0.68,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 85.77,
+              "coverage": 94.86,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.88,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 90.91,
+              "coverage": 92.3,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "R",
+          "evidence_name": "mcr-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_004",
+      "amr_genes": [
+        {
+          "gene_name": "mph(A)",
+          "antibiotic_class": "Macrolide",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.68,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 87.71,
+              "coverage": 98.26,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.85,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 87.39,
+              "coverage": 93.58,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaNDM-1",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.8,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.14,
+              "coverage": 91.7,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mcr-1",
+          "antibiotic_class": "Polymyxin",
+          "resistance_mechanism": "antibiotic target alteration",
+          "confidence_score": 0.96,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 99.49,
+              "coverage": 96.55,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.83,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 95.77,
+              "coverage": 93.37,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "R",
+          "evidence_name": "mcr-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_005",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.71,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.22,
+              "coverage": 96.39,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.81,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 94.46,
+              "coverage": 93.17,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.97,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.8,
+              "coverage": 90.71,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.77,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.62,
+              "coverage": 97.12,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_006",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.69,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 97.33,
+              "coverage": 97.22,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.87,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 99.79,
+              "coverage": 95.8,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.83,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 90.5,
+              "coverage": 92.0,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.7,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 90.74,
+              "coverage": 92.85,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_007",
+      "amr_genes": [
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.99,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.76,
+              "coverage": 98.18,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaCTX-M-15",
+          "antibiotic_class": "Cephalosporin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.94,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 99.9,
+              "coverage": 98.9,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.96,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 94.87,
+              "coverage": 95.87,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.92,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 92.98,
+              "coverage": 96.79,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.77,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.34,
+              "coverage": 90.73,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "R",
+          "evidence_name": "blaCTX-M-15",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_008",
+      "amr_genes": [
+        {
+          "gene_name": "blaKPC-2",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.92,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 88.83,
+              "coverage": 99.84,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "aac(3)-IVa",
+          "antibiotic_class": "Aminoglycoside",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 1.0,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 90.59,
+              "coverage": 94.68,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaCTX-M-15",
+          "antibiotic_class": "Cephalosporin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.85,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 94.77,
+              "coverage": 97.94,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "R",
+          "evidence_name": "blaCTX-M-15",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_009",
+      "amr_genes": [
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.8,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.73,
+              "coverage": 98.54,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "aac(3)-IVa",
+          "antibiotic_class": "Aminoglycoside",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.86,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.13,
+              "coverage": 94.98,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.71,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 87.85,
+              "coverage": 94.9,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.96,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 95.41,
+              "coverage": 94.08,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.95,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 90.5,
+              "coverage": 99.4,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_010",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.69,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.04,
+              "coverage": 95.05,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.69,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 97.38,
+              "coverage": 96.68,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.95,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.62,
+              "coverage": 95.68,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.79,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.52,
+              "coverage": 97.01,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_011",
+      "amr_genes": [
+        {
+          "gene_name": "blaNDM-1",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.82,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.18,
+              "coverage": 91.19,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mph(A)",
+          "antibiotic_class": "Macrolide",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.71,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 87.3,
+              "coverage": 97.62,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mcr-1",
+          "antibiotic_class": "Polymyxin",
+          "resistance_mechanism": "antibiotic target alteration",
+          "confidence_score": 0.83,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 87.17,
+              "coverage": 90.59,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.98,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.34,
+              "coverage": 96.44,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "R",
+          "evidence_name": "mcr-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_012",
+      "amr_genes": [
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.81,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 87.03,
+              "coverage": 92.22,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mcr-1",
+          "antibiotic_class": "Polymyxin",
+          "resistance_mechanism": "antibiotic target alteration",
+          "confidence_score": 0.99,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 94.35,
+              "coverage": 99.56,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.83,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.17,
+              "coverage": 96.09,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.84,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 92.26,
+              "coverage": 97.71,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.75,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 85.05,
+              "coverage": 99.78,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "R",
+          "evidence_name": "mcr-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_013",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.99,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 93.94,
+              "coverage": 92.19,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.98,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.42,
+              "coverage": 98.81,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.99,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.18,
+              "coverage": 92.24,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.69,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 90.56,
+              "coverage": 90.99,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_014",
+      "amr_genes": [
+        {
+          "gene_name": "blaKPC-2",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.99,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 91.55,
+              "coverage": 99.46,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "aac(3)-IVa",
+          "antibiotic_class": "Aminoglycoside",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.73,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 97.96,
+              "coverage": 92.41,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaCTX-M-15",
+          "antibiotic_class": "Cephalosporin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.89,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 90.95,
+              "coverage": 95.38,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "R",
+          "evidence_name": "blaCTX-M-15",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_015",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.91,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.58,
+              "coverage": 98.27,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.75,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 88.42,
+              "coverage": 91.22,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.97,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.65,
+              "coverage": 97.5,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.84,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.95,
+              "coverage": 91.01,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_016",
+      "amr_genes": [
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.99,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 92.57,
+              "coverage": 99.43,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "aac(3)-IVa",
+          "antibiotic_class": "Aminoglycoside",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.9,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 85.42,
+              "coverage": 97.48,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.84,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 95.91,
+              "coverage": 94.12,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.79,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 95.38,
+              "coverage": 99.55,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.8,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 92.72,
+              "coverage": 90.14,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_017",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.88,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.0,
+              "coverage": 99.56,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.78,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.61,
+              "coverage": 93.81,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.94,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 91.83,
+              "coverage": 91.17,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.71,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 99.73,
+              "coverage": 96.62,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_018",
+      "amr_genes": [
+        {
+          "gene_name": "blaKPC-2",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.99,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 91.26,
+              "coverage": 98.05,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "aac(3)-IVa",
+          "antibiotic_class": "Aminoglycoside",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.79,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.09,
+              "coverage": 99.95,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaCTX-M-15",
+          "antibiotic_class": "Cephalosporin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.7,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 99.53,
+              "coverage": 95.89,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.94,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 99.07,
+              "coverage": 96.21,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "R",
+          "evidence_name": "blaCTX-M-15",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_019",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.81,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 94.55,
+              "coverage": 98.78,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.79,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 88.29,
+              "coverage": 91.16,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.81,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 88.24,
+              "coverage": 90.81,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.8,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.54,
+              "coverage": 92.88,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_020",
+      "amr_genes": [
+        {
+          "gene_name": "mph(A)",
+          "antibiotic_class": "Macrolide",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.87,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.9,
+              "coverage": 98.24,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaKPC-2",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.95,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 94.06,
+              "coverage": 92.09,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.91,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 88.13,
+              "coverage": 99.91,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaNDM-1",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.72,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 94.4,
+              "coverage": 98.55,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mcr-1",
+          "antibiotic_class": "Polymyxin",
+          "resistance_mechanism": "antibiotic target alteration",
+          "confidence_score": 0.81,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 92.85,
+              "coverage": 96.49,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "R",
+          "evidence_name": "mcr-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_021",
+      "amr_genes": [
+        {
+          "gene_name": "blaNDM-1",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.66,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 97.06,
+              "coverage": 95.96,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mph(A)",
+          "antibiotic_class": "Macrolide",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.92,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 91.24,
+              "coverage": 98.41,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mcr-1",
+          "antibiotic_class": "Polymyxin",
+          "resistance_mechanism": "antibiotic target alteration",
+          "confidence_score": 0.75,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 92.1,
+              "coverage": 92.45,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.75,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 95.15,
+              "coverage": 97.68,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "R",
+          "evidence_name": "mcr-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_022",
+      "amr_genes": [
+        {
+          "gene_name": "blaNDM-1",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.77,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 93.69,
+              "coverage": 90.09,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mph(A)",
+          "antibiotic_class": "Macrolide",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.73,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.54,
+              "coverage": 91.44,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mcr-1",
+          "antibiotic_class": "Polymyxin",
+          "resistance_mechanism": "antibiotic target alteration",
+          "confidence_score": 0.78,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.97,
+              "coverage": 93.82,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.68,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 97.63,
+              "coverage": 95.17,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "R",
+          "evidence_name": "mcr-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_023",
+      "amr_genes": [
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.7,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 87.56,
+              "coverage": 97.1,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaCTX-M-15",
+          "antibiotic_class": "Cephalosporin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.93,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.86,
+              "coverage": 92.94,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.99,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 88.97,
+              "coverage": 98.7,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.93,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 85.04,
+              "coverage": 94.86,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.68,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.41,
+              "coverage": 95.34,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "R",
+          "evidence_name": "blaCTX-M-15",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_024",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.9,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 94.78,
+              "coverage": 90.16,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.75,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 99.79,
+              "coverage": 90.86,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.87,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 94.25,
+              "coverage": 98.15,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.89,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 97.67,
+              "coverage": 96.3,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_025",
+      "amr_genes": [
+        {
+          "gene_name": "blaNDM-1",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.84,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 88.83,
+              "coverage": 91.46,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mph(A)",
+          "antibiotic_class": "Macrolide",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.7,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 91.5,
+              "coverage": 96.09,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mcr-1",
+          "antibiotic_class": "Polymyxin",
+          "resistance_mechanism": "antibiotic target alteration",
+          "confidence_score": 0.81,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 97.19,
+              "coverage": 95.13,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.83,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.72,
+              "coverage": 98.11,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "R",
+          "evidence_name": "mcr-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_026",
+      "amr_genes": [
+        {
+          "gene_name": "blaKPC-2",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.95,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.46,
+              "coverage": 93.69,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "aac(3)-IVa",
+          "antibiotic_class": "Aminoglycoside",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.77,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.06,
+              "coverage": 99.2,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaCTX-M-15",
+          "antibiotic_class": "Cephalosporin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.89,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 88.26,
+              "coverage": 91.89,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "R",
+          "evidence_name": "blaCTX-M-15",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_027",
+      "amr_genes": [
+        {
+          "gene_name": "blaKPC-2",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.88,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.05,
+              "coverage": 97.12,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "aac(3)-IVa",
+          "antibiotic_class": "Aminoglycoside",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.99,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 88.85,
+              "coverage": 92.02,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaCTX-M-15",
+          "antibiotic_class": "Cephalosporin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.69,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 88.45,
+              "coverage": 99.36,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "R",
+          "evidence_name": "blaCTX-M-15",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_028",
+      "amr_genes": [
+        {
+          "gene_name": "blaNDM-1",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.73,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 88.68,
+              "coverage": 90.1,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mph(A)",
+          "antibiotic_class": "Macrolide",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.84,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 99.4,
+              "coverage": 95.01,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mcr-1",
+          "antibiotic_class": "Polymyxin",
+          "resistance_mechanism": "antibiotic target alteration",
+          "confidence_score": 0.85,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 93.49,
+              "coverage": 92.03,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.68,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.43,
+              "coverage": 92.06,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "R",
+          "evidence_name": "mcr-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_029",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.82,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 92.1,
+              "coverage": 99.77,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.93,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 90.7,
+              "coverage": 93.11,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.72,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.15,
+              "coverage": 99.26,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.68,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 95.38,
+              "coverage": 92.68,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_030",
+      "amr_genes": [
+        {
+          "gene_name": "blaNDM-1",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.83,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 90.78,
+              "coverage": 93.95,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mph(A)",
+          "antibiotic_class": "Macrolide",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.89,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 99.58,
+              "coverage": 96.23,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mcr-1",
+          "antibiotic_class": "Polymyxin",
+          "resistance_mechanism": "antibiotic target alteration",
+          "confidence_score": 0.75,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.05,
+              "coverage": 95.95,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.94,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 99.51,
+              "coverage": 95.4,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "R",
+          "evidence_name": "mcr-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_031",
+      "amr_genes": [
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.83,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 85.53,
+              "coverage": 92.06,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaCTX-M-15",
+          "antibiotic_class": "Cephalosporin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.87,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 85.71,
+              "coverage": 92.11,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.77,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.92,
+              "coverage": 94.55,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.65,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.69,
+              "coverage": 92.59,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.76,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.73,
+              "coverage": 98.24,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "R",
+          "evidence_name": "blaCTX-M-15",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_032",
+      "amr_genes": [
+        {
+          "gene_name": "blaNDM-1",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.7,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.52,
+              "coverage": 99.61,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mph(A)",
+          "antibiotic_class": "Macrolide",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.81,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.78,
+              "coverage": 93.72,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mcr-1",
+          "antibiotic_class": "Polymyxin",
+          "resistance_mechanism": "antibiotic target alteration",
+          "confidence_score": 0.81,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 93.75,
+              "coverage": 95.67,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.98,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 87.65,
+              "coverage": 97.22,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "R",
+          "evidence_name": "mcr-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_033",
+      "amr_genes": [
+        {
+          "gene_name": "blaNDM-1",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.72,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 93.13,
+              "coverage": 93.9,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mph(A)",
+          "antibiotic_class": "Macrolide",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.65,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.05,
+              "coverage": 95.66,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mcr-1",
+          "antibiotic_class": "Polymyxin",
+          "resistance_mechanism": "antibiotic target alteration",
+          "confidence_score": 0.91,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.29,
+              "coverage": 92.44,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.66,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.7,
+              "coverage": 96.64,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "R",
+          "evidence_name": "mcr-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_034",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.79,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 87.73,
+              "coverage": 92.87,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.91,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 97.69,
+              "coverage": 96.07,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.91,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 94.96,
+              "coverage": 95.68,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.86,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 87.08,
+              "coverage": 94.3,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_035",
+      "amr_genes": [
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.91,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.41,
+              "coverage": 94.74,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaNDM-1",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.88,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.73,
+              "coverage": 98.51,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.87,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 85.94,
+              "coverage": 99.85,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.75,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.73,
+              "coverage": 95.55,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.81,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.83,
+              "coverage": 94.2,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_036",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.77,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.9,
+              "coverage": 92.72,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.94,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 91.29,
+              "coverage": 97.38,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.9,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.31,
+              "coverage": 98.85,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.75,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.94,
+              "coverage": 97.21,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_037",
+      "amr_genes": [
+        {
+          "gene_name": "blaNDM-1",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.85,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 92.34,
+              "coverage": 90.38,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mph(A)",
+          "antibiotic_class": "Macrolide",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.9,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 97.0,
+              "coverage": 90.29,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mcr-1",
+          "antibiotic_class": "Polymyxin",
+          "resistance_mechanism": "antibiotic target alteration",
+          "confidence_score": 0.83,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 87.29,
+              "coverage": 97.85,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.8,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.26,
+              "coverage": 98.5,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "R",
+          "evidence_name": "mcr-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_038",
+      "amr_genes": [
+        {
+          "gene_name": "blaKPC-2",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.68,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 88.56,
+              "coverage": 90.45,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "aac(3)-IVa",
+          "antibiotic_class": "Aminoglycoside",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.8,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 99.62,
+              "coverage": 97.98,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaCTX-M-15",
+          "antibiotic_class": "Cephalosporin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.91,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 93.72,
+              "coverage": 98.1,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "R",
+          "evidence_name": "blaCTX-M-15",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_039",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.73,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.22,
+              "coverage": 97.94,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.7,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 91.28,
+              "coverage": 91.05,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.68,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.09,
+              "coverage": 90.93,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.84,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 87.42,
+              "coverage": 93.9,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_040",
+      "amr_genes": [
+        {
+          "gene_name": "blaKPC-2",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.95,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 85.26,
+              "coverage": 92.78,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "aac(3)-IVa",
+          "antibiotic_class": "Aminoglycoside",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.96,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.14,
+              "coverage": 96.45,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.99,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 99.38,
+              "coverage": 94.17,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaCTX-M-15",
+          "antibiotic_class": "Cephalosporin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.75,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 99.44,
+              "coverage": 93.19,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "R",
+          "evidence_name": "blaCTX-M-15",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_041",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.82,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 88.86,
+              "coverage": 90.09,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.94,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 92.72,
+              "coverage": 94.62,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.68,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 87.76,
+              "coverage": 92.93,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.95,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 95.86,
+              "coverage": 90.11,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_042",
+      "amr_genes": [
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.8,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.56,
+              "coverage": 90.65,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "aac(3)-IVa",
+          "antibiotic_class": "Aminoglycoside",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.98,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.76,
+              "coverage": 94.25,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.67,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 97.84,
+              "coverage": 99.09,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.7,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 95.62,
+              "coverage": 98.46,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.71,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 88.45,
+              "coverage": 97.71,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_043",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.74,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 88.49,
+              "coverage": 92.02,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.71,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.66,
+              "coverage": 93.72,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.92,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.54,
+              "coverage": 91.95,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.68,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 94.19,
+              "coverage": 95.6,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_044",
+      "amr_genes": [
+        {
+          "gene_name": "blaKPC-2",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.89,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 94.06,
+              "coverage": 92.07,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "aac(3)-IVa",
+          "antibiotic_class": "Aminoglycoside",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.94,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.32,
+              "coverage": 98.78,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaCTX-M-15",
+          "antibiotic_class": "Cephalosporin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.9,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 91.08,
+              "coverage": 90.91,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "R",
+          "evidence_name": "blaCTX-M-15",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_045",
+      "amr_genes": [
+        {
+          "gene_name": "blaKPC-2",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.92,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 89.45,
+              "coverage": 97.8,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "aac(3)-IVa",
+          "antibiotic_class": "Aminoglycoside",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.9,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 97.18,
+              "coverage": 93.28,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaCTX-M-15",
+          "antibiotic_class": "Cephalosporin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.92,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 97.96,
+              "coverage": 96.51,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaKPC-2",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "R",
+          "evidence_name": "blaCTX-M-15",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_046",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.8,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 90.0,
+              "coverage": 95.28,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.66,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 85.28,
+              "coverage": 99.3,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.84,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.96,
+              "coverage": 94.04,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.76,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 94.8,
+              "coverage": 90.92,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_047",
+      "amr_genes": [
+        {
+          "gene_name": "blaNDM-1",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.86,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 97.67,
+              "coverage": 92.28,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mph(A)",
+          "antibiotic_class": "Macrolide",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.71,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 94.89,
+              "coverage": 97.69,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mcr-1",
+          "antibiotic_class": "Polymyxin",
+          "resistance_mechanism": "antibiotic target alteration",
+          "confidence_score": 0.65,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.19,
+              "coverage": 96.77,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.74,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.51,
+              "coverage": 93.34,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "R",
+          "evidence_name": "mcr-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_048",
+      "amr_genes": [
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.98,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 94.31,
+              "coverage": 98.4,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "aac(3)-IVa",
+          "antibiotic_class": "Aminoglycoside",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.98,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 94.49,
+              "coverage": 92.95,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.94,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 98.9,
+              "coverage": 94.44,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.91,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 95.52,
+              "coverage": 96.59,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.78,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 86.34,
+              "coverage": 97.01,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_049",
+      "amr_genes": [
+        {
+          "gene_name": "blaNDM-1",
+          "antibiotic_class": "Carbapenem",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.66,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 87.88,
+              "coverage": 91.72,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mph(A)",
+          "antibiotic_class": "Macrolide",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.78,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 99.84,
+              "coverage": 93.53,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "mcr-1",
+          "antibiotic_class": "Polymyxin",
+          "resistance_mechanism": "antibiotic target alteration",
+          "confidence_score": 0.99,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 97.25,
+              "coverage": 93.14,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.87,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 92.32,
+              "coverage": 96.09,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "R",
+          "evidence_name": "blaNDM-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "R",
+          "evidence_name": "mcr-1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    },
+    {
+      "isolate_id": "ISO_050",
+      "amr_genes": [
+        {
+          "gene_name": "qnrS1",
+          "antibiotic_class": "Fluoroquinolone",
+          "resistance_mechanism": "antibiotic target protection",
+          "confidence_score": 0.78,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 87.05,
+              "coverage": 94.57,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "sul1",
+          "antibiotic_class": "Sulfonamide",
+          "resistance_mechanism": "antibiotic target replacement",
+          "confidence_score": 0.77,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 93.61,
+              "coverage": 93.63,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "tet(A)",
+          "antibiotic_class": "Tetracycline",
+          "resistance_mechanism": "antibiotic efflux",
+          "confidence_score": 0.67,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 97.78,
+              "coverage": 93.9,
+              "prediction": "Resistant"
+            }
+          ]
+        },
+        {
+          "gene_name": "blaTEM-1",
+          "antibiotic_class": "Penicillin",
+          "resistance_mechanism": "antibiotic inactivation",
+          "confidence_score": 0.87,
+          "hits": [
+            {
+              "tool_name": "AMRFinderPlus",
+              "identity": 96.55,
+              "coverage": 95.4,
+              "prediction": "Resistant"
+            }
+          ]
+        }
+      ],
+      "phenotype_predictions": [
+        {
+          "drug": "Meropenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Imipenem",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Tetracycline",
+          "sir": "R",
+          "evidence_name": "tet(A)",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ciprofloxacin",
+          "sir": "I",
+          "evidence_name": "qnrS1",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Sulfamethoxazole",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Colistin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Gentamicin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Ampicillin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Cefotaxime",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Azithromycin",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        },
+        {
+          "drug": "Chloramphenicol",
+          "sir": "S",
+          "evidence_name": "None",
+          "confidence_score": 1.0,
+          "explanation": "Mocked"
+        }
+      ]
+    }
+  ]
+}

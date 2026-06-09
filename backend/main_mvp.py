@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import json
+import os
 
 app = FastAPI(title="AMR Platform MVP")
 
@@ -86,3 +88,11 @@ def get_validation(sample_id: str):
             }
         }
     }
+
+@app.get("/api/v1/analysis/cohort")
+def get_cohort():
+    path = "e:/AMR_platform/AMR_vetgenomehub/backend/cohort_mock.json"
+    if os.path.exists(path):
+        with open(path, "r") as f:
+            return json.load(f)
+    return {"cohort": []}
