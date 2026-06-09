@@ -1,4 +1,4 @@
-"""Smith-Waterman local alignment"""
+"""Needleman-Wunsch global alignment"""
 
 __version__ = "1.0.0"
 
@@ -6,54 +6,55 @@ from typing import Dict, Any
 from .alignment_metrics import compute_metrics
 from ..utilities.result_models import AlgorithmResult
 
-DEFAULT_PARAMS = {"match": 2, "mismatch": -3, "gap_open": -5, "gap_extend": -2}
+DEFAULT_PARAMS = {"match": 2, "mismatch": -3, "gap": -2}
 
-def smith_waterman(query: str, reference: str, params: Dict[str, int] = DEFAULT_PARAMS) -> AlgorithmResult:
+def needleman_wunsch(query: str, reference: str, params: Dict[str, int] = DEFAULT_PARAMS) -> AlgorithmResult:
     q = query.upper()
     r = reference.upper()
     m, n = len(q), len(r)
+    gap = params["gap"]
     
-    # We use basic python lists here to avoid numpy dependency issues in simple demos
-    H = [[0 for _ in range(n+1)] for _ in range(m+1)]
-    TB = [[0 for _ in range(n+1)] for _ in range(m+1)] # 0=stop, 1=diag, 2=up, 3=left
+    F = [[0 for _ in range(n+1)] for _ in range(m+1)]
+    TB = [[0 for _ in range(n+1)] for _ in range(m+1)]
     
-    max_score = 0
-    max_i, max_j = 0, 0
+    # Init
+    for j in range(n+1):
+        F[0][j] = j * gap
+        TB[0][j] = 3
+    for i in range(m+1):
+        F[i][0] = i * gap
+        TB[i][0] = 2
+    TB[0][0] = 0
     
     for i in range(1, m+1):
         for j in range(1, n+1):
             s = params["match"] if q[i-1] == r[j-1] else params["mismatch"]
-            diag = H[i-1][j-1] + s
-            up = H[i-1][j] + params["gap_extend"]
-            left = H[i][j-1] + params["gap_extend"]
+            diag = F[i-1][j-1] + s
+            up = F[i-1][j] + gap
+            left = F[i][j-1] + gap
             
-            best = max(0, diag, up, left)
-            H[i][j] = best
+            best = max(diag, up, left)
+            F[i][j] = best
             
-            if best == 0: TB[i][j] = 0
-            elif best == diag: TB[i][j] = 1
+            if best == diag: TB[i][j] = 1
             elif best == up: TB[i][j] = 2
             else: TB[i][j] = 3
             
-            if best > max_score:
-                max_score = best
-                max_i, max_j = i, j
-                
-    q_aln, r_aln = _traceback(TB, q, r, max_i, max_j)
+    q_aln, r_aln = _nw_traceback(TB, q, r, m, n)
     metrics = compute_metrics(q_aln, r_aln, len(r))
     
     return AlgorithmResult(
-        algorithm="smith_waterman", 
+        algorithm="needleman_wunsch", 
         algorithm_version=__version__,
         inputs={"query_len": m, "ref_len": n, "params": params},
         metrics=metrics, 
-        score=float(max_score),
+        score=float(F[m][n]),
         confidence=min(metrics["identity_pct"]/100.0, 1.0)
     )
 
-def _traceback(TB: list, q: str, r: str, i: int, j: int):
+def _nw_traceback(TB: list, q: str, r: str, i: int, j: int):
     q_aln, r_aln = [], []
-    while TB[i][j] != 0:
+    while i > 0 or j > 0:
         tb = TB[i][j]
         if tb == 1:
             q_aln.append(q[i-1])
@@ -64,7 +65,7 @@ def _traceback(TB: list, q: str, r: str, i: int, j: int):
             q_aln.append(q[i-1])
             r_aln.append("-")
             i -= 1
-        else:
+        elif tb == 3:
             q_aln.append("-")
             r_aln.append(r[j-1])
             j -= 1

@@ -1,1 +1,1 @@
-"""Algorithms package."""
+"""Computational Algorithm Engine"""

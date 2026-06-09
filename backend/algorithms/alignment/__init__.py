@@ -1,1 +1,1 @@
-"""Alignment algorithms."""
+"""Alignment algorithms"""
