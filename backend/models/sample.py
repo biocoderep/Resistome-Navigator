@@ -13,6 +13,7 @@ from backend.database.base import Base, TimestampMixin, UUIDPrimaryKeyMixin
 if TYPE_CHECKING:
     from backend.models.amr_gene import AmrGene
     from backend.models.analysis_job import AnalysisJob
+    from backend.models.genome_validation import Assembly
     from backend.models.sample_file import SampleFile
 
 
@@ -34,6 +35,11 @@ class Sample(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     )
 
     files: Mapped[list["SampleFile"]] = relationship(
+        back_populates="sample",
+        cascade="all, delete-orphan",
+        lazy="selectin",
+    )
+    assemblies: Mapped[list["Assembly"]] = relationship(
         back_populates="sample",
         cascade="all, delete-orphan",
         lazy="selectin",

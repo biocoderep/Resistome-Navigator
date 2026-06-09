@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from fastapi import FastAPI
 
-from backend.api.routes import analysis_routes, sample_routes
+from backend.api.routes import analysis_routes, sample_routes, validation_routes
 
 app = FastAPI(
     title="AMR Platform API (MVP)",
@@ -14,6 +14,7 @@ app = FastAPI(
 
 app.include_router(sample_routes.router)
 app.include_router(analysis_routes.router)
+app.include_router(validation_routes.router)
 
 
 @app.get("/health", tags=["system"])
