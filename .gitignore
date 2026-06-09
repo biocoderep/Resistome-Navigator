@@ -31,4 +31,5 @@ build/
 data/results/*
 
 # Uploads
-data/uploads/*
+data/uploads/*data/databases/
+*.LIB
