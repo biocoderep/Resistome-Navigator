@@ -11,6 +11,7 @@ class Sample(Base, TimestampMixin, SoftDeleteMixin):
     __tablename__ = "samples"
     
     id = Column(Uuid(as_uuid=True), primary_key=True, default=generate_uuid)
+    batch_id = Column(Uuid(as_uuid=True), ForeignKey("batches.id", ondelete="SET NULL"), nullable=True)
     project_id = Column(Uuid(as_uuid=True), ForeignKey("projects.id", ondelete="RESTRICT"), nullable=False)
     isolate_name = Column(String(200), nullable=False)
     species = Column(String(200))
@@ -24,6 +25,7 @@ class Sample(Base, TimestampMixin, SoftDeleteMixin):
     status = Column(String(30), nullable=False, default="UPLOADED")
 
     # Relationships
+    batch = relationship("Batch", back_populates="samples")
     project = relationship("Project")
     submitter = relationship("User")
     files = relationship("SampleFile", back_populates="sample", cascade="all, delete-orphan")
