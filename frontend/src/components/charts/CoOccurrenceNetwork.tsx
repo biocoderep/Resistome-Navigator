@@ -7,16 +7,20 @@ const CARBON_COLORS = [
   '#009d9a', '#012749', '#8a3800', '#a56eff'
 ];
 
-export default function CoOccurrenceNetwork() {
+export default function CoOccurrenceNetwork({ preloadedData }: { preloadedData?: any }) {
   const [data, setData] = useState<any>({ nodes: [], links: [] });
   const fgRef = useRef<any>();
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/v1/analytics/network')
-      .then(res => res.json())
-      .then(json => setData(json))
-      .catch(err => console.error(err));
-  }, []);
+    if (preloadedData) {
+      setData(preloadedData);
+    } else {
+      fetch('http://127.0.0.1:8000/api/v1/analytics/network')
+        .then(res => res.json())
+        .then(json => setData(json))
+        .catch(err => console.error(err));
+    }
+  }, [preloadedData]);
 
   // Inject strong repulsion physics to de-cluster the network
   useEffect(() => {

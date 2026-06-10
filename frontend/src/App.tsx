@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { ExportCard } from './components/ExportCard';
-import { SirBadge } from './components/SirBadge';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, CartesianGrid } from 'recharts';
+import React, { useState } from 'react';
 import TBioDashboard from './TBioDashboard';
+import BatchStatus from './components/BatchStatus';
 
 function App() {
-  const [data, setData] = useState<any>(null);
-  const [validation, setValidation] = useState<any>(null);
-  
   // New States for Automation Flow
   const [files, setFiles] = useState<File[]>([]);
   const [uploading, setUploading] = useState(false);
   const [analyzing, setAnalyzing] = useState(false);
   const [jobId, setJobId] = useState<string | null>(null);
+  const [isBatch, setIsBatch] = useState(false);
+  const [batchComplete, setBatchComplete] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -23,36 +20,50 @@ function App() {
   const handleUpload = async () => {
     if (files.length === 0) return;
     setUploading(true);
-    
-    // Simulate File Upload
-    const formData = new FormData();
-    files.forEach(f => formData.append('file', f));
-    formData.append('isolate_name', files[0].name);
 
     try {
-      const upRes = await fetch('http://127.0.0.1:8000/api/v1/samples/upload', {
-        method: 'POST',
-        body: formData
-      });
-      const upData = await upRes.json();
-      
-      setUploading(false);
-      setAnalyzing(true);
-      
-      // Simulate triggering the pipeline
-      const runRes = await fetch('http://127.0.0.1:8000/api/v1/analysis/run-full', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ sample_id: upData.id })
-      });
-      const runData = await runRes.json();
-      
-      // Simulate polling
-      setTimeout(() => {
-        setAnalyzing(false);
-        setJobId('mock-job-id'); // Trigger dashboard view
-      }, 3000);
-      
+      if (files.length === 1) {
+        // Single File Upload Flow
+        const formData = new FormData();
+        formData.append('file', files[0]);
+        formData.append('isolate_name', files[0].name);
+
+        const upRes = await fetch('http://127.0.0.1:8000/api/v1/samples/upload', {
+          method: 'POST',
+          body: formData
+        });
+        const upData = await upRes.json();
+        
+        setUploading(false);
+        setAnalyzing(true);
+        
+        await fetch('http://127.0.0.1:8000/api/v1/analysis/run-full', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ sample_id: upData.id })
+        });
+        
+        setTimeout(() => {
+          setAnalyzing(false);
+          setJobId('mock-job-id'); // Trigger single dashboard view
+        }, 3000);
+      } else {
+        // Batch Upload Flow
+        const formData = new FormData();
+        files.forEach(f => formData.append('files', f));
+        formData.append('project_id', '00000000-0000-0000-0000-000000000000');
+        formData.append('batch_name', 'Batch Run ' + new Date().toLocaleTimeString());
+        
+        const upRes = await fetch('http://127.0.0.1:8000/api/v1/batches', {
+          method: 'POST',
+          body: formData
+        });
+        const upData = await upRes.json();
+        
+        setUploading(false);
+        setIsBatch(true);
+        setJobId(upData.batch_id);
+      }
     } catch (err) {
       console.error(err);
       setUploading(false);
@@ -60,9 +71,24 @@ function App() {
     }
   };
 
-  // If we have a jobId, we show the Cohort Dashboard (Large Data Test)
-  if (jobId === 'mock-job-id') {
+  // Render Dashboard
+  if (jobId && !isBatch) {
     return <TBioDashboard />;
+  }
+
+  // Render Batch Dashboard
+  if (jobId && isBatch && batchComplete) {
+    // We pass batchId to the dashboard so it can fetch the real cohort data
+    return <TBioDashboard batchId={jobId} />;
+  }
+
+  // Render Batch Status tracking screen
+  if (jobId && isBatch && !batchComplete) {
+    return (
+      <div className="min-h-screen bg-surface flex flex-col p-8 items-center pt-20">
+        <BatchStatus batchId={jobId} onComplete={() => setBatchComplete(true)} />
+      </div>
+    );
   }
 
   // Upload / Loading Screen

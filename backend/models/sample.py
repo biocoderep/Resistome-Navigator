@@ -5,7 +5,7 @@ from __future__ import annotations
 import datetime
 from typing import TYPE_CHECKING
 
-from sqlalchemy import Date, Index, Integer, String
+from sqlalchemy import Date, Index, Integer, String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from backend.database.base import Base, TimestampMixin, UUIDPrimaryKeyMixin
@@ -33,7 +33,10 @@ class Sample(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     status: Mapped[str] = mapped_column(
         String(30), nullable=False, default="UPLOADED", server_default="UPLOADED"
     )
+    batch_id: Mapped[str | None] = mapped_column(String(36), ForeignKey("batches.id"), nullable=True)
+    project_id: Mapped[str | None] = mapped_column(String(36), nullable=True)
 
+    batch = relationship("Batch", back_populates="samples")
     files: Mapped[list["SampleFile"]] = relationship(
         back_populates="sample",
         cascade="all, delete-orphan",

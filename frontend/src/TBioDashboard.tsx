@@ -26,8 +26,9 @@ const TABS = [
   { id: "cohort", label: "Cohort Analytics", icon: "🌐" },
 ];
 
-export default function TBioDashboard() {
-  const [tab, setTab] = useState("validation");
+export default function TBioDashboard({ batchId }: { batchId?: string }) {
+  // If batchId is present, we might want to default to cohort tab
+  const [tab, setTab] = useState(batchId ? "cohort" : "validation");
 
   return (
     <div style={{ display: "flex", minHeight: "100vh", fontFamily: FONT, background: "#F9FAFB" }}>
@@ -80,7 +81,7 @@ export default function TBioDashboard() {
           {tab === "virulence" && <Service7Virulence />}
           {tab === "confidence" && <Service8Confidence />}
           {tab === "summary" && <GenomicSummary />}
-          {tab === "cohort" && <CohortViews />}
+          {tab === "cohort" && <CohortViews batchId={batchId} />}
         </div>
       </div>
     </div>

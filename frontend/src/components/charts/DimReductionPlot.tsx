@@ -7,15 +7,19 @@ const CARBON_COLORS = [
   '#009d9a', '#012749', '#8a3800', '#a56eff'
 ];
 
-export default function DimReductionPlot() {
+export default function DimReductionPlot({ preloadedData }: { preloadedData?: any }) {
   const [data, setData] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/v1/analytics/dim-reduction?method=umap')
-      .then(res => res.json())
-      .then(json => setData(json))
-      .catch(err => console.error(err));
-  }, []);
+    if (preloadedData) {
+      setData(preloadedData);
+    } else {
+      fetch('http://127.0.0.1:8000/api/v1/analytics/dim-reduction?method=umap')
+        .then(res => res.json())
+        .then(json => setData(json))
+        .catch(err => console.error(err));
+    }
+  }, [preloadedData]);
 
   if (!data || !Array.isArray(data) || data.length === 0) return <div className="p-10 text-text-muted text-center">No dimension reduction data available.</div>;
 
@@ -61,9 +65,9 @@ export default function DimReductionPlot() {
           showlegend: true,
           legend: { x: 0, y: 1, font: { color: '#0F172A', size: 10 } },
           scene: {
-            xaxis: { title: 'UMAP 1', showgrid: true, gridcolor: '#E2E8F0', zerolinecolor: '#E2E8F0', tickfont: {color: '#64748B'}, titlefont: {color: '#0F172A'} },
-            yaxis: { title: 'UMAP 2', showgrid: true, gridcolor: '#E2E8F0', zerolinecolor: '#E2E8F0', tickfont: {color: '#64748B'}, titlefont: {color: '#0F172A'} },
-            zaxis: { title: 'UMAP 3', showgrid: true, gridcolor: '#E2E8F0', zerolinecolor: '#E2E8F0', tickfont: {color: '#64748B'}, titlefont: {color: '#0F172A'} },
+            xaxis: { title: { text: 'UMAP 1', font: { color: '#0F172A'} }, showgrid: true, gridcolor: '#E2E8F0', zerolinecolor: '#E2E8F0', tickfont: {color: '#64748B'} },
+            yaxis: { title: { text: 'UMAP 2', font: { color: '#0F172A'} }, showgrid: true, gridcolor: '#E2E8F0', zerolinecolor: '#E2E8F0', tickfont: {color: '#64748B'} },
+            zaxis: { title: { text: 'UMAP 3', font: { color: '#0F172A'} }, showgrid: true, gridcolor: '#E2E8F0', zerolinecolor: '#E2E8F0', tickfont: {color: '#64748B'} },
             camera: { eye: { x: 1.5, y: 1.5, z: 1.5 } }
           }
         }}
