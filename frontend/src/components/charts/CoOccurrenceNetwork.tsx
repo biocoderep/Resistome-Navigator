@@ -12,7 +12,7 @@ export default function CoOccurrenceNetwork() {
   const fgRef = useRef<any>();
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/v1/analysis/cohort/network')
+    fetch('http://127.0.0.1:8000/api/v1/analytics/network')
       .then(res => res.json())
       .then(json => setData(json))
       .catch(err => console.error(err));
@@ -21,10 +21,14 @@ export default function CoOccurrenceNetwork() {
   // Inject strong repulsion physics to de-cluster the network
   useEffect(() => {
     if (fgRef.current) {
-      fgRef.current.d3Force('charge').strength(-200);
-      fgRef.current.d3Force('link').distance(100);
+      const charge = fgRef.current.d3Force('charge');
+      if (charge) charge.strength(-200);
+      const link = fgRef.current.d3Force('link');
+      if (link) link.distance(100);
     }
   }, [data]);
+
+  if (!data || !data.nodes || !data.nodes.length) return <div className="p-10 text-text-muted text-center">No network data available.</div>;
 
   const uniqueGroups = Array.from(new Set(data.nodes.map((n:any) => n.group)));
   const getColorForClass = (cls: string) => {
@@ -44,8 +48,6 @@ export default function CoOccurrenceNetwork() {
       );
     }
   }, [fgRef]);
-
-  if (!data.nodes.length) return <div className="p-10 text-text-muted text-center">No network data available.</div>;
 
   return (
     <div className="h-[400px] w-full border border-surface-dark rounded-xl overflow-hidden bg-surface-card relative flex items-center justify-center">

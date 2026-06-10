@@ -11,13 +11,13 @@ export default function DimReductionPlot() {
   const [data, setData] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/v1/analysis/cohort/dim-reduction?method=umap')
+    fetch('http://127.0.0.1:8000/api/v1/analytics/dim-reduction?method=umap')
       .then(res => res.json())
       .then(json => setData(json))
       .catch(err => console.error(err));
   }, []);
 
-  if (!data.length) return <div className="p-10 text-text-muted text-center">No dimension reduction data available.</div>;
+  if (!data || !Array.isArray(data) || data.length === 0) return <div className="p-10 text-text-muted text-center">No dimension reduction data available.</div>;
 
   // Group data by dominant class for Plotly traces
   const groupedData: Record<string, {x: number[], y: number[], z: number[], text: string[]}> = {};
