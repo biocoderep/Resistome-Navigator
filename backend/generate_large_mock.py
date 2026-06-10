@@ -14,6 +14,12 @@ GENES = {
     "blaCTX-M-15": {"mech": "antibiotic inactivation", "class": "Cephalosporin"},
     "mph(A)": {"mech": "antibiotic inactivation", "class": "Macrolide"}
 }
+VIRULENCE_GENES = {
+    "ybtA": {"type": "Iron uptake", "subclass": "Yersiniabactin"},
+    "rmpA": {"type": "Regulation", "subclass": "Hypermucoidy"},
+    "mrkD": {"type": "Adherence", "subclass": "Type 3 fimbriae"},
+    "entB": {"type": "Iron uptake", "subclass": "Enterobactin"}
+}
 
 def generate_isolate(idx):
     # Determine the "clade" or combination cluster
@@ -38,11 +44,19 @@ def generate_isolate(idx):
     phenotypes = []
     
     for g in g_names:
+        
+        # Fake coordinates for Circos
+        contig = f"contig_{random.randint(1, 5)}"
+        start = random.randint(1000, 500000)
         genes.append({
             "gene_name": g,
             "antibiotic_class": GENES[g]["class"],
             "resistance_mechanism": GENES[g]["mech"],
             "confidence_score": round(random.uniform(0.65, 1.0), 2),
+            "contig_id": contig,
+            "start": start,
+            "end": start + random.randint(800, 2500),
+            "strand": random.choice([1, -1]),
             "hits": [
                 {
                     "tool_name": "AMRFinderPlus", 
@@ -51,6 +65,21 @@ def generate_isolate(idx):
                     "prediction": "Resistant"
                 }
             ]
+        })
+        
+    virulence = []
+    v_names = random.sample(list(VIRULENCE_GENES.keys()), k=random.randint(1, 3))
+    for v in v_names:
+        contig = f"contig_{random.randint(1, 5)}"
+        start = random.randint(1000, 500000)
+        virulence.append({
+            "gene_name": v,
+            "element_type": VIRULENCE_GENES[v]["type"],
+            "subclass": VIRULENCE_GENES[v]["subclass"],
+            "contig_id": contig,
+            "start": start,
+            "end": start + random.randint(800, 2500),
+            "strand": random.choice([1, -1]),
         })
         
     # generate phenotypes based on genes
@@ -86,6 +115,7 @@ def generate_isolate(idx):
     return {
         "isolate_id": f"ISO_{idx:03d}",
         "amr_genes": genes,
+        "virulence_genes": virulence,
         "phenotype_predictions": phenotypes
     }
 

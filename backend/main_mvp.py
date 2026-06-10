@@ -13,6 +13,51 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from fastapi import UploadFile, File, Form, BackgroundTasks
+import asyncio
+
+# Mock Data Routes for Frontend Dev
+@app.post("/api/v1/samples/upload")
+def upload_sample(file: UploadFile = File(...), isolate_name: str = Form(default="Test Isolate")):
+    return {"id": "mock-sample-id", "isolate_name": isolate_name, "status": "UPLOADED"}
+
+@app.post("/api/v1/analysis/run-full")
+def run_full(payload: dict):
+    # Simulates returning a job ID
+    return {"id": "mock-job-id", "status": "QUEUED"}
+
+
+@app.get("/api/v1/analysis/cohort")
+def get_cohort():
+    import os
+    import json
+    path = "e:/AMR_platform/AMR_vetgenomehub/backend/cohort_mock.json"
+    if os.path.exists(path):
+        with open(path, "r") as f:
+            return json.load(f)
+    return {"cohort": []}
+
+@app.get("/api/v1/analytics/dim-reduction")
+def get_dim_reduction(method: str = "umap"):
+    from reporting.analytics import compute_dim_reduction
+    return {"data": compute_dim_reduction(method)}
+
+@app.get("/api/v1/analytics/network")
+def get_network():
+    from reporting.analytics import compute_cooccurrence_network
+    return compute_cooccurrence_network()
+
+@app.get("/api/v1/analytics/mst")
+def get_mst():
+    from reporting.analytics import compute_mst
+    return compute_mst()
+
+from fastapi.responses import HTMLResponse
+@app.get("/api/v1/analysis/{job_id}/circos", response_class=HTMLResponse)
+def get_circos(job_id: str):
+    from reporting.genomic_plots import generate_circos_plot
+    return generate_circos_plot(job_id)
+
 # Mock Data Routes for Frontend Dev
 @app.get("/api/v1/analysis/{job_id}")
 def get_analysis(job_id: str):

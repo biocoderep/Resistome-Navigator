@@ -8,9 +8,9 @@ export default {
     extend: {
       colors: {
         surface: {
-          DEFAULT: '#0E1E25',
-          dark: '#12232B',
-          card: '#162A33',
+          DEFAULT: '#F8FAFC',
+          dark: '#E2E8F0',
+          card: '#FFFFFF',
         },
         accent: {
           DEFAULT: '#00AD9F',
@@ -23,9 +23,25 @@ export default {
           s: '#2BC48A',
           none: '#6B7C85'
         },
+        palette: {
+          blue1: '#19AADE',
+          blue2: '#1AC9E6',
+          teal1: '#1DE4BD',
+          teal2: '#6DF0D2',
+          purple1: '#AF4BCE',
+          pink1: '#DB4CB2',
+          pink2: '#EB548C',
+          pink3: '#EA7369',
+          pink4: '#F0A58F',
+          orange1: '#DE542C',
+          orange2: '#EF7E32',
+          orange3: '#EE9A3A',
+          yellow1: '#EABD3B',
+          yellow2: '#E7E34E'
+        },
         text: {
-          primary: '#E6EDF0',
-          muted: '#8FA3AD'
+          primary: '#0F172A',
+          muted: '#64748B'
         }
       },
       fontFamily: {

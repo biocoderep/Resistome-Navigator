@@ -34,3 +34,7 @@ uvicorn==0.49.0
 celery==5.4.0
 redis==5.0.1
 flower==2.0.1
+scikit-learn
+umap-learn
+networkx
+pycirclize

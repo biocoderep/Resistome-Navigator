@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { ExportCard } from './components/ExportCard';
 import { SirBadge } from './components/SirBadge';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, ZAxis, Cell, Sankey } from 'recharts';
+import DimReductionPlot from './components/charts/DimReductionPlot';
+import CoOccurrenceNetwork from './components/charts/CoOccurrenceNetwork';
+import MinimumSpanningTree from './components/charts/MinimumSpanningTree';
 
 const CARBON_COLORS = [
   '#6929c4', '#1192e8', '#005d5d', '#9f1853', '#fa4d56',
@@ -100,19 +103,34 @@ export const CohortDashboard = () => {
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          <ExportCard title="Resistome Dimensionality Reduction (UMAP)" filename="UMAP.png">
+            <DimReductionPlot />
+          </ExportCard>
+          <ExportCard title="Gene Co-occurrence Network" filename="Network.png">
+            <CoOccurrenceNetwork />
+          </ExportCard>
+        </div>
+        
+        <div className="grid grid-cols-1 gap-8 mb-8">
+          <ExportCard title="Minimum Spanning Tree (Resistome Clades)" filename="MST.png">
+            <MinimumSpanningTree />
+          </ExportCard>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           
           {/* Scatter Plot: Identity vs Coverage */}
           <ExportCard title="Hit Quality (Identity vs Coverage)" filename="Cohort_Scatter.png">
             <div className="h-80">
               <ResponsiveContainer width="100%" height="100%">
                 <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#162A33" />
-                  <XAxis type="number" dataKey="identity" name="Identity" unit="%" domain={[80, 100]} stroke="#8FA3AD" />
-                  <YAxis type="number" dataKey="coverage" name="Coverage" unit="%" domain={[80, 100]} stroke="#8FA3AD" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+                  <XAxis type="number" dataKey="identity" name="Identity" unit="%" domain={[80, 100]} stroke="#64748B" />
+                  <YAxis type="number" dataKey="coverage" name="Coverage" unit="%" domain={[80, 100]} stroke="#64748B" />
                   <ZAxis type="category" dataKey="gene" name="Gene" />
                   <Tooltip 
                     cursor={{ strokeDasharray: '3 3' }}
-                    contentStyle={{ backgroundColor: '#12232B', borderColor: '#162A33', color: '#E6EDF0' }}
+                    contentStyle={{ backgroundColor: '#FFFFFF', borderColor: '#E2E8F0', color: '#0F172A', fontSize: '12px', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                   />
                   <Scatter name="AMR Hits" data={scatterData} fill="#00AD9F">
                     {scatterData.map((entry, index) => (
@@ -137,12 +155,12 @@ export const CohortDashboard = () => {
             <div className="h-80">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={topCombos} layout="vertical" margin={{ top: 5, right: 30, left: 10, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#162A33" horizontal={false} />
-                  <XAxis type="number" stroke="#8FA3AD" fontSize={12} />
-                  <YAxis dataKey="name" type="category" width={180} stroke="#8FA3AD" fontSize={10} tick={{ fill: '#E6EDF0' }} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" horizontal={false} />
+                  <XAxis type="number" stroke="#64748B" fontSize={12} />
+                  <YAxis dataKey="name" type="category" width={180} stroke="#64748B" fontSize={10} tick={{ fill: '#0F172A' }} />
                   <Tooltip 
-                    cursor={{fill: '#12232B'}} 
-                    contentStyle={{ backgroundColor: '#162A33', borderColor: '#0E1E25', color: '#E6EDF0' }} 
+                    cursor={{fill: '#F8FAFC'}} 
+                    contentStyle={{ backgroundColor: '#FFFFFF', borderColor: '#E2E8F0', color: '#0F172A', fontSize: '12px', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} 
                   />
                   <Bar dataKey="count" fill={CARBON_COLORS[0]} radius={[0, 4, 4, 0]} />
                 </BarChart>
@@ -165,7 +183,7 @@ export const CohortDashboard = () => {
                     margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
                     link={{ stroke: CARBON_COLORS[1], strokeOpacity: 0.3 }}
                   >
-                    <Tooltip contentStyle={{ backgroundColor: '#12232B', borderColor: '#162A33', color: '#E6EDF0' }} />
+                    <Tooltip contentStyle={{ backgroundColor: '#FFFFFF', borderColor: '#E2E8F0', color: '#0F172A', fontSize: '12px', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
                   </Sankey>
                 </ResponsiveContainer>
               </div>
@@ -176,7 +194,7 @@ export const CohortDashboard = () => {
         <div className="grid grid-cols-1 gap-8">
           {/* Resistance Barcode Strip */}
           <ExportCard title="Population Resistance Barcode" filename="Cohort_Barcode.png">
-            <div className="overflow-x-auto p-4 bg-surface-dark/50 rounded-lg border border-surface-dark">
+            <div className="overflow-x-auto p-4 bg-surface rounded-lg border border-surface-dark">
               <div className="min-w-max">
                 {/* Header (Drugs) */}
                 <div className="flex mb-2 pl-24">
