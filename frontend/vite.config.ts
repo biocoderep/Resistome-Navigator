@@ -12,7 +12,7 @@ export default defineConfig({
       'components': path.resolve(__dirname, './src/components'),
       'layouts': path.resolve(__dirname, './src/layouts'),
       'views': path.resolve(__dirname, './src/views'),
-      'routes.js': path.resolve(__dirname, './src/routes.js')
+      'routes.jsx': path.resolve(__dirname, './src/routes.jsx')
     }
   }
 })
