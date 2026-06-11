@@ -13,6 +13,10 @@ accept_content = ["json"]
 result_serializer = "json"
 timezone = "UTC"
 enable_utc = True
+imports = [
+    "backend.tasks.genome_validation_task",
+    "backend.tasks.batch_tasks",
+]
 
 # Task execution settings
 task_track_started = True
@@ -35,16 +39,7 @@ result_persistent = True
 
 # Periodic task settings
 beat_scheduler = "celery.beat:PersistentScheduler"
-beat_schedule = {
-    "cleanup-old-results": {
-        "task": "backend.tasks.cleanup_old_results",
-        "schedule": timedelta(hours=6),
-    },
-    "health-check": {
-        "task": "backend.tasks.health_check",
-        "schedule": timedelta(minutes=5),
-    },
-}
+beat_schedule = {}
 
 # Import settings from environment
 if os.getenv("CELERY_ALWAYS_EAGER"):

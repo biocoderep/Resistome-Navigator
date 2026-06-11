@@ -13,8 +13,9 @@ import os
 def dispatch_batch_workflow(self, batch_id: str, sample_ids: list[str], run_cohort: bool):
     """Entry point for orchestrating a batch run."""
     db = SessionLocal()
+    import uuid
     try:
-        batch = db.scalars(select(Batch).where(Batch.id == batch_id)).first()
+        batch = db.scalars(select(Batch).where(Batch.id == uuid.UUID(batch_id))).first()
         if batch:
             batch.status = "RUNNING"
             db.commit()
@@ -34,8 +35,10 @@ def dispatch_batch_workflow(self, batch_id: str, sample_ids: list[str], run_coho
 def run_single_isolate_pipeline(self, sample_id: str):
     """Runs the Nextflow MODULE1_AMR pipeline for a single isolate."""
     db = SessionLocal()
+    import uuid
+    sample = None
     try:
-        sample = db.scalars(select(Sample).where(Sample.id == sample_id)).first()
+        sample = db.scalars(select(Sample).where(Sample.id == uuid.UUID(sample_id))).first()
         if sample:
             sample.status = "RUNNING"
             db.commit()
@@ -153,7 +156,7 @@ def run_single_isolate_pipeline(self, sample_id: str):
             
             # Update batch progress
             if sample.batch_id:
-                batch = db.scalars(select(Batch).where(Batch.id == sample.batch_id)).first()
+                batch = db.scalars(select(Batch).where(Batch.id == uuid.UUID(str(sample.batch_id)))).first()
                 if batch:
                     batch.completed_isolates = (batch.completed_isolates or 0) + 1
                     db.commit()
@@ -164,7 +167,7 @@ def run_single_isolate_pipeline(self, sample_id: str):
             sample.status = "FAILED"
             db.commit()
             if sample.batch_id:
-                batch = db.scalars(select(Batch).where(Batch.id == sample.batch_id)).first()
+                batch = db.scalars(select(Batch).where(Batch.id == uuid.UUID(str(sample.batch_id)))).first()
                 if batch:
                     batch.failed_isolates = (batch.failed_isolates or 0) + 1
                     db.commit()
@@ -176,8 +179,10 @@ def run_single_isolate_pipeline(self, sample_id: str):
 def run_cohort_analysis(self, results, batch_id: str):
     """Callback triggered after all isolate pipelines finish."""
     db = SessionLocal()
+    import uuid
+    batch = None
     try:
-        batch = db.scalars(select(Batch).where(Batch.id == batch_id)).first()
+        batch = db.scalars(select(Batch).where(Batch.id == uuid.UUID(batch_id))).first()
         if batch:
             batch.status = "ISOLATES_COMPLETE"
             batch.cohort_analysis_status = "RUNNING"
