@@ -6,10 +6,20 @@ from fastapi import FastAPI
 
 from backend.api.routes import analysis_routes, sample_routes, validation_routes, batch_routes, surveillance_routes, isolate_routes
 
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI(
     title="AMR Platform API (MVP)",
     description="Module 1 — Antimicrobial Resistance Characterisation (MVP).",
     version="1.0.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
 )
 
 app.include_router(sample_routes.router, prefix="/api/v1")

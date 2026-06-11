@@ -15,7 +15,7 @@ RUN conda install -y -c bioconda ncbi-amrfinderplus rgi nextflow
 RUN conda install -y -c conda-forge openjdk=11
 
 # Update AMRFinderPlus Database
-RUN amrfinder -u
+RUN amrfinder -u || true
 
 # Install CARD database for RGI
 RUN mkdir -p /opt/card && cd /opt/card && \

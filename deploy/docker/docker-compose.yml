@@ -12,7 +12,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U amruser"]
+      test: ["CMD-SHELL", "pg_isready -U amruser -d amrdb"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -51,8 +51,11 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+      celery_worker:
+        condition: service_healthy
     volumes:
       - ../../:/app
+      - uploads_data:/tmp/amr_uploads
 
   celery_worker:
     build:
@@ -74,6 +77,12 @@ services:
     volumes:
       - ../../:/app
       - /var/run/docker.sock:/var/run/docker.sock
+      - uploads_data:/tmp/amr_uploads
+    healthcheck:
+      test: ["CMD-SHELL", "celery -A backend.celery_app inspect ping -d celery@$$HOSTNAME"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
 
   celery_beat:
     build:
@@ -98,3 +107,4 @@ services:
 volumes:
   postgres_data:
   redis_data:
+  uploads_data:

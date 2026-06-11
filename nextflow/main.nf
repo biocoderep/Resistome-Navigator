@@ -26,48 +26,45 @@ nextflow.enable.dsl = 2
 // PARAMETERS
 // =============================================================================
 
-params {
-    // Input
-    samples = null                          // CSV with columns: sample_id,assembly_file,species
-    output = "results"
-    
-    // Genome Validation Config
-    min_assembly_length_bp = 200_000
-    max_contig_count = 2000
-    n_warn_threshold = 1.0
-    n_fail_threshold = 5.0
-    
-    // Alignment Config
-    alignment_method = "bowtie2"            // bowtie2, bwa, minimap2
-    alignment_threads = 4
-    alignment_min_identity = 95.0
-    alignment_min_coverage = 80.0
-    
-    // AMR Detection Config
-    amr_tools = "card_rgi,amrfinderplus"
-    amr_min_identity = 95.0
-    amr_min_coverage = 80.0
-    
-    // Reference Databases
-    reference_db_dir = "${projectDir}/databases"
-    card_database = "${params.reference_db_dir}/card"
-    amrfinder_database = "${params.reference_db_dir}/amrfinderplus"
-    
-    // Resource Limits
-    validation_cpus = 4
-    validation_memory = "8 GB"
-    alignment_cpus = 8
-    alignment_memory = "16 GB"
-    amr_cpus = 8
-    amr_memory = "16 GB"
-    
+// Input
+params.samples = null                          // CSV with columns: sample_id,assembly_file,species
+params.output = "results"
+
+// Genome Validation Config
+params.min_assembly_length_bp = 200_000
+params.max_contig_count = 2000
+params.n_warn_threshold = 1.0
+params.n_fail_threshold = 5.0
+
+// Alignment Config
+params.alignment_method = "bowtie2"            // bowtie2, bwa, minimap2
+params.alignment_threads = 4
+params.alignment_min_identity = 95.0
+params.alignment_min_coverage = 80.0
+
+// AMR Detection Config
+params.amr_tools = "card_rgi,amrfinderplus"
+params.amr_min_identity = 95.0
+params.amr_min_coverage = 80.0
+
+// Reference Databases
+params.reference_db_dir = "${projectDir}/databases"
+params.card_database = "${params.reference_db_dir}/card"
+params.amrfinder_database = "${params.reference_db_dir}/amrfinderplus"
+
+// Resource Limits
+params.validation_cpus = 4
+params.validation_memory = "8 GB"
+params.alignment_cpus = 8
+params.alignment_memory = "16 GB"
+params.amr_cpus = 8
+params.amr_memory = "16 GB"    
     // Output Formats
-    output_formats = "json,tsv,pdf"
-    publish_dir = "${params.output}"
+    params.output_formats = "json,tsv,pdf"
+    params.publish_dir = "${params.output}"
     
     // Help message
-    help = false
-}
+    params.help = false
 
 // =============================================================================
 // HELP MESSAGE

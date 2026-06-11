@@ -38,10 +38,12 @@ def run_single_isolate_pipeline(self, sample_id: str):
     import uuid
     sample = None
     try:
-        sample = db.scalars(select(Sample).where(Sample.id == uuid.UUID(sample_id))).first()
+        sample = db.scalars(select(Sample).where(Sample.id == uuid.UUID(str(sample_id)))).first()
         if sample:
             sample.status = "RUNNING"
             db.commit()
+        else:
+            raise ValueError(f"sample {sample_id} not found")
             
         file_path = None
         for file in sample.files:

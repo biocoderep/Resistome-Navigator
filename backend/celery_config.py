@@ -23,6 +23,8 @@ task_track_started = True
 task_time_limit = 30 * 60  # 30 minutes hard limit
 task_soft_time_limit = 28 * 60  # 28 minutes soft limit
 worker_max_tasks_per_child = 1000
+task_acks_late = True
+task_reject_on_worker_lost = True
 
 # Retry settings
 task_autoretry_for = (Exception,)

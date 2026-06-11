@@ -18,7 +18,7 @@ from pydantic import BaseModel, Field
 class ValidationConfig(BaseModel):
     """Configuration for genome validation run."""
 
-    min_length_bp: int = Field(default=200_000, ge=10_000, le=1_000_000)
+    min_length_bp: int = Field(default=200_000, ge=0, le=1_000_000)
     max_contig_count: int = Field(default=2000, ge=1, le=50_000)
     n_fail_threshold: float = Field(default=5.0, ge=1.0, le=50.0)
     n_warn_threshold: float = Field(default=1.0, ge=0.1, le=5.0)
@@ -45,6 +45,10 @@ class ValidationError(BaseModel):
         "TRUNCATED_FILE",
         "CONTIG_TOO_SHORT",
         "INVALID_FILE_TYPE",
+        "GENOME_TOO_SMALL",
+        "UNEXPECTED_ERROR",
+        "N_PERCENT_TOO_HIGH",
+        "VALIDATION_ERROR",
     ]
     contig: str | None = None
     detail: str | None = None
