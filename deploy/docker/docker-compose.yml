@@ -1,22 +1,16 @@
 services:
   postgres:
     image: postgres:16
-
     container_name: amr_postgres
-
     restart: unless-stopped
-
     environment:
       POSTGRES_DB: amrdb
       POSTGRES_USER: amruser
       POSTGRES_PASSWORD: amrpass
-
     ports:
       - "5432:5432"
-
     volumes:
       - postgres_data:/var/lib/postgresql/data
-
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U amruser"]
       interval: 10s
@@ -25,74 +19,79 @@ services:
 
   redis:
     image: redis:7-alpine
-
     container_name: amr_redis
-
     restart: unless-stopped
-
     ports:
       - "6379:6379"
-
     volumes:
       - redis_data:/data
-
     command: redis-server --appendonly yes
-
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
       timeout: 5s
       retries: 5
 
-  celery_worker:
+  fastapi_web:
     build:
       context: ../../
       dockerfile: Dockerfile
-
-    container_name: amr_celery_worker
-
+    container_name: amr_fastapi
     restart: unless-stopped
-
-    command: celery -A backend.celery_app worker --loglevel=info --concurrency=4
-
+    command: uvicorn backend.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
     environment:
       DATABASE_URL: postgresql://amruser:amrpass@postgres:5432/amrdb
       CELERY_BROKER_URL: redis://redis:6379/0
       CELERY_RESULT_BACKEND: redis://redis:6379/1
       PYTHONUNBUFFERED: 1
-
     depends_on:
       postgres:
         condition: service_healthy
       redis:
         condition: service_healthy
-
     volumes:
       - ../../:/app
+
+  celery_worker:
+    build:
+      context: ../../
+      dockerfile: Dockerfile
+    container_name: amr_celery_worker
+    restart: unless-stopped
+    command: celery -A backend.celery_app worker --loglevel=info --concurrency=4
+    environment:
+      DATABASE_URL: postgresql://amruser:amrpass@postgres:5432/amrdb
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/1
+      PYTHONUNBUFFERED: 1
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ../../:/app
+      - /var/run/docker.sock:/var/run/docker.sock
 
   celery_beat:
     build:
       context: ../../
       dockerfile: Dockerfile
-
     container_name: amr_celery_beat
-
     restart: unless-stopped
-
     command: celery -A backend.celery_app beat --loglevel=info
-
     environment:
       DATABASE_URL: postgresql://amruser:amrpass@postgres:5432/amrdb
       CELERY_BROKER_URL: redis://redis:6379/0
       CELERY_RESULT_BACKEND: redis://redis:6379/1
       PYTHONUNBUFFERED: 1
-
     depends_on:
       postgres:
         condition: service_healthy
       redis:
         condition: service_healthy
-
     volumes:
       - ../../:/app
 

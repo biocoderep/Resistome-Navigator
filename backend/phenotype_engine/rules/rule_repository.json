@@ -2,8 +2,8 @@
     "schema_version": "1.0.0",
     "rules": [
         {
-            "rule_id": "RULE_GENE_BLACTXM_CEFTRIAXONE_001",
-            "rule_name": "blaCTX-M family -> Ceftriaxone Resistant",
+            "rule_id": "RULE_CTX-M_BETA-LACTAMASE_CEFTRIAXONE",
+            "rule_name": "CTX-M beta-lactamase -> ceftriaxone R",
             "rule_type": "gene_family",
             "drug": "ceftriaxone",
             "drug_class": "cephalosporin",
@@ -11,7 +11,10 @@
             "condition": {
                 "type": "gene_family_match",
                 "gene_family": "CTX-M beta-lactamase",
-                "hit_types": ["Perfect", "Strict"],
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
                 "min_identity": 90.0,
                 "min_coverage": 80.0
             },
@@ -20,7 +23,428 @@
             "confidence_weight": 0.97
         },
         {
-            "rule_id": "RULE_MUT_GYRA_S83L_CIPRO_001",
+            "rule_id": "RULE_CTX-M_BETA-LACTAMASE_CEFOTAXIME",
+            "rule_name": "CTX-M beta-lactamase -> cefotaxime R",
+            "rule_type": "gene_family",
+            "drug": "cefotaxime",
+            "drug_class": "cephalosporin",
+            "antibiotic_class": "beta-lactam",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "CTX-M beta-lactamase",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.97
+        },
+        {
+            "rule_id": "RULE_CTX-M_BETA-LACTAMASE_CEFEPIME",
+            "rule_name": "CTX-M beta-lactamase -> cefepime R",
+            "rule_type": "gene_family",
+            "drug": "cefepime",
+            "drug_class": "cephalosporin",
+            "antibiotic_class": "beta-lactam",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "CTX-M beta-lactamase",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.95
+        },
+        {
+            "rule_id": "RULE_KPC_BETA-LACTAMASE_MEROPENEM",
+            "rule_name": "KPC beta-lactamase -> meropenem R",
+            "rule_type": "gene_family",
+            "drug": "meropenem",
+            "drug_class": "carbapenem",
+            "antibiotic_class": "beta-lactam",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "KPC beta-lactamase",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.99
+        },
+        {
+            "rule_id": "RULE_KPC_BETA-LACTAMASE_IMIPENEM",
+            "rule_name": "KPC beta-lactamase -> imipenem R",
+            "rule_type": "gene_family",
+            "drug": "imipenem",
+            "drug_class": "carbapenem",
+            "antibiotic_class": "beta-lactam",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "KPC beta-lactamase",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.99
+        },
+        {
+            "rule_id": "RULE_NDM_BETA-LACTAMASE_MEROPENEM",
+            "rule_name": "NDM beta-lactamase -> meropenem R",
+            "rule_type": "gene_family",
+            "drug": "meropenem",
+            "drug_class": "carbapenem",
+            "antibiotic_class": "beta-lactam",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "NDM beta-lactamase",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.99
+        },
+        {
+            "rule_id": "RULE_NDM_BETA-LACTAMASE_IMIPENEM",
+            "rule_name": "NDM beta-lactamase -> imipenem R",
+            "rule_type": "gene_family",
+            "drug": "imipenem",
+            "drug_class": "carbapenem",
+            "antibiotic_class": "beta-lactam",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "NDM beta-lactamase",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.99
+        },
+        {
+            "rule_id": "RULE_OXA_BETA-LACTAMASE_AMOXICILLIN",
+            "rule_name": "OXA beta-lactamase -> amoxicillin R",
+            "rule_type": "gene_family",
+            "drug": "amoxicillin",
+            "drug_class": "penicillin",
+            "antibiotic_class": "beta-lactam",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "OXA beta-lactamase",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.9
+        },
+        {
+            "rule_id": "RULE_TEM_BETA-LACTAMASE_AMPICILLIN",
+            "rule_name": "TEM beta-lactamase -> ampicillin R",
+            "rule_type": "gene_family",
+            "drug": "ampicillin",
+            "drug_class": "penicillin",
+            "antibiotic_class": "beta-lactam",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "TEM beta-lactamase",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.9
+        },
+        {
+            "rule_id": "RULE_SHV_BETA-LACTAMASE_AMPICILLIN",
+            "rule_name": "SHV beta-lactamase -> ampicillin R",
+            "rule_type": "gene_family",
+            "drug": "ampicillin",
+            "drug_class": "penicillin",
+            "antibiotic_class": "beta-lactam",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "SHV beta-lactamase",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.9
+        },
+        {
+            "rule_id": "RULE_MECA_OXACILLIN",
+            "rule_name": "mecA -> oxacillin R",
+            "rule_type": "gene_family",
+            "drug": "oxacillin",
+            "drug_class": "penicillin",
+            "antibiotic_class": "beta-lactam",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "mecA",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.99
+        },
+        {
+            "rule_id": "RULE_MECA_CEFOXITIN",
+            "rule_name": "mecA -> cefoxitin R",
+            "rule_type": "gene_family",
+            "drug": "cefoxitin",
+            "drug_class": "cephalosporin",
+            "antibiotic_class": "beta-lactam",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "mecA",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.99
+        },
+        {
+            "rule_id": "RULE_AAC(6')_GENTAMICIN",
+            "rule_name": "aac(6') -> gentamicin R",
+            "rule_type": "gene_family",
+            "drug": "gentamicin",
+            "drug_class": "aminoglycoside",
+            "antibiotic_class": "aminoglycoside",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "aac(6')",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.95
+        },
+        {
+            "rule_id": "RULE_AAC(6')_TOBRAMYCIN",
+            "rule_name": "aac(6') -> tobramycin R",
+            "rule_type": "gene_family",
+            "drug": "tobramycin",
+            "drug_class": "aminoglycoside",
+            "antibiotic_class": "aminoglycoside",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "aac(6')",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.95
+        },
+        {
+            "rule_id": "RULE_APH(3')_KANAMYCIN",
+            "rule_name": "aph(3') -> kanamycin R",
+            "rule_type": "gene_family",
+            "drug": "kanamycin",
+            "drug_class": "aminoglycoside",
+            "antibiotic_class": "aminoglycoside",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "aph(3')",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.95
+        },
+        {
+            "rule_id": "RULE_ANT(2'')_GENTAMICIN",
+            "rule_name": "ant(2'') -> gentamicin R",
+            "rule_type": "gene_family",
+            "drug": "gentamicin",
+            "drug_class": "aminoglycoside",
+            "antibiotic_class": "aminoglycoside",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "ant(2'')",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.95
+        },
+        {
+            "rule_id": "RULE_ERM_ERYTHROMYCIN",
+            "rule_name": "erm -> erythromycin R",
+            "rule_type": "gene_family",
+            "drug": "erythromycin",
+            "drug_class": "macrolide",
+            "antibiotic_class": "macrolide",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "erm",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.98
+        },
+        {
+            "rule_id": "RULE_ERM_AZITHROMYCIN",
+            "rule_name": "erm -> azithromycin R",
+            "rule_type": "gene_family",
+            "drug": "azithromycin",
+            "drug_class": "macrolide",
+            "antibiotic_class": "macrolide",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "erm",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.98
+        },
+        {
+            "rule_id": "RULE_MEF_ERYTHROMYCIN",
+            "rule_name": "mef -> erythromycin R",
+            "rule_type": "gene_family",
+            "drug": "erythromycin",
+            "drug_class": "macrolide",
+            "antibiotic_class": "macrolide",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "mef",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.9
+        },
+        {
+            "rule_id": "RULE_TET_TETRACYCLINE",
+            "rule_name": "tet -> tetracycline R",
+            "rule_type": "gene_family",
+            "drug": "tetracycline",
+            "drug_class": "tetracycline",
+            "antibiotic_class": "tetracycline",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "tet",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.95
+        },
+        {
+            "rule_id": "RULE_TET_DOXYCYCLINE",
+            "rule_name": "tet -> doxycycline R",
+            "rule_type": "gene_family",
+            "drug": "doxycycline",
+            "drug_class": "tetracycline",
+            "antibiotic_class": "tetracycline",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "tet",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.95
+        },
+        {
+            "rule_id": "RULE_MUT_gyrA_83L_CIPROFLOXACIN",
+            "rule_name": "gyrA 83L -> ciprofloxacin R",
             "rule_type": "mutation",
             "drug": "ciprofloxacin",
             "drug_class": "fluoroquinolone",
@@ -31,39 +455,102 @@
                 "protein_position": 83,
                 "alt_amino_acid": "L"
             },
-            "action": "I",
+            "action": "R",
             "evidence_level": 1,
-            "confidence_weight": 0.90
+            "confidence_weight": 0.95
         },
         {
-            "rule_id": "RULE_MECH_EFFLUX_MULTI_001",
-            "rule_type": "mechanism",
-            "drug": "class-level",
-            "drug_class": "tetracycline",
-            "antibiotic_class": "tetracycline",
-            "condition": {
-                "mechanism_code": "efflux_pump"
-            },
-            "action": "I",
-            "evidence_level": 3,
-            "confidence_weight": 0.75
-        },
-        {
-            "rule_id": "RULE_COMBO_GYRA_PARC_FQ_HIGH_001",
-            "rule_type": "combinatorial",
+            "rule_id": "RULE_MUT_gyrA_83I_CIPROFLOXACIN",
+            "rule_name": "gyrA 83I -> ciprofloxacin R",
+            "rule_type": "mutation",
             "drug": "ciprofloxacin",
             "drug_class": "fluoroquinolone",
             "antibiotic_class": "fluoroquinolone",
             "condition": {
-                "type": "all_of",
-                "conditions": [
-                    {"type": "mutation_exact", "gene": "gyrA", "protein_position": 83, "alt_amino_acid": "L"},
-                    {"type": "mutation_domain", "gene": "parC", "domain": "QRDR"}
-                ]
+                "type": "mutation_exact",
+                "gene": "gyrA",
+                "protein_position": 83,
+                "alt_amino_acid": "I"
             },
             "action": "R",
             "evidence_level": 1,
-            "confidence_weight": 0.97
+            "confidence_weight": 0.95
+        },
+        {
+            "rule_id": "RULE_MUT_gyrA_87N_CIPROFLOXACIN",
+            "rule_name": "gyrA 87N -> ciprofloxacin I",
+            "rule_type": "mutation",
+            "drug": "ciprofloxacin",
+            "drug_class": "fluoroquinolone",
+            "antibiotic_class": "fluoroquinolone",
+            "condition": {
+                "type": "mutation_exact",
+                "gene": "gyrA",
+                "protein_position": 87,
+                "alt_amino_acid": "N"
+            },
+            "action": "I",
+            "evidence_level": 1,
+            "confidence_weight": 0.95
+        },
+        {
+            "rule_id": "RULE_MUT_parC_80I_CIPROFLOXACIN",
+            "rule_name": "parC 80I -> ciprofloxacin I",
+            "rule_type": "mutation",
+            "drug": "ciprofloxacin",
+            "drug_class": "fluoroquinolone",
+            "antibiotic_class": "fluoroquinolone",
+            "condition": {
+                "type": "mutation_exact",
+                "gene": "parC",
+                "protein_position": 80,
+                "alt_amino_acid": "I"
+            },
+            "action": "I",
+            "evidence_level": 1,
+            "confidence_weight": 0.95
+        },
+        {
+            "rule_id": "RULE_SUL_SULFAMETHOXAZOLE",
+            "rule_name": "sul -> sulfamethoxazole R",
+            "rule_type": "gene_family",
+            "drug": "sulfamethoxazole",
+            "drug_class": "sulfonamide",
+            "antibiotic_class": "folate pathway antagonist",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "sul",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.95
+        },
+        {
+            "rule_id": "RULE_DFR_TRIMETHOPRIM",
+            "rule_name": "dfr -> trimethoprim R",
+            "rule_type": "gene_family",
+            "drug": "trimethoprim",
+            "drug_class": "trimethoprim",
+            "antibiotic_class": "folate pathway antagonist",
+            "condition": {
+                "type": "gene_family_match",
+                "gene_family": "dfr",
+                "hit_types": [
+                    "Perfect",
+                    "Strict"
+                ],
+                "min_identity": 90.0,
+                "min_coverage": 80.0
+            },
+            "action": "R",
+            "evidence_level": 1,
+            "confidence_weight": 0.95
         }
     ]
 }

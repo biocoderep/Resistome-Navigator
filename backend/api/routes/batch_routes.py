@@ -107,60 +107,14 @@ def upload_batch(
         
     db.commit()
 
-    from fastapi import BackgroundTasks
-    
-    def simulate_workflow():
-        from backend.database.session import SessionLocal
-        local_db = SessionLocal()
-        b = None
-        try:
-            import time
-            from backend.cohort_engine.analyzer import run_full_cohort_analysis
-            b = local_db.scalars(select(Batch).where(Batch.id == batch.id)).first()
-            if b:
-                b.status = "RUNNING"
-                local_db.commit()
-            
-            successful = []
-            for s_id in sample_ids:
-                time.sleep(2)  # Simulate pipeline
-                samp = local_db.scalars(select(Sample).where(Sample.id == s_id)).first()
-                if samp:
-                    samp.status = "COMPLETED"
-                    local_db.commit()
-                    if b:
-                        b.completed_isolates = (b.completed_isolates or 0) + 1
-                        local_db.commit()
-                successful.append(s_id)
-            
-            if run_cohort_analysis:
-                if b:
-                    b.status = "ISOLATES_COMPLETE"
-                    b.cohort_analysis_status = "RUNNING"
-                    local_db.commit()
-                if len(successful) >= 3:
-                    run_full_cohort_analysis(str(batch.id), successful, local_db)
-                    if b:
-                        b.cohort_analysis_status = "COMPLETED"
-                        b.status = "COMPLETED"
-                        local_db.commit()
-                else:
-                    if b:
-                        b.cohort_analysis_status = "SKIPPED_INSUFFICIENT_ISOLATES"
-                        b.status = "COMPLETED"
-                        local_db.commit()
-            else:
-                if b:
-                    b.status = "COMPLETED"
-                    local_db.commit()
-        except Exception as e:
-            if b:
-                b.status = "FAILED"
-                local_db.commit()
-        finally:
-            local_db.close()
-
-    background_tasks.add_task(simulate_workflow)
+    # Dispatch to Celery
+    dispatch_batch_workflow.apply_async(
+        kwargs={
+            "batch_id": str(batch.id),
+            "sample_ids": sample_ids,
+            "run_cohort": run_cohort_analysis
+        }
+    )
 
     return BatchResponse(
         batch_id=batch.id,

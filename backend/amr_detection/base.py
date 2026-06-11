@@ -78,6 +78,8 @@ class AMRDetectionResult(BaseModel):
     unique_gene_families: int
     resistance_classes: list[ResistanceClass]
     hits: list[AMRHit] = Field(default_factory=list)
+    virulence_hits: list[dict] = Field(default_factory=list)
+    mutation_hits: list[dict] = Field(default_factory=list)
     phenotype_summary: dict = Field(
         default_factory=dict, description="Predicted phenotypes"
     )

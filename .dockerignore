@@ -1,0 +1,11 @@
+.git
+.venv
+.pip_cache
+__pycache__
+tmp
+node_modules
+frontend/node_modules
+amr_mvp.db
+.nextflow
+.singularity
+data

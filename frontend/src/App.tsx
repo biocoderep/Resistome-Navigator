@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import TBioDashboard from './TBioDashboard';
 import BatchStatus from './components/BatchStatus';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
+  const navigate = useNavigate();
   // New States for Automation Flow
   const [files, setFiles] = useState<File[]>([]);
   const [uploading, setUploading] = useState(false);
@@ -45,7 +47,8 @@ function App() {
         
         setTimeout(() => {
           setAnalyzing(false);
-          setJobId('mock-job-id'); // Trigger single dashboard view
+          // Redirect to the new admin dashboard layout
+          navigate(`/admin/dashboard?batchId=${upData.batch_id || upData.id}`);
         }, 3000);
       } else {
         // Batch Upload Flow
@@ -71,22 +74,14 @@ function App() {
     }
   };
 
-  // Render Dashboard
-  if (jobId && !isBatch) {
-    return <TBioDashboard />;
-  }
-
-  // Render Batch Dashboard
-  if (jobId && isBatch && batchComplete) {
-    // We pass batchId to the dashboard so it can fetch the real cohort data
-    return <TBioDashboard batchId={jobId} />;
-  }
-
-  // Render Batch Status tracking screen
+  // If batch is polling, show status (You can optionally redirect to a loading page here)
   if (jobId && isBatch && !batchComplete) {
     return (
       <div className="min-h-screen bg-surface flex flex-col p-8 items-center pt-20">
-        <BatchStatus batchId={jobId} onComplete={() => setBatchComplete(true)} />
+        <BatchStatus batchId={jobId} onComplete={() => {
+          setBatchComplete(true);
+          navigate(`/admin/dashboard?batchId=${jobId}`);
+        }} />
       </div>
     );
   }

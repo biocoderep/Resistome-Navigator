@@ -101,8 +101,9 @@ class CARDRGIDetector(BaseAMRDetector):
             # Parse JSON results
             json_output = output_prefix.with_suffix(".json")
             if json_output.exists():
-                hits = self._parse_rgi_json(json_output)
+                hits, mutation_hits = self._parse_rgi_json(json_output)
                 result.hits = hits
+                result.mutation_hits = mutation_hits
 
                 if progress_callback:
                     progress_callback(80, "Computing AMR statistics")
@@ -136,9 +137,10 @@ class CARDRGIDetector(BaseAMRDetector):
 
         return result
 
-    def _parse_rgi_json(self, json_file: Path) -> list[AMRHit]:
+    def _parse_rgi_json(self, json_file: Path) -> tuple[list[AMRHit], list[dict]]:
         """Parse RGI JSON output."""
         hits = []
+        mutation_hits = []
 
         try:
             with open(json_file) as f:
@@ -157,6 +159,30 @@ class CARDRGIDetector(BaseAMRDetector):
                 identity = float(hit_data.get("perc_identity", 0.0))
                 coverage = float(hit_data.get("query_coverage", 0.0))
                 hittype = hit_data.get("type_match", "Strict")
+                model_type = hit_data.get("model_type", "")
+                snps = hit_data.get("snps_in_isolate", [])
+
+                if model_type == "protein variant model" or "Variant" in model_type:
+                    # RGI SNP format: {"original": "S", "mutation": "L", "position": 83}
+                    for snp in snps:
+                        orig = snp.get("original", "")
+                        mut = snp.get("mutation", "")
+                        pos = snp.get("position", "")
+                        mutation_str = f"{orig}{pos}{mut}" if orig and mut and pos else str(snp)
+                        
+                        mutation_hits.append({
+                            "gene_name": gene_name,
+                            "mutation": mutation_str,
+                            "mechanism": "Point Mutation",
+                            "effect": "Missense",
+                            "identity_percent": identity,
+                            "coverage_percent": coverage,
+                            "database_source": "CARD"
+                        })
+                    
+                    # We might still want to add the hit itself to AMR genes or just mutations
+                    # Given the contract, mutations are separate, so we can skip adding to hits
+                    continue
 
                 # Determine confidence
                 if identity >= 99.0:
@@ -196,13 +222,13 @@ class CARDRGIDetector(BaseAMRDetector):
                 hits.append(hit)
 
         except Exception as e:
-            return []
+            return [], []
 
-        return hits
+        return hits, mutation_hits
 
-    def parse_results(self, output_dir: Path) -> list[AMRHit]:
+    def parse_results(self, output_dir: Path) -> tuple[list[AMRHit], list[dict]]:
         """Parse RGI results."""
         json_file = output_dir / "rgi.json"
         if json_file.exists():
             return self._parse_rgi_json(json_file)
-        return []
+        return [], []

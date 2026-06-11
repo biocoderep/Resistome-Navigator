@@ -95,44 +95,6 @@ def run_full_cohort_analysis(batch_id: str, sample_ids: list[str], db: Session) 
         })
     _save_result(db, batch_id, "cohort_antibiogram_summary", antibiogram)
     
-    # === Execute R Script to generate plots ===
-    import subprocess
-    import os
-    
-    # Dump full data for R
-    cohort_data = {
-        "population_barcode": {
-            "antibiotics": antibiotics,
-            "isolates": barcodes
-        },
-        "resistome_umap": umap_pts,
-        "gene_cooccurrence_network": {
-            "nodes": nodes,
-            "links": links
-        }
-    }
-    
-    json_path = os.path.join(os.getenv("UPLOAD_DIR", "/tmp/amr_uploads"), f"batch_{batch_id}_data.json")
-    out_dir = os.path.join(os.getenv("UPLOAD_DIR", "/tmp/amr_uploads"), f"batch_{batch_id}_plots")
-    
-    os.makedirs(out_dir, exist_ok=True)
-    
-    with open(json_path, "w") as f:
-        json.dump(cohort_data, f)
-        
-    rscript_path = r"C:\Program Files\R\R-4.3.2\bin\Rscript.exe"
-    script_path = os.path.join(os.path.dirname(__file__), "generate_plots.R")
-    
-    try:
-        subprocess.run(
-            [rscript_path, script_path, json_path, out_dir],
-            check=True,
-            capture_output=True,
-            text=True
-        )
-    except subprocess.CalledProcessError as e:
-        print(f"Rscript failed: {e.stderr}")
-    
     return "COMPLETED"
 
 def _save_result(db: Session, batch_id: str, analysis_type: str, data: dict | list):

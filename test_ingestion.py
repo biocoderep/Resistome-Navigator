@@ -20,8 +20,8 @@ try:
     
     # Use the rule engine
     from backend.phenotype_engine.rule_repository import RuleRepository
-    from backend.phenotype_engine.inference_engine import PhenotypeInferenceEngine
-    repo = RuleRepository()
+    from backend.phenotype_engine.inference.phenotype_inference import PhenotypeInferenceEngine
+    repo = RuleRepository("e:/AMR_platform/AMR_vetgenomehub/backend/phenotype_engine/rules/rule_repository.json")
     engine = PhenotypeInferenceEngine(repo)
     engine.infer_phenotypes(sample_id, report.get("amr_genes", []), report.get("mutations", []), db)
 

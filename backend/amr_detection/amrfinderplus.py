@@ -75,6 +75,7 @@ class AMRFinderPlusDetector(BaseAMRDetector):
                 "-t",
                 "nucleotide",
                 "--report_common",
+                "--plus"  # <--- NEW FLAG added here
             ]
 
             if progress_callback:
@@ -97,8 +98,9 @@ class AMRFinderPlusDetector(BaseAMRDetector):
 
             # Parse TSV results
             if output_file.exists():
-                hits = self._parse_amrfinderplus_tsv(output_file)
+                hits, virulence_hits = self._parse_amrfinderplus_tsv(output_file)
                 result.hits = hits
+                result.virulence_hits = virulence_hits
 
                 if progress_callback:
                     progress_callback(80, "Computing AMR statistics")
@@ -122,9 +124,10 @@ class AMRFinderPlusDetector(BaseAMRDetector):
 
         return result
 
-    def _parse_amrfinderplus_tsv(self, tsv_file: Path) -> list[AMRHit]:
+    def _parse_amrfinderplus_tsv(self, tsv_file: Path) -> tuple[list[AMRHit], list[dict]]:
         """Parse AMRFinderPlus TSV output."""
         hits = []
+        virulence_hits = []
 
         try:
             with open(tsv_file) as f:
@@ -132,7 +135,7 @@ class AMRFinderPlusDetector(BaseAMRDetector):
 
             # Skip header
             if not lines:
-                return []
+                return [], []
 
             header = lines[0].strip().split("\t")
             header_map = {name: idx for idx, name in enumerate(header)}
@@ -148,6 +151,21 @@ class AMRFinderPlusDetector(BaseAMRDetector):
                 sequence_name = fields[header_map.get("Sequence_name", 2)]
                 scope = fields[header_map.get("Scope", 3)]
                 element_type = fields[header_map.get("Element_type", 4)]
+                subclass = fields[header_map.get("Subclass", 5)] if "Subclass" in header_map else ""
+
+                if element_type == "VIRULENCE":
+                    virulence_hits.append({
+                        "gene_name": gene_symbol or protein_name,
+                        "virulence_factor": subclass or protein_name,
+                        "mechanism": "Unknown",
+                        "contig_id": sequence_name,
+                        "start_position": 0,
+                        "end_position": 0,
+                        "identity_percent": 100.0,
+                        "coverage_percent": 100.0,
+                        "database_source": "AMRFinderPlus"
+                    })
+                    continue
 
                 # Determine confidence
                 if scope == "Core":
@@ -187,13 +205,13 @@ class AMRFinderPlusDetector(BaseAMRDetector):
                 hits.append(hit)
 
         except Exception as e:
-            return []
+            return [], []
 
-        return hits
+        return hits, virulence_hits
 
-    def parse_results(self, output_dir: Path) -> list[AMRHit]:
+    def parse_results(self, output_dir: Path) -> tuple[list[AMRHit], list[dict]]:
         """Parse AMRFinderPlus results."""
         tsv_file = output_dir / "amrfinderplus_report.tsv"
         if tsv_file.exists():
             return self._parse_amrfinderplus_tsv(tsv_file)
-        return []
+        return [], []

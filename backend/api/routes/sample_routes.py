@@ -76,7 +76,19 @@ def upload_sample(
         )
     _validate_extension(file.filename)
 
+    from backend.models.batch import Batch
+    batch = Batch(
+        project_id=None,
+        batch_name=f"Single: {isolate_name.strip()}",
+        run_cohort_analysis=False,
+        total_isolates=1,
+        status="DISPATCHING"
+    )
+    db.add(batch)
+    db.flush()
+
     sample = Sample(
+        batch_id=batch.id,
         isolate_name=isolate_name.strip(),
         species=species,
         species_taxid=species_taxid,
@@ -125,6 +137,17 @@ def upload_sample(
     db.add(sample_file)
     db.commit()
     db.refresh(sample)
+    
+    # Dispatch single isolate to pipeline
+    from backend.tasks.batch_tasks import dispatch_batch_workflow
+    dispatch_batch_workflow.apply_async(
+        kwargs={
+            "batch_id": str(batch.id),
+            "sample_ids": [str(sample.id)],
+            "run_cohort": False
+        }
+    )
+    
     return SampleDetailResponse.model_validate(sample)
 
 

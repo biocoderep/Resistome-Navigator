@@ -16,10 +16,14 @@ if config.config_file_name is not None:
 
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+# Add the project root (the directory above backend) to sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
-from database.models.base import Base
-from database.models import *  # ensure all models are imported so Alembic sees them
+from backend.database.base import Base
+from backend.models import *  # ensure all models are imported so Alembic sees them
+
+from backend.database.session import SQLALCHEMY_DATABASE_URL
+config.set_main_option("sqlalchemy.url", SQLALCHEMY_DATABASE_URL)
 
 target_metadata = Base.metadata
 
