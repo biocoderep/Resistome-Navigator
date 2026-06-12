@@ -69,7 +69,7 @@ export default function BatchStatus({ batchId, onComplete }: { batchId: string, 
           <div className="col-span-3">Stage</div>
         </div>
         <div className="max-h-[400px] overflow-y-auto">
-          {status.isolates.map((iso: any) => (
+          {(status?.isolates || []).map((iso: any) => (
             <div key={iso.sample_id} className="px-4 py-3 border-b border-surface-dark/20 text-sm grid grid-cols-12 gap-4 items-center hover:bg-surface-dark/10">
               <div className="col-span-6 font-mono text-text-primary truncate" title={iso.filename}>{iso.filename}</div>
               <div className="col-span-3">

@@ -133,7 +133,7 @@ def upload_batch(
 def get_batch(batch_id: UUID, db: Session = Depends(get_session)):
     """Get status of a batch."""
     batch = db.scalars(
-        select(Batch).options(selectinload(Batch.samples)).where(Batch.id == batch_id)
+        select(Batch).options(selectinload(Batch.samples)).where(Batch.id == str(batch_id))
     ).first()
     
     if not batch:
@@ -166,11 +166,11 @@ def get_batch(batch_id: UUID, db: Session = Depends(get_session)):
 @router.get("/{batch_id}/cohort", response_model=CohortAnalysisResponse)
 def get_batch_cohort(batch_id: UUID, db: Session = Depends(get_session)):
     """Get cohort analysis results for a batch."""
-    batch = db.scalars(select(Batch).where(Batch.id == batch_id)).first()
+    batch = db.scalars(select(Batch).where(Batch.id == str(batch_id))).first()
     if not batch:
         raise HTTPException(status_code=404, detail="Batch not found")
         
-    results = db.scalars(select(CohortResult).where(CohortResult.batch_id == batch_id)).all()
+    results = db.scalars(select(CohortResult).where(CohortResult.batch_id == str(batch_id))).all()
     
     analyses = {}
     for r in results:
