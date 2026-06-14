@@ -92,5 +92,3 @@ process amr_detection {
         EOF
         """
 }
-
-export { amr_detection }

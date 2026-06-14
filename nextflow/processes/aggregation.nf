@@ -88,5 +88,3 @@ process aggregate_results {
         EOF
         """
 }
-
-export { aggregate_results }

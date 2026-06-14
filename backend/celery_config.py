@@ -16,6 +16,7 @@ enable_utc = True
 imports = [
     "backend.tasks.genome_validation_task",
     "backend.tasks.batch_tasks",
+    "backend.tasks.report_tasks",
 ]
 
 # Task execution settings

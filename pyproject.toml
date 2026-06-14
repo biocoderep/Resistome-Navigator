@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "amr-platform"
+version = "1.0.0"
+description = "Antimicrobial Resistance Characterisation Platform"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "AMR Platform Team" }]
+dynamic = ["dependencies"]
+
+[project.scripts]
+# Terminal entrypoints for researchers.
+genome-validate = "backend.cli:genome_validate"
+amr-pipeline = "backend.cli:cli"
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+[tool.setuptools.packages.find]
+include = ["backend*"]
+
+[tool.setuptools.package-data]
+"backend.mutation_engine" = ["data/*.json", "data/*.fasta", "ontology/*.json"]
+"backend.virulence_engine" = ["ontology/*.json"]
+"backend.phenotype_engine" = ["rules/*.json"]

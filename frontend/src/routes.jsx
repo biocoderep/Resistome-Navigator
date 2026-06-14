@@ -15,15 +15,15 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import TBioDashboard from "./TBioDashboard";
+import DashboardRouter from "./DashboardRouter";
 import App from "./App";
 
 const dashboardRoutes = [
   {
     path: "/dashboard",
-    name: "Cohort Dashboard",
+    name: "Results Dashboard",
     icon: "nc-icon nc-chart-pie-35",
-    component: TBioDashboard,
+    component: DashboardRouter,
     layout: "/admin"
   },
   {

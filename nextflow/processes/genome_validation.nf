@@ -53,5 +53,3 @@ process genome_validation {
         EOF
         """
 }
-
-export { genome_validation }

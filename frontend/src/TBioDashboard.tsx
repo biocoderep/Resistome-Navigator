@@ -1,88 +1,107 @@
-import React, { useState } from "react";
+import React from 'react';
 
-import PipelineTracker from './components/dashboard/PipelineTracker';
-import Service1Validation from './components/dashboard/Service1Validation';
-import Service3Detection from './components/dashboard/Service3Detection';
-import Service4Mutation from './components/dashboard/Service4Mutation';
-import Service5Mechanism from './components/dashboard/Service5Mechanism';
-import Service6Phenotype from './components/dashboard/Service6Phenotype';
-import Service7Virulence from './components/dashboard/Service7Virulence';
-import Service8Confidence from './components/dashboard/Service8Confidence';
-import GenomicSummary from './components/dashboard/GenomicSummary';
-import CohortViews from './components/dashboard/CohortViews';
+import { useIsolateMetadata } from './hooks/useAmrData';
+import { ExportCard } from './components/ExportCard';
 
-const FONT = "system-ui, -apple-system, sans-serif";
+import AntibiogramStrip from './isolate/AntibiogramStrip';
+import AssemblyQcPanel from './isolate/AssemblyQcPanel';
+import AmrGeneInventory from './isolate/AmrGeneInventory';
+import ConfidencePanel from './isolate/ConfidencePanel';
+import MechanismBreakdown from './isolate/MechanismBreakdown';
+import VirulenceProfile from './isolate/VirulenceProfile';
+import MutationLollipop from './isolate/MutationLollipop';
+import DrugClassCoverageMatrix from './isolate/DrugClassCoverageMatrix';
+import IdentityCoverageScatter from './isolate/IdentityCoverageScatter';
+import CircularGenomeViewer from './isolate/CircularGenomeViewer';
 
-const TABS = [
-  { id: "operations", label: "Pipeline Operations", icon: "⏱" },
-  { id: "validation", label: "Genome Validation", icon: "✓" },
-  { id: "detection", label: "AMR Detection", icon: "🧬" },
-  { id: "mutation", label: "Mutation Profiling", icon: "⚡" },
-  { id: "mechanism", label: "Mechanism Classifier", icon: "⚙" },
-  { id: "phenotype", label: "Phenotype Prediction", icon: "💊" },
-  { id: "virulence", label: "Virulence Factors", icon: "☣" },
-  { id: "confidence", label: "Confidence Scoring", icon: "📊" },
-  { id: "summary", label: "Genomic Summary", icon: "🎯" },
-  { id: "cohort", label: "Cohort Analytics", icon: "🌐" },
-];
+/**
+ * Single-isolate deep-dive dashboard. Clean, light, clinical/research theme.
+ * Every chart/table is wrapped in ExportCard for SVG / PNG@300dpi / PDF export.
+ */
+export default function TBioDashboard({ sampleId }: { sampleId: string }) {
+  const { data: meta, loading } = useIsolateMetadata(sampleId);
 
-export default function TBioDashboard({ batchId }: { batchId?: string }) {
-  // If batchId is present, we might want to default to cohort tab
-  const [tab, setTab] = useState(batchId ? "cohort" : "validation");
+  if (loading) {
+    return <div className="p-10 text-center text-text-muted animate-pulse">Loading isolate profile…</div>;
+  }
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", fontFamily: FONT, background: "#F9FAFB" }}>
-      {/* Sidebar */}
-      <div style={{ width: 240, background: "#111827", padding: "20px 0", flexShrink: 0, display: "flex", flexDirection: "column", height: "100vh", position: "sticky", top: 0 }}>
-        <div style={{ padding: "0 16px 20px", borderBottom: "1px solid #1F2937" }}>
-          <div style={{ fontSize: 16, fontWeight: 800, color: "#FFF", letterSpacing: "-0.02em" }}>AMR Command Center</div>
-          <div style={{ fontSize: 10, color: "#6B7280", marginTop: 2, textTransform: "uppercase", letterSpacing: "0.08em" }}>Full Pipeline View</div>
-        </div>
-        <div style={{ padding: "12px 8px", flex: 1, overflowY: "auto" }}>
-          {TABS.map(t => (
-            <button key={t.id} onClick={() => setTab(t.id)} style={{
-              width: "100%", padding: "12px 12px", border: "none", borderRadius: 6, fontSize: 13,
-              cursor: "pointer", display: "flex", alignItems: "center", gap: 10, marginBottom: 4,
-              background: tab === t.id ? "#1F2937" : "transparent",
-              color: tab === t.id ? "#FFF" : "#9CA3AF", fontWeight: tab === t.id ? 600 : 400,
-              fontFamily: FONT, transition: "all 0.15s",
-              textAlign: "left"
-            }}>
-              <span style={{ fontSize: 16, width: 24, textAlign: "center" }}>{t.icon}</span>
-              {t.label}
-            </button>
-          ))}
-        </div>
-        <div style={{ padding: "12px 16px", borderTop: "1px solid #1F2937" }}>
-          <div style={{ fontSize: 8, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.1em" }}>Pipeline v3.0</div>
-          <div style={{ fontSize: 8, color: "#4B5563" }}>9 Microservices Active</div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div style={{ flex: 1, padding: 24, overflowY: "auto", maxWidth: 1200 }}>
-        <div style={{ marginBottom: 24 }}>
-          <h1 style={{ fontSize: 24, fontWeight: 800, color: "#111827", margin: 0 }}>
-            {TABS.find(t => t.id === tab)?.label}
-          </h1>
-          <p style={{ fontSize: 13, color: "#6B7280", margin: "4px 0 0" }}>
-            Comprehensive analytics generated by the automated pipeline services.
-          </p>
+    <div className="bg-surface min-h-screen p-6 font-sans">
+      <div className="max-w-[1400px] mx-auto flex flex-col gap-6">
+        {/* Header */}
+        <div className="bg-surface-card rounded-2xl shadow-sm border border-surface-dark p-6 flex justify-between items-center">
+          <div>
+            <h1 className="text-2xl font-bold text-text-primary">{meta?.isolate_name || 'Isolate'}</h1>
+            <div className="text-sm text-text-muted mt-1 flex flex-wrap gap-4">
+              <span>Organism: <span className="font-semibold text-text-primary">{meta?.organism || 'Unknown'}</span></span>
+              <span>Sample ID: <span className="font-mono">{meta?.sample_id || sampleId}</span></span>
+              <span>Date: {meta?.collection_date || 'N/A'}</span>
+            </div>
+          </div>
+          <div className="bg-accent-teal/10 text-accent-teal px-4 py-2 rounded-lg font-bold text-sm border border-accent-teal/20">
+            Single Isolate Report
+          </div>
         </div>
 
-        {/* Dynamic Component Rendering based on Tab */}
-        <div className="bg-white rounded-xl shadow-sm border border-surface-dark overflow-hidden min-h-[600px]">
-          {tab === "operations" && <PipelineTracker />}
-          {tab === "validation" && <Service1Validation />}
-          {tab === "detection" && <Service3Detection />}
-          {tab === "mutation" && <Service4Mutation />}
-          {tab === "mechanism" && <Service5Mechanism />}
-          {tab === "phenotype" && <Service6Phenotype />}
-          {tab === "virulence" && <Service7Virulence />}
-          {tab === "confidence" && <Service8Confidence />}
-          {tab === "summary" && <GenomicSummary />}
-          {tab === "cohort" && <CohortViews batchId={batchId} />}
+        {/* Phenotypes + Assembly QC */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2">
+            <ExportCard title="Predicted Antibiogram" filename="antibiogram" variant="overlay">
+              <AntibiogramStrip sampleId={sampleId} />
+            </ExportCard>
+          </div>
+          <div className="lg:col-span-1">
+            <ExportCard title="Assembly QC" filename="assembly_qc" variant="overlay">
+              <AssemblyQcPanel sampleId={sampleId} />
+            </ExportCard>
+          </div>
         </div>
+
+        {/* Required single-isolate visualizations */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <ExportCard title="Gene Confidence — Identity vs Coverage" filename="identity_coverage"
+                      subtitle="Point size ∝ confidence; guides at 95% identity / 80% coverage">
+            <IdentityCoverageScatter sampleId={sampleId} />
+          </ExportCard>
+          <ExportCard title="Circular Genome Map" filename="circular_genome"
+                      subtitle="Contigs, AMR genes (outer) and virulence genes (inner)">
+            <CircularGenomeViewer sampleId={sampleId} />
+          </ExportCard>
+        </div>
+
+        {/* Resistome inventory + confidence */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2">
+            <ExportCard title="AMR Gene Inventory" filename="amr_genes" variant="overlay">
+              <AmrGeneInventory sampleId={sampleId} />
+            </ExportCard>
+          </div>
+          <div className="lg:col-span-1">
+            <ExportCard title="Confidence" filename="confidence" variant="overlay">
+              <ConfidencePanel sampleId={sampleId} />
+            </ExportCard>
+          </div>
+        </div>
+
+        {/* Mechanism + virulence */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <ExportCard title="Mechanism Breakdown" filename="mechanisms" variant="overlay">
+            <MechanismBreakdown />
+          </ExportCard>
+          <ExportCard title="Virulence Profile" filename="virulence" variant="overlay">
+            <VirulenceProfile sampleId={sampleId} />
+          </ExportCard>
+        </div>
+
+        {/* Mutations */}
+        <ExportCard title="Resistance Mutations" filename="mutations" variant="overlay">
+          <MutationLollipop sampleId={sampleId} width={1200} height={300} />
+        </ExportCard>
+
+        {/* Drug-class cross mapping */}
+        <ExportCard title="Drug-Class Coverage" filename="drug_class_matrix" variant="overlay">
+          <DrugClassCoverageMatrix sampleId={sampleId} />
+        </ExportCard>
       </div>
     </div>
   );
