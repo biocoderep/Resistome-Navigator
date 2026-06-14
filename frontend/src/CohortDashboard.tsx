@@ -5,6 +5,8 @@ import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Responsive
 import DimReductionPlot from './components/charts/DimReductionPlot';
 import CoOccurrenceNetwork from './components/charts/CoOccurrenceNetwork';
 import MinimumSpanningTree from './components/charts/MinimumSpanningTree';
+import AntibiogramHeatmap, { type AntibiogramIsolate } from './cohort/AntibiogramHeatmap';
+import ResistanceClassFrequency, { type ClassFrequencyRow } from './cohort/ResistanceClassFrequency';
 
 const CARBON_COLORS = [
   '#6929c4', '#1192e8', '#005d5d', '#9f1853', '#fa4d56',
@@ -92,6 +94,34 @@ export const CohortDashboard = () => {
 
   const sankeyData = { nodes: sankeyNodes, links: sankeyLinks };
 
+  // --- Clinical antibiogram heatmap (isolates x antibiotics) ---
+  const antibioticsSet = new Set<string>();
+  cohort.forEach((iso) =>
+    (iso.phenotype_predictions || []).forEach((p: any) => antibioticsSet.add(p.drug)),
+  );
+  const antibiotics = Array.from(antibioticsSet);
+  const heatmapIsolates: AntibiogramIsolate[] = cohort.map((iso) => ({
+    id: iso.isolate_id || iso.id,
+    label: iso.isolate_id || iso.filename || iso.id,
+    profile: Object.fromEntries(
+      (iso.phenotype_predictions || []).map((p: any) => [p.drug, p.sir]),
+    ),
+  }));
+
+  // --- Resistance class frequency (stacked S/I/R per class) ---
+  const classAgg: Record<string, ClassFrequencyRow> = {};
+  cohort.forEach((iso) =>
+    (iso.phenotype_predictions || []).forEach((p: any) => {
+      const cat = p.drug_class || p.antibiotic_class || p.drug;
+      const row = classAgg[cat] || { category: cat, R: 0, I: 0, S: 0 };
+      if (p.sir === 'R') row.R += 1;
+      else if (p.sir === 'I') row.I += 1;
+      else if (p.sir === 'S') row.S += 1;
+      classAgg[cat] = row;
+    }),
+  );
+  const classFrequency = Object.values(classAgg).sort((a, b) => b.R - a.R);
+
   return (
     <div className="flex-1 p-10 overflow-y-auto w-full">
       <div className="max-w-7xl mx-auto">
@@ -101,6 +131,22 @@ export const CohortDashboard = () => {
             <p className="text-text-muted mt-2 font-mono text-sm">Total Isolates: {cohort.length} • Stress Test: Large Data</p>
           </div>
         </header>
+
+        {/* Clinical Antibiogram Heatmap (isolates x antibiotics) */}
+        <div className="grid grid-cols-1 gap-8 mb-8">
+          <ExportCard title="Clinical Antibiogram Heatmap" filename="antibiogram_heatmap"
+                      subtitle="Predicted susceptibility — isolates (rows) × antibiotics (columns)">
+            <AntibiogramHeatmap isolates={heatmapIsolates} antibiotics={antibiotics} />
+          </ExportCard>
+        </div>
+
+        {/* Resistance Class Frequency */}
+        <div className="grid grid-cols-1 gap-8 mb-8">
+          <ExportCard title="Resistance Class Frequency" filename="resistance_class_frequency"
+                      subtitle="Stacked S/I/R counts across the cohort">
+            <ResistanceClassFrequency data={classFrequency} />
+          </ExportCard>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           <ExportCard title="Resistome Dimensionality Reduction (UMAP)" filename="UMAP.png">

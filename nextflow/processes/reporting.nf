@@ -165,5 +165,3 @@ process generate_report {
         EOF
         """
 }
-
-export { generate_report }

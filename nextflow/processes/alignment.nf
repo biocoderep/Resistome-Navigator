@@ -62,5 +62,3 @@ process sequence_alignment {
         EOF
         """
 }
-
-export { sequence_alignment }

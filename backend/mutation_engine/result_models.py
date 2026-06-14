@@ -181,7 +181,15 @@ class MutationDetectionResult:
     mutations: List[AnnotatedVariant] = field(default_factory=list)
     novel_mutations: List[AnnotatedVariant] = field(default_factory=list)
     confidence_scores: dict = field(default_factory=dict)
-    
+
+    # Aligned with ``mutations`` (index i corresponds across all three lists) so
+    # downstream consumers (orchestrator/report) can recover KB mapping and
+    # per-variant confidence without re-running the engine.
+    mappings: List[MutationMapping] = field(default_factory=list)
+    confidences: List[MutationConfidence] = field(default_factory=list)
+    # gene_name -> {identity_pct, coverage_pct, contig_id, start, end, strand}
+    gene_metrics: dict = field(default_factory=dict)
+
     total_mutations: int = 0
     total_novel: int = 0
     

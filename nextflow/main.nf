@@ -166,6 +166,7 @@ RESOURCES:
 include { genome_validation } from "./processes/genome_validation.nf"
 include { sequence_alignment } from "./processes/alignment.nf"
 include { amr_detection } from "./processes/amr_detection.nf"
+include { bio_analysis } from "./processes/bio_analysis.nf"
 include { aggregate_results } from "./processes/aggregation.nf"
 include { generate_report } from "./processes/reporting.nf"
 
@@ -187,32 +188,42 @@ workflow {
         }
     
     // Step 1: Genome Validation Engine (MVP)
-    log.info "Step 1/5: Running Genome Validation Engine"
+    log.info "Step 1/6: Running Genome Validation Engine"
     validation_results = genome_validation(samples_ch)
     
     // Step 2: Sequence Alignment
-    log.info "Step 2/5: Running Sequence Alignment"
+    log.info "Step 2/6: Running Sequence Alignment"
     alignment_results = sequence_alignment(
         validation_results,
         file(params.card_database)
     )
     
     // Step 3: AMR Detection
-    log.info "Step 3/5: Running AMR Detection"
+    log.info "Step 3/6: Running AMR Detection"
     amr_results = amr_detection(
         validation_results,
         file(params.card_database),
         file(params.amrfinder_database)
     )
-    
-    // Step 4: Aggregate Results
-    log.info "Step 4/5: Aggregating Results"
+
+    // Step 4: Biological Characterisation (mutation, mechanism, virulence,
+    // phenotype, confidence) -> canonical per-isolate isolate_report.json.
+    // Join validation (assembly + species + validation report) with the AMR
+    // detection report by sample_id, then keep only the inputs the engines need.
+    log.info "Step 4/6: Running Biological Characterisation"
+    bio_input = validation_results
+        .join(amr_results)
+        .map { row -> tuple(row[0], row[1], row[2], row[3], row[4]) }
+    isolate_reports = bio_analysis(bio_input)
+
+    // Step 5: Aggregate Results (legacy consensus/alignment summary)
+    log.info "Step 5/6: Aggregating Results"
     aggregated = aggregate_results(
         amr_results.combine(alignment_results, by: 0)
     )
-    
-    // Step 5: Generate Report
-    log.info "Step 5/5: Generating Report"
+
+    // Step 6: Generate Report
+    log.info "Step 6/6: Generating Report"
     reports = generate_report(aggregated)
     
     // Publish outputs

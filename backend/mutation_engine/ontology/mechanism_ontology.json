@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0.0",
+  "source": "Adapted from CARD Antibiotic Resistance Ontology (ARO) resistance-mechanism branch",
+  "mechanism_classes": [
+    {
+      "code": "antibiotic_inactivation",
+      "aro_term": "ARO:0001004",
+      "display_name": "Antibiotic Inactivation",
+      "description": "Enzymatic modification or degradation of the antibiotic (e.g. beta-lactamases, aminoglycoside-modifying enzymes).",
+      "drug_classes": ["beta-lactam", "carbapenem", "cephalosporin", "aminoglycoside", "macrolide", "phenicol"],
+      "subclasses": ["beta-lactamase", "carbapenemase", "aminoglycoside-modifying enzyme", "chloramphenicol acetyltransferase"]
+    },
+    {
+      "code": "efflux_pump",
+      "aro_term": "ARO:0010000",
+      "display_name": "Antibiotic Efflux",
+      "description": "Active export of the antibiotic out of the cell via efflux transporters.",
+      "drug_classes": ["tetracycline", "fluoroquinolone", "macrolide", "beta-lactam", "phenicol"],
+      "subclasses": ["RND efflux pump", "MFS efflux pump", "ABC efflux pump", "SMR efflux pump"]
+    },
+    {
+      "code": "target_alteration",
+      "aro_term": "ARO:0001001",
+      "display_name": "Antibiotic Target Alteration",
+      "description": "Mutation or modification of the antibiotic target reducing binding affinity.",
+      "drug_classes": ["fluoroquinolone", "rifamycin", "glycopeptide", "aminoglycoside", "macrolide", "oxazolidinone"],
+      "subclasses": ["QRDR mutation", "RRDR mutation", "ribosomal methylation", "23S rRNA mutation"]
+    },
+    {
+      "code": "target_protection",
+      "aro_term": "ARO:0001002",
+      "display_name": "Antibiotic Target Protection",
+      "description": "Protein binds and protects the antibiotic target without altering it.",
+      "drug_classes": ["fluoroquinolone", "tetracycline"],
+      "subclasses": ["Qnr protein", "ribosomal protection protein"]
+    },
+    {
+      "code": "target_replacement",
+      "aro_term": "ARO:0001003",
+      "display_name": "Antibiotic Target Replacement",
+      "description": "Acquisition of an alternative target insensitive to the antibiotic.",
+      "drug_classes": ["glycopeptide", "sulfonamide", "trimethoprim", "beta-lactam"],
+      "subclasses": ["van gene cluster", "dihydropteroate synthase", "alternative PBP"]
+    },
+    {
+      "code": "reduced_permeability",
+      "aro_term": "ARO:0010002",
+      "display_name": "Reduced Permeability to Antibiotic",
+      "description": "Loss or down-regulation of porins limiting antibiotic uptake.",
+      "drug_classes": ["beta-lactam", "carbapenem", "fluoroquinolone"],
+      "subclasses": ["porin loss", "porin mutation"]
+    },
+    {
+      "code": "membrane_remodeling",
+      "aro_term": "ARO:0010003",
+      "display_name": "Membrane / Lipid Remodeling",
+      "description": "Modification of the cell membrane (e.g. LPS lipid A) reducing polymyxin binding.",
+      "drug_classes": ["polymyxin"],
+      "subclasses": ["lipid A modification", "mgrB inactivation", "pmrAB activation"]
+    },
+    {
+      "code": "unknown",
+      "display_name": "Unknown Mechanism",
+      "description": "Resistance mechanism could not be determined from available evidence.",
+      "drug_classes": [],
+      "subclasses": []
+    }
+  ]
+}
