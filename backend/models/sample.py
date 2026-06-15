@@ -33,6 +33,9 @@ class Sample(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     status: Mapped[str] = mapped_column(
         String(30), nullable=False, default="UPLOADED", server_default="UPLOADED"
     )
+    virulence_status: Mapped[str] = mapped_column(
+        String(30), nullable=False, default="not_run", server_default="not_run"
+    )
     batch_id: Mapped[str | None] = mapped_column(String(36), ForeignKey("batches.id"), nullable=True)
     project_id: Mapped[str | None] = mapped_column(String(36), nullable=True)
 
