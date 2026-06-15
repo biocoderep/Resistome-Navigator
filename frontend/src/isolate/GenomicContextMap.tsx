@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { scaleLinear } from '@visx/scale';
 import { Group } from '@visx/group';
-import { useAmrGenes, useVirulenceGenes } from '../../hooks/useAmrData';
-import { theme } from '../../theme/tokens';
+import { useAmrGenes, useVirulenceGenes } from '../hooks/useAmrData';
+import { theme } from '../theme/tokens';
 
 export default function GenomicContextMap({ sampleId, width = 800, height = 300 }: { sampleId: string, width?: number, height?: number }) {
   const { data: amrGenes, loading: amrLoad } = useAmrGenes(sampleId);

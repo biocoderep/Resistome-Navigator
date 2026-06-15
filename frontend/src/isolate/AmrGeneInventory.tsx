@@ -3,8 +3,8 @@ import {
   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, 
   Tooltip, ResponsiveContainer, Cell, ReferenceArea, ZAxis, BarChart, Bar 
 } from 'recharts';
-import { useAmrGenes } from '../../hooks/useAmrData';
-import { theme } from '../../theme/tokens';
+import { useAmrGenes } from '../hooks/useAmrData';
+import { theme } from '../theme/tokens';
 
 /**
  * AmrGeneInventory

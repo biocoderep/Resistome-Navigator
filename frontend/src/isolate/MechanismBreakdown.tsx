@@ -3,8 +3,8 @@ import {
   PieChart, Pie, Cell, Tooltip, ResponsiveContainer, 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend
 } from 'recharts';
-import { useMechanismClassifications } from '../../hooks/useAmrData';
-import { theme } from '../../theme/tokens';
+import { useMechanismClassifications } from '../hooks/useAmrData';
+import { theme } from '../theme/tokens';
 
 export default function MechanismBreakdown() {
   const { data: mechanisms, loading } = useMechanismClassifications();

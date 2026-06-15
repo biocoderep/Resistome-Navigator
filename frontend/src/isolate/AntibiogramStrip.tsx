@@ -1,7 +1,7 @@
 import React from 'react';
-import { PhenotypePrediction } from '../../types/amr';
-import { usePhenotypePredictions } from '../../hooks/useAmrData';
-import { theme } from '../../theme/tokens';
+import type {} from '../types/amr';
+import { usePhenotypePredictions } from '../hooks/useAmrData';
+import { theme } from '../theme/tokens';
 
 /**
  * AntibiogramStrip

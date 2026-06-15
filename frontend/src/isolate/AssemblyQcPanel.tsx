@@ -1,6 +1,6 @@
 import React from 'react';
-import { useAssemblyMetrics } from '../../hooks/useAmrData';
-import { theme } from '../../theme/tokens';
+import { useAssemblyMetrics } from '../hooks/useAmrData';
+import { theme } from '../theme/tokens';
 
 export default function AssemblyQcPanel({ sampleId }: { sampleId: string }) {
   const { data: metricsArray, loading } = useAssemblyMetrics(sampleId);
@@ -42,7 +42,7 @@ export default function AssemblyQcPanel({ sampleId }: { sampleId: string }) {
         <div className="p-3 bg-gray-50 rounded-lg border border-gray-100 flex flex-col justify-center items-center text-center">
           <div className="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">N50 Length</div>
           <div className="text-2xl font-bold" style={{ color: n50Color }}>{formatN50(metrics.n50)}</div>
-          <div className="text-[10px] text-gray-400 mt-1">Expected > 100kbp</div>
+          <div className="text-[10px] text-gray-400 mt-1">Expected &gt; 100kbp</div>
         </div>
 
         {/* Contig Count Metric */}

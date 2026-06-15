@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import { useAmrGenes, useMechanismClassifications } from '../../hooks/useAmrData';
-import { theme } from '../../theme/tokens';
+import { useAmrGenes, useMechanismClassifications } from '../hooks/useAmrData';
+import { theme } from '../theme/tokens';
 
 export default function DrugClassCoverageMatrix({ sampleId }: { sampleId: string }) {
   const { data: genes, loading: genesLoading } = useAmrGenes(sampleId);

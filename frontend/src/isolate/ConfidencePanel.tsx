@@ -3,8 +3,8 @@ import {
   Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, 
   ResponsiveContainer, Tooltip 
 } from 'recharts';
-import { useConfidenceScores } from '../../hooks/useAmrData';
-import { theme } from '../../theme/tokens';
+import { useConfidenceScores } from '../hooks/useAmrData';
+import { theme } from '../theme/tokens';
 
 export default function ConfidencePanel({ sampleId }: { sampleId: string }) {
   const { data: scores, loading } = useConfidenceScores(sampleId);

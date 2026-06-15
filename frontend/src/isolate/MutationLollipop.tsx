@@ -3,8 +3,8 @@ import { scaleLinear, scaleBand } from '@visx/scale';
 import { Group } from '@visx/group';
 import { Line, Circle } from '@visx/shape';
 import { AxisBottom } from '@visx/axis';
-import { useResistanceMutations } from '../../hooks/useAmrData';
-import { theme } from '../../theme/tokens';
+import { useResistanceMutations } from '../hooks/useAmrData';
+import { theme } from '../theme/tokens';
 
 export default function MutationLollipop({ sampleId, width = 600, height = 300 }: { sampleId: string, width?: number, height?: number }) {
   const { data: mutations, loading } = useResistanceMutations(sampleId);

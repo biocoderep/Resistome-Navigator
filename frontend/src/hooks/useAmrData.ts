@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { 
+import type { 
   SampleMetadata, AmrGene, ResistanceMutation, MechanismClassification,
   PhenotypePrediction, VirulenceGene, ConfidenceScore, AssemblyMetrics,
   ClustermapPayload, PcaPayload, RarefactionPayload
@@ -95,10 +95,12 @@ export function usePhenotypePredictions(sampleId?: string) {
 
 export function useVirulenceGenes(sampleId?: string) {
   if (sampleId) {
-    const mock = mockVirulenceGenes.filter(v => v.sample_id === sampleId);
-    return useAmrFetch(`/api/v1/isolates/${sampleId}/virulence`, mock, [sampleId]);
+    const mockGenes = mockVirulenceGenes.filter(v => v.sample_id === sampleId);
+    const mockResp = { status: "not_run", genes: mockGenes };
+    return useAmrFetch(`/api/v1/isolates/${sampleId}/virulence`, mockResp, [sampleId]);
   }
-  return useAmrFetch(`/api/v1/isolates/cohort-virulence`, mockVirulenceGenes, [sampleId]);
+  const mockResp = { status: "not_run", genes: mockVirulenceGenes };
+  return useAmrFetch(`/api/v1/isolates/cohort-virulence`, mockResp, [sampleId]);
 }
 
 export function useConfidenceScores(sampleId?: string) {
