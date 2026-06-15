@@ -2,8 +2,8 @@ import React, { useMemo } from 'react';
 import { 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from 'recharts';
-import { useVirulenceGenes } from '../../hooks/useAmrData';
-import { theme } from '../../theme/tokens';
+import { useVirulenceGenes } from '../hooks/useAmrData';
+import { theme } from '../theme/tokens';
 
 export default function VirulenceProfile({ sampleId }: { sampleId: string }) {
   const { data: virData, loading } = useVirulenceGenes(sampleId);
@@ -12,7 +12,6 @@ export default function VirulenceProfile({ sampleId }: { sampleId: string }) {
     if (!virData || !virData.genes || virData.genes.length === 0) return [];
     
     const counts = virData.genes.reduce((acc: any, curr: any) => {
-      // Use category display or fallback
       const cat = curr.virulence_category || curr.function_category || 'Unknown';
       acc[cat] = (acc[cat] || 0) + 1;
       return acc;

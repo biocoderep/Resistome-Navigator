@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { 
+import type { 
   SampleMetadata, AmrGene, ResistanceMutation, MechanismClassification,
   PhenotypePrediction, VirulenceGene, ConfidenceScore, AssemblyMetrics,
   ClustermapPayload, PcaPayload, RarefactionPayload

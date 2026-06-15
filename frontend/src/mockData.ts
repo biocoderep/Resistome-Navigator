@@ -1,4 +1,4 @@
-import { 
+import type { 
   AmrGene, ResistanceMutation, MechanismClassification, 
   PhenotypePrediction, VirulenceGene, ConfidenceScore, 
   AssemblyMetrics, SampleMetadata, ClustermapPayload, 
