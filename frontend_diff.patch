@@ -1,0 +1,1763 @@
+﻿diff --git a/frontend/package-lock.json b/frontend/package-lock.json
+index 352c322..fdd0e71 100644
+--- a/frontend/package-lock.json
++++ b/frontend/package-lock.json
+@@ -19,6 +19,7 @@
+         "d3-hierarchy": "^3.1.2",
+         "d3-shape": "^3.2.0",
+         "html-to-image": "^1.11.13",
++        "jspdf": "^2.5.2",
+         "lodash": "^4.18.1",
+         "lucide-react": "^1.17.0",
+         "plotly.js": "^3.6.0",
+@@ -2127,6 +2128,13 @@
+       "integrity": "sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw==",
+       "license": "MIT"
+     },
++    "node_modules/@types/raf": {
++      "version": "3.4.3",
++      "resolved": "https://registry.npmjs.org/@types/raf/-/raf-3.4.3.tgz",
++      "integrity": "sha512-c4YAvMedbPZ5tEyxzQdMoOhhJ4RD3rngZIdwC2/qDN3d7JpEhB6fiBRKVY1lg5B7Wk+uPBjn5f39j1/2MY1oOw==",
++      "license": "MIT",
++      "optional": true
++    },
+     "node_modules/@types/react": {
+       "version": "19.2.17",
+       "resolved": "https://registry.npmjs.org/@types/react/-/react-19.2.17.tgz",
+@@ -3473,6 +3481,18 @@
+       "integrity": "sha512-shdaI1zT3CVNL2hnx9c0JMc0ZogGaxDs5e85akgHWKYa0yVbIyp06Ind3dVkTj/uuFrzaHBOyqFzo+VV6aXgtA==",
+       "license": "MIT"
+     },
++    "node_modules/atob": {
++      "version": "2.1.2",
++      "resolved": "https://registry.npmjs.org/atob/-/atob-2.1.2.tgz",
++      "integrity": "sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==",
++      "license": "(MIT OR Apache-2.0)",
++      "bin": {
++        "atob": "bin/atob.js"
++      },
++      "engines": {
++        "node": ">= 4.5.0"
++      }
++    },
+     "node_modules/autoprefixer": {
+       "version": "10.5.0",
+       "resolved": "https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.5.0.tgz",
+@@ -3668,6 +3688,18 @@
+         "node": "^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7"
+       }
+     },
++    "node_modules/btoa": {
++      "version": "1.2.1",
++      "resolved": "https://registry.npmjs.org/btoa/-/btoa-1.2.1.tgz",
++      "integrity": "sha512-SB4/MIGlsiVkMcHmT+pSmIPoNDoHg+7cMzmt3Uxt628MTz2487DKSqK/fuhFBrkuqrYv5UCEnACpF4dTFNKc/g==",
++      "license": "(MIT OR Apache-2.0)",
++      "bin": {
++        "btoa": "bin/btoa.js"
++      },
++      "engines": {
++        "node": ">= 0.4.0"
++      }
++    },
+     "node_modules/buffer-from": {
+       "version": "1.1.2",
+       "resolved": "https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz",
+@@ -3717,6 +3749,26 @@
+         "node": ">=12"
+       }
+     },
++    "node_modules/canvg": {
++      "version": "3.0.11",
++      "resolved": "https://registry.npmjs.org/canvg/-/canvg-3.0.11.tgz",
++      "integrity": "sha512-5ON+q7jCTgMp9cjpu4Jo6XbvfYwSB2Ow3kzHKfIyJfaCAOHLbdKPQqGKgfED/R5B+3TFFfe8pegYA+b423SRyA==",
++      "license": "MIT",
++      "optional": true,
++      "dependencies": {
++        "@babel/runtime": "^7.12.5",
++        "@types/raf": "^3.4.0",
++        "core-js": "^3.8.3",
++        "raf": "^3.4.1",
++        "regenerator-runtime": "^0.13.7",
++        "rgbcolor": "^1.0.1",
++        "stackblur-canvas": "^2.0.0",
++        "svg-pathdata": "^6.0.3"
++      },
++      "engines": {
++        "node": ">=10.0.0"
++      }
++    },
+     "node_modules/chokidar": {
+       "version": "3.6.0",
+       "resolved": "https://registry.npmjs.org/chokidar/-/chokidar-3.6.0.tgz",
+@@ -3924,6 +3976,18 @@
+         "url": "https://opencollective.com/express"
+       }
+     },
++    "node_modules/core-js": {
++      "version": "3.49.0",
++      "resolved": "https://registry.npmjs.org/core-js/-/core-js-3.49.0.tgz",
++      "integrity": "sha512-es1U2+YTtzpwkxVLwAFdSpaIMyQaq0PBgm3YD1W3Qpsn1NAmO3KSgZfu+oGSWVu6NvLHoHCV/aYcsE5wiB7ALg==",
++      "hasInstallScript": true,
++      "license": "MIT",
++      "optional": true,
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/core-js"
++      }
++    },
+     "node_modules/core-util-is": {
+       "version": "1.0.3",
+       "resolved": "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.3.tgz",
+@@ -3998,6 +4062,16 @@
+       "integrity": "sha512-X1xgQhkZ9n94WDwntqst5D/FKkmiU0GlJSFZSV3kLvyJ1WC5VeyoXDOuleUD+SIuH9C7W05is++0Woh0CGfKjQ==",
+       "license": "MIT"
+     },
++    "node_modules/css-line-break": {
++      "version": "2.1.0",
++      "resolved": "https://registry.npmjs.org/css-line-break/-/css-line-break-2.1.0.tgz",
++      "integrity": "sha512-FHcKFCZcAha3LwfVBhCQbW2nCNbkZXn7KVUJcsT5/P8YmfsVja0FMPJr0B903j/E69HUphKiV9iQArX8SDYA4w==",
++      "license": "MIT",
++      "optional": true,
++      "dependencies": {
++        "utrie": "^1.0.2"
++      }
++    },
+     "node_modules/css-system-font-keywords": {
+       "version": "1.0.0",
+       "resolved": "https://registry.npmjs.org/css-system-font-keywords/-/css-system-font-keywords-1.0.0.tgz",
+@@ -4721,6 +4795,13 @@
+         "csstype": "^3.0.2"
+       }
+     },
++    "node_modules/dompurify": {
++      "version": "2.5.9",
++      "resolved": "https://registry.npmjs.org/dompurify/-/dompurify-2.5.9.tgz",
++      "integrity": "sha512-i6mvVmWN4xo9LrhCOZrDgSs9noW6nOahbrmzjRbPF36YPyj5Ue5lgok0MHDWkG7xzpWFO2OYttXdzM7rJxHvNA==",
++      "license": "(MPL-2.0 OR Apache-2.0)",
++      "optional": true
++    },
+     "node_modules/draw-svg-path": {
+       "version": "1.0.0",
+       "resolved": "https://registry.npmjs.org/draw-svg-path/-/draw-svg-path-1.0.0.tgz",
+@@ -5259,6 +5340,12 @@
+         }
+       }
+     },
++    "node_modules/fflate": {
++      "version": "0.8.3",
++      "resolved": "https://registry.npmjs.org/fflate/-/fflate-0.8.3.tgz",
++      "integrity": "sha512-tbZNuJrLwGUp3zshBtdy4W+ORxZuIh8a5ilyIEQDC5rY1f3U20JMry0Ll3WBzU58EZKsEuJFXhb5gwv8CsPvgA==",
++      "license": "MIT"
++    },
+     "node_modules/file-entry-cache": {
+       "version": "8.0.0",
+       "resolved": "https://registry.npmjs.org/file-entry-cache/-/file-entry-cache-8.0.0.tgz",
+@@ -5854,6 +5941,20 @@
+       "integrity": "sha512-cuOPoI7WApyhBElTTb9oqsawRvZ0rHhaHwghRLlTuffoD1B2aDemlCruLeZrUIIdvG7gs9xeELEPm6PhuASqrg==",
+       "license": "MIT"
+     },
++    "node_modules/html2canvas": {
++      "version": "1.4.1",
++      "resolved": "https://registry.npmjs.org/html2canvas/-/html2canvas-1.4.1.tgz",
++      "integrity": "sha512-fPU6BHNpsyIhr8yyMpTLLxAbkaK8ArIBcmZIRiBLiDhjeqvXolaEmDGmELFuX9I4xDcaKKcJl+TKZLqruBbmWA==",
++      "license": "MIT",
++      "optional": true,
++      "dependencies": {
++        "css-line-break": "^2.1.0",
++        "text-segmentation": "^1.0.3"
++      },
++      "engines": {
++        "node": ">=8.0.0"
++      }
++    },
+     "node_modules/iconv-lite": {
+       "version": "0.4.24",
+       "resolved": "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.24.tgz",
+@@ -6179,6 +6280,24 @@
+         "node": ">=6"
+       }
+     },
++    "node_modules/jspdf": {
++      "version": "2.5.2",
++      "resolved": "https://registry.npmjs.org/jspdf/-/jspdf-2.5.2.tgz",
++      "integrity": "sha512-myeX9c+p7znDWPk0eTrujCzNjT+CXdXyk7YmJq5nD5V7uLLKmSXnlQ/Jn/kuo3X09Op70Apm0rQSnFWyGK8uEQ==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/runtime": "^7.23.2",
++        "atob": "^2.1.2",
++        "btoa": "^1.2.1",
++        "fflate": "^0.8.1"
++      },
++      "optionalDependencies": {
++        "canvg": "^3.0.6",
++        "core-js": "^3.6.0",
++        "dompurify": "^2.5.4",
++        "html2canvas": "^1.0.0-rc.5"
++      }
++    },
+     "node_modules/kapsule": {
+       "version": "1.16.3",
+       "resolved": "https://registry.npmjs.org/kapsule/-/kapsule-1.16.3.tgz",
+@@ -8032,6 +8151,13 @@
+         "redux": "^5.0.0"
+       }
+     },
++    "node_modules/regenerator-runtime": {
++      "version": "0.13.11",
++      "resolved": "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz",
++      "integrity": "sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==",
++      "license": "MIT",
++      "optional": true
++    },
+     "node_modules/regl": {
+       "version": "2.1.1",
+       "resolved": "https://registry.npmjs.org/regl/-/regl-2.1.1.tgz",
+@@ -8153,6 +8279,16 @@
+         "node": ">=0.10.0"
+       }
+     },
++    "node_modules/rgbcolor": {
++      "version": "1.0.1",
++      "resolved": "https://registry.npmjs.org/rgbcolor/-/rgbcolor-1.0.1.tgz",
++      "integrity": "sha512-9aZLIrhRaD97sgVhtJOW6ckOEh6/GnvQtdVNfdZ6s67+3/XwLS9lBcQYzEEhYVeUowN7pRzMLsyGhK2i/xvWbw==",
++      "license": "MIT OR SEE LICENSE IN FEEL-FREE.md",
++      "optional": true,
++      "engines": {
++        "node": ">= 0.8.15"
++      }
++    },
+     "node_modules/robust-predicates": {
+       "version": "3.0.3",
+       "resolved": "https://registry.npmjs.org/robust-predicates/-/robust-predicates-3.0.3.tgz",
+@@ -8384,6 +8520,16 @@
+         "node": "*"
+       }
+     },
++    "node_modules/stackblur-canvas": {
++      "version": "2.7.0",
++      "resolved": "https://registry.npmjs.org/stackblur-canvas/-/stackblur-canvas-2.7.0.tgz",
++      "integrity": "sha512-yf7OENo23AGJhBriGx0QivY5JP6Y1HbrrDI6WLt6C5auYZXlQrheoY8hD4ibekFKz1HOfE48Ww8kMWMnJD/zcQ==",
++      "license": "MIT",
++      "optional": true,
++      "engines": {
++        "node": ">=0.1.14"
++      }
++    },
+     "node_modules/static-eval": {
+       "version": "2.1.1",
+       "resolved": "https://registry.npmjs.org/static-eval/-/static-eval-2.1.1.tgz",
+@@ -8543,6 +8689,16 @@
+         "svg-path-bounds": "^1.0.1"
+       }
+     },
++    "node_modules/svg-pathdata": {
++      "version": "6.0.3",
++      "resolved": "https://registry.npmjs.org/svg-pathdata/-/svg-pathdata-6.0.3.tgz",
++      "integrity": "sha512-qsjeeq5YjBZ5eMdFuUa4ZosMLxgr5RZ+F+Y1OrDhuOCEInRMA3x74XdBtggJcj9kOeInz0WE+LgCPDkZFlBYJw==",
++      "license": "MIT",
++      "optional": true,
++      "engines": {
++        "node": ">=12.0.0"
++      }
++    },
+     "node_modules/tailwindcss": {
+       "version": "3.4.19",
+       "resolved": "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.4.19.tgz",
+@@ -8581,6 +8737,16 @@
+         "node": ">=14.0.0"
+       }
+     },
++    "node_modules/text-segmentation": {
++      "version": "1.0.3",
++      "resolved": "https://registry.npmjs.org/text-segmentation/-/text-segmentation-1.0.3.tgz",
++      "integrity": "sha512-iOiPUo/BGnZ6+54OsWxZidGCsdU8YbE4PSpdPinp7DeMtUJNJBoJ/ouUSTJjHkh1KntHaltHl/gDs2FC4i5+Nw==",
++      "license": "MIT",
++      "optional": true,
++      "dependencies": {
++        "utrie": "^1.0.2"
++      }
++    },
+     "node_modules/thenify": {
+       "version": "3.3.1",
+       "resolved": "https://registry.npmjs.org/thenify/-/thenify-3.3.1.tgz",
+@@ -8935,6 +9101,16 @@
+       "integrity": "sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==",
+       "license": "MIT"
+     },
++    "node_modules/utrie": {
++      "version": "1.0.2",
++      "resolved": "https://registry.npmjs.org/utrie/-/utrie-1.0.2.tgz",
++      "integrity": "sha512-1MLa5ouZiOmQzUbjbu9VmjLzn1QLXBhwpUa7kdLUQK+KQ5KA9I1vk5U4YHe/X2Ch7PYnJfWuWT+VbuxbGwljhw==",
++      "license": "MIT",
++      "optional": true,
++      "dependencies": {
++        "base64-arraybuffer": "^1.0.2"
++      }
++    },
+     "node_modules/victory-vendor": {
+       "version": "37.3.6",
+       "resolved": "https://registry.npmjs.org/victory-vendor/-/victory-vendor-37.3.6.tgz",
+diff --git a/frontend/package.json b/frontend/package.json
+index 4dd0b25..a6170c9 100644
+--- a/frontend/package.json
++++ b/frontend/package.json
+@@ -21,6 +21,7 @@
+     "d3-hierarchy": "^3.1.2",
+     "d3-shape": "^3.2.0",
+     "html-to-image": "^1.11.13",
++    "jspdf": "^2.5.2",
+     "lodash": "^4.18.1",
+     "lucide-react": "^1.17.0",
+     "plotly.js": "^3.6.0",
+diff --git a/frontend/src/CohortDashboard.tsx b/frontend/src/CohortDashboard.tsx
+index 3421527..1357754 100644
+--- a/frontend/src/CohortDashboard.tsx
++++ b/frontend/src/CohortDashboard.tsx
+@@ -5,6 +5,8 @@ import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Responsive
+ import DimReductionPlot from './components/charts/DimReductionPlot';
+ import CoOccurrenceNetwork from './components/charts/CoOccurrenceNetwork';
+ import MinimumSpanningTree from './components/charts/MinimumSpanningTree';
++import AntibiogramHeatmap, { type AntibiogramIsolate } from './cohort/AntibiogramHeatmap';
++import ResistanceClassFrequency, { type ClassFrequencyRow } from './cohort/ResistanceClassFrequency';
+ 
+ const CARBON_COLORS = [
+   '#6929c4', '#1192e8', '#005d5d', '#9f1853', '#fa4d56',
+@@ -92,6 +94,34 @@ export const CohortDashboard = () => {
+ 
+   const sankeyData = { nodes: sankeyNodes, links: sankeyLinks };
+ 
++  // --- Clinical antibiogram heatmap (isolates x antibiotics) ---
++  const antibioticsSet = new Set<string>();
++  cohort.forEach((iso) =>
++    (iso.phenotype_predictions || []).forEach((p: any) => antibioticsSet.add(p.drug)),
++  );
++  const antibiotics = Array.from(antibioticsSet);
++  const heatmapIsolates: AntibiogramIsolate[] = cohort.map((iso) => ({
++    id: iso.isolate_id || iso.id,
++    label: iso.isolate_id || iso.filename || iso.id,
++    profile: Object.fromEntries(
++      (iso.phenotype_predictions || []).map((p: any) => [p.drug, p.sir]),
++    ),
++  }));
++
++  // --- Resistance class frequency (stacked S/I/R per class) ---
++  const classAgg: Record<string, ClassFrequencyRow> = {};
++  cohort.forEach((iso) =>
++    (iso.phenotype_predictions || []).forEach((p: any) => {
++      const cat = p.drug_class || p.antibiotic_class || p.drug;
++      const row = classAgg[cat] || { category: cat, R: 0, I: 0, S: 0 };
++      if (p.sir === 'R') row.R += 1;
++      else if (p.sir === 'I') row.I += 1;
++      else if (p.sir === 'S') row.S += 1;
++      classAgg[cat] = row;
++    }),
++  );
++  const classFrequency = Object.values(classAgg).sort((a, b) => b.R - a.R);
++
+   return (
+     <div className="flex-1 p-10 overflow-y-auto w-full">
+       <div className="max-w-7xl mx-auto">
+@@ -102,6 +132,22 @@ export const CohortDashboard = () => {
+           </div>
+         </header>
+ 
++        {/* Clinical Antibiogram Heatmap (isolates x antibiotics) */}
++        <div className="grid grid-cols-1 gap-8 mb-8">
++          <ExportCard title="Clinical Antibiogram Heatmap" filename="antibiogram_heatmap"
++                      subtitle="Predicted susceptibility ΓÇö isolates (rows) ├ù antibiotics (columns)">
++            <AntibiogramHeatmap isolates={heatmapIsolates} antibiotics={antibiotics} />
++          </ExportCard>
++        </div>
++
++        {/* Resistance Class Frequency */}
++        <div className="grid grid-cols-1 gap-8 mb-8">
++          <ExportCard title="Resistance Class Frequency" filename="resistance_class_frequency"
++                      subtitle="Stacked S/I/R counts across the cohort">
++            <ResistanceClassFrequency data={classFrequency} />
++          </ExportCard>
++        </div>
++
+         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+           <ExportCard title="Resistome Dimensionality Reduction (UMAP)" filename="UMAP.png">
+             <DimReductionPlot />
+diff --git a/frontend/src/DashboardRouter.tsx b/frontend/src/DashboardRouter.tsx
+new file mode 100644
+index 0000000..45588ad
+--- /dev/null
++++ b/frontend/src/DashboardRouter.tsx
+@@ -0,0 +1,61 @@
++import React, { useEffect, useState } from 'react';
++import { useSearchParams } from 'react-router-dom';
++import TBioDashboard from './TBioDashboard';
++import { CohortDashboard } from './CohortDashboard';
++
++const API = 'http://127.0.0.1:8000/api/v1';
++
++type Mode = 'loading' | 'single' | 'cohort';
++
++/**
++ * Decides which dashboard to render for a given ``?batchId=`` query param:
++ *   - a batch with >1 isolate  -> CohortDashboard (population view)
++ *   - a single isolate         -> TBioDashboard (deep-dive)
++ * The param is overloaded by the upload flow (it can be a batch id or, for
++ * single uploads, a sample id), so we resolve it against the cohort metadata.
++ */
++export default function DashboardRouter() {
++  const [params] = useSearchParams();
++  const batchId = params.get('batchId');
++  const [mode, setMode] = useState<Mode>('loading');
++  const [sampleId, setSampleId] = useState<string | null>(null);
++
++  useEffect(() => {
++    let cancelled = false;
++    if (!batchId) {
++      setMode('single');
++      return;
++    }
++    fetch(`${API}/isolates/cohort-metadata?batch_id=${batchId}`)
++      .then((r) => (r.ok ? r.json() : []))
++      .then((samples: any[]) => {
++        if (cancelled) return;
++        if (Array.isArray(samples) && samples.length > 1) {
++          setMode('cohort');
++        } else if (Array.isArray(samples) && samples.length === 1) {
++          setSampleId(samples[0].sample_id);
++          setMode('single');
++        } else {
++          // No batch matched ΓÇö treat the param itself as a sample id.
++          setSampleId(batchId);
++          setMode('single');
++        }
++      })
++      .catch(() => {
++        if (cancelled) return;
++        setSampleId(batchId);
++        setMode('single');
++      });
++    return () => {
++      cancelled = true;
++    };
++  }, [batchId]);
++
++  if (mode === 'loading') {
++    return <div className="p-10 text-center text-text-muted animate-pulse">Resolving dashboardΓÇª</div>;
++  }
++  if (mode === 'cohort') {
++    return <CohortDashboard />;
++  }
++  return <TBioDashboard sampleId={sampleId || batchId || ''} />;
++}
+diff --git a/frontend/src/TBioDashboard.tsx b/frontend/src/TBioDashboard.tsx
+index 1472690..540082f 100644
+--- a/frontend/src/TBioDashboard.tsx
++++ b/frontend/src/TBioDashboard.tsx
+@@ -1,88 +1,107 @@
+-import React, { useState } from "react";
++import React from 'react';
+ 
+-import PipelineTracker from './components/dashboard/PipelineTracker';
+-import Service1Validation from './components/dashboard/Service1Validation';
+-import Service3Detection from './components/dashboard/Service3Detection';
+-import Service4Mutation from './components/dashboard/Service4Mutation';
+-import Service5Mechanism from './components/dashboard/Service5Mechanism';
+-import Service6Phenotype from './components/dashboard/Service6Phenotype';
+-import Service7Virulence from './components/dashboard/Service7Virulence';
+-import Service8Confidence from './components/dashboard/Service8Confidence';
+-import GenomicSummary from './components/dashboard/GenomicSummary';
+-import CohortViews from './components/dashboard/CohortViews';
++import { useIsolateMetadata } from './hooks/useAmrData';
++import { ExportCard } from './components/ExportCard';
+ 
+-const FONT = "system-ui, -apple-system, sans-serif";
++import AntibiogramStrip from './isolate/AntibiogramStrip';
++import AssemblyQcPanel from './isolate/AssemblyQcPanel';
++import AmrGeneInventory from './isolate/AmrGeneInventory';
++import ConfidencePanel from './isolate/ConfidencePanel';
++import MechanismBreakdown from './isolate/MechanismBreakdown';
++import VirulenceProfile from './isolate/VirulenceProfile';
++import MutationLollipop from './isolate/MutationLollipop';
++import DrugClassCoverageMatrix from './isolate/DrugClassCoverageMatrix';
++import IdentityCoverageScatter from './isolate/IdentityCoverageScatter';
++import CircularGenomeViewer from './isolate/CircularGenomeViewer';
+ 
+-const TABS = [
+-  { id: "operations", label: "Pipeline Operations", icon: "ΓÅ▒" },
+-  { id: "validation", label: "Genome Validation", icon: "Γ£ô" },
+-  { id: "detection", label: "AMR Detection", icon: "≡ƒº¼" },
+-  { id: "mutation", label: "Mutation Profiling", icon: "ΓÜí" },
+-  { id: "mechanism", label: "Mechanism Classifier", icon: "ΓÜÖ" },
+-  { id: "phenotype", label: "Phenotype Prediction", icon: "≡ƒÆè" },
+-  { id: "virulence", label: "Virulence Factors", icon: "Γÿú" },
+-  { id: "confidence", label: "Confidence Scoring", icon: "≡ƒôè" },
+-  { id: "summary", label: "Genomic Summary", icon: "≡ƒÄ»" },
+-  { id: "cohort", label: "Cohort Analytics", icon: "≡ƒîÉ" },
+-];
++/**
++ * Single-isolate deep-dive dashboard. Clean, light, clinical/research theme.
++ * Every chart/table is wrapped in ExportCard for SVG / PNG@300dpi / PDF export.
++ */
++export default function TBioDashboard({ sampleId }: { sampleId: string }) {
++  const { data: meta, loading } = useIsolateMetadata(sampleId);
+ 
+-export default function TBioDashboard({ batchId }: { batchId?: string }) {
+-  // If batchId is present, we might want to default to cohort tab
+-  const [tab, setTab] = useState(batchId ? "cohort" : "validation");
++  if (loading) {
++    return <div className="p-10 text-center text-text-muted animate-pulse">Loading isolate profileΓÇª</div>;
++  }
+ 
+   return (
+-    <div style={{ display: "flex", minHeight: "100vh", fontFamily: FONT, background: "#F9FAFB" }}>
+-      {/* Sidebar */}
+-      <div style={{ width: 240, background: "#111827", padding: "20px 0", flexShrink: 0, display: "flex", flexDirection: "column", height: "100vh", position: "sticky", top: 0 }}>
+-        <div style={{ padding: "0 16px 20px", borderBottom: "1px solid #1F2937" }}>
+-          <div style={{ fontSize: 16, fontWeight: 800, color: "#FFF", letterSpacing: "-0.02em" }}>AMR Command Center</div>
+-          <div style={{ fontSize: 10, color: "#6B7280", marginTop: 2, textTransform: "uppercase", letterSpacing: "0.08em" }}>Full Pipeline View</div>
++    <div className="bg-surface min-h-screen p-6 font-sans">
++      <div className="max-w-[1400px] mx-auto flex flex-col gap-6">
++        {/* Header */}
++        <div className="bg-surface-card rounded-2xl shadow-sm border border-surface-dark p-6 flex justify-between items-center">
++          <div>
++            <h1 className="text-2xl font-bold text-text-primary">{meta?.isolate_name || 'Isolate'}</h1>
++            <div className="text-sm text-text-muted mt-1 flex flex-wrap gap-4">
++              <span>Organism: <span className="font-semibold text-text-primary">{meta?.organism || 'Unknown'}</span></span>
++              <span>Sample ID: <span className="font-mono">{meta?.sample_id || sampleId}</span></span>
++              <span>Date: {meta?.collection_date || 'N/A'}</span>
++            </div>
++          </div>
++          <div className="bg-accent-teal/10 text-accent-teal px-4 py-2 rounded-lg font-bold text-sm border border-accent-teal/20">
++            Single Isolate Report
++          </div>
+         </div>
+-        <div style={{ padding: "12px 8px", flex: 1, overflowY: "auto" }}>
+-          {TABS.map(t => (
+-            <button key={t.id} onClick={() => setTab(t.id)} style={{
+-              width: "100%", padding: "12px 12px", border: "none", borderRadius: 6, fontSize: 13,
+-              cursor: "pointer", display: "flex", alignItems: "center", gap: 10, marginBottom: 4,
+-              background: tab === t.id ? "#1F2937" : "transparent",
+-              color: tab === t.id ? "#FFF" : "#9CA3AF", fontWeight: tab === t.id ? 600 : 400,
+-              fontFamily: FONT, transition: "all 0.15s",
+-              textAlign: "left"
+-            }}>
+-              <span style={{ fontSize: 16, width: 24, textAlign: "center" }}>{t.icon}</span>
+-              {t.label}
+-            </button>
+-          ))}
++
++        {/* Phenotypes + Assembly QC */}
++        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
++          <div className="lg:col-span-2">
++            <ExportCard title="Predicted Antibiogram" filename="antibiogram" variant="overlay">
++              <AntibiogramStrip sampleId={sampleId} />
++            </ExportCard>
++          </div>
++          <div className="lg:col-span-1">
++            <ExportCard title="Assembly QC" filename="assembly_qc" variant="overlay">
++              <AssemblyQcPanel sampleId={sampleId} />
++            </ExportCard>
++          </div>
+         </div>
+-        <div style={{ padding: "12px 16px", borderTop: "1px solid #1F2937" }}>
+-          <div style={{ fontSize: 8, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.1em" }}>Pipeline v3.0</div>
+-          <div style={{ fontSize: 8, color: "#4B5563" }}>9 Microservices Active</div>
++
++        {/* Required single-isolate visualizations */}
++        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
++          <ExportCard title="Gene Confidence ΓÇö Identity vs Coverage" filename="identity_coverage"
++                      subtitle="Point size Γê¥ confidence; guides at 95% identity / 80% coverage">
++            <IdentityCoverageScatter sampleId={sampleId} />
++          </ExportCard>
++          <ExportCard title="Circular Genome Map" filename="circular_genome"
++                      subtitle="Contigs, AMR genes (outer) and virulence genes (inner)">
++            <CircularGenomeViewer sampleId={sampleId} />
++          </ExportCard>
+         </div>
+-      </div>
+ 
+-      {/* Main Content */}
+-      <div style={{ flex: 1, padding: 24, overflowY: "auto", maxWidth: 1200 }}>
+-        <div style={{ marginBottom: 24 }}>
+-          <h1 style={{ fontSize: 24, fontWeight: 800, color: "#111827", margin: 0 }}>
+-            {TABS.find(t => t.id === tab)?.label}
+-          </h1>
+-          <p style={{ fontSize: 13, color: "#6B7280", margin: "4px 0 0" }}>
+-            Comprehensive analytics generated by the automated pipeline services.
+-          </p>
++        {/* Resistome inventory + confidence */}
++        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
++          <div className="lg:col-span-2">
++            <ExportCard title="AMR Gene Inventory" filename="amr_genes" variant="overlay">
++              <AmrGeneInventory sampleId={sampleId} />
++            </ExportCard>
++          </div>
++          <div className="lg:col-span-1">
++            <ExportCard title="Confidence" filename="confidence" variant="overlay">
++              <ConfidencePanel sampleId={sampleId} />
++            </ExportCard>
++          </div>
+         </div>
+ 
+-        {/* Dynamic Component Rendering based on Tab */}
+-        <div className="bg-white rounded-xl shadow-sm border border-surface-dark overflow-hidden min-h-[600px]">
+-          {tab === "operations" && <PipelineTracker />}
+-          {tab === "validation" && <Service1Validation />}
+-          {tab === "detection" && <Service3Detection />}
+-          {tab === "mutation" && <Service4Mutation />}
+-          {tab === "mechanism" && <Service5Mechanism />}
+-          {tab === "phenotype" && <Service6Phenotype />}
+-          {tab === "virulence" && <Service7Virulence />}
+-          {tab === "confidence" && <Service8Confidence />}
+-          {tab === "summary" && <GenomicSummary />}
+-          {tab === "cohort" && <CohortViews batchId={batchId} />}
++        {/* Mechanism + virulence */}
++        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
++          <ExportCard title="Mechanism Breakdown" filename="mechanisms" variant="overlay">
++            <MechanismBreakdown />
++          </ExportCard>
++          <ExportCard title="Virulence Profile" filename="virulence" variant="overlay">
++            <VirulenceProfile sampleId={sampleId} />
++          </ExportCard>
+         </div>
++
++        {/* Mutations */}
++        <ExportCard title="Resistance Mutations" filename="mutations" variant="overlay">
++          <MutationLollipop sampleId={sampleId} width={1200} height={300} />
++        </ExportCard>
++
++        {/* Drug-class cross mapping */}
++        <ExportCard title="Drug-Class Coverage" filename="drug_class_matrix" variant="overlay">
++          <DrugClassCoverageMatrix sampleId={sampleId} />
++        </ExportCard>
+       </div>
+     </div>
+   );
+diff --git a/frontend/src/cohort/AntibiogramHeatmap.tsx b/frontend/src/cohort/AntibiogramHeatmap.tsx
+new file mode 100644
+index 0000000..068b04c
+--- /dev/null
++++ b/frontend/src/cohort/AntibiogramHeatmap.tsx
+@@ -0,0 +1,90 @@
++import React from 'react';
++import { sirFill, STATUS_HEX } from '../utils/palette';
++
++export interface AntibiogramIsolate {
++  id: string;
++  label: string;
++  profile: Record<string, string>; // antibiotic -> S/I/R
++}
++
++/**
++ * Clinical Antibiogram Heatmap ΓÇö isolates on the Y axis, antibiotics on the X
++ * axis, cells coloured by predicted S/I/R. Pure SVG (vector-exportable).
++ */
++export default function AntibiogramHeatmap({
++  isolates,
++  antibiotics,
++  cell = 22,
++}: {
++  isolates: AntibiogramIsolate[];
++  antibiotics: string[];
++  cell?: number;
++}) {
++  if (!isolates.length || !antibiotics.length) {
++    return <div className="h-64 flex items-center justify-center text-text-muted text-sm">No susceptibility data available.</div>;
++  }
++
++  const marginLeft = 150;
++  const marginTop = 96;
++  const legendH = 40;
++  const gridW = antibiotics.length * cell;
++  const gridH = isolates.length * cell;
++  const width = marginLeft + gridW + 16;
++  const height = marginTop + gridH + legendH;
++
++  return (
++    <div className="w-full overflow-x-auto">
++      <svg viewBox={`0 0 ${width} ${height}`} width={Math.max(width, 320)} role="img" aria-label="Antibiogram heatmap">
++        {/* antibiotic labels (rotated) */}
++        {antibiotics.map((ab, c) => {
++          const x = marginLeft + c * cell + cell / 2;
++          return (
++            <text key={ab} x={x} y={marginTop - 6} fontSize={11} fill="#0F172A"
++                  transform={`rotate(-45 ${x} ${marginTop - 6})`} textAnchor="start" fontFamily="monospace">
++              {ab}
++            </text>
++          );
++        })}
++
++        {/* rows */}
++        {isolates.map((iso, r) => {
++          const y = marginTop + r * cell;
++          return (
++            <g key={iso.id}>
++              <text x={marginLeft - 8} y={y + cell / 2} fontSize={10} fill="#0F172A"
++                    textAnchor="end" dominantBaseline="middle" fontFamily="monospace">
++                {truncate(iso.label, 20)}
++              </text>
++              {antibiotics.map((ab, c) => {
++                const sir = (iso.profile[ab] || '').toUpperCase();
++                return (
++                  <rect key={ab} x={marginLeft + c * cell} y={y} width={cell - 1.5} height={cell - 1.5}
++                        rx={2} fill={sirFill(sir)}>
++                    <title>{`${iso.label} ┬╖ ${ab}: ${sir || 'N/A'}`}</title>
++                  </rect>
++                );
++              })}
++            </g>
++          );
++        })}
++
++        {/* legend */}
++        {[
++          { k: 'S', t: 'Susceptible' },
++          { k: 'I', t: 'Intermediate' },
++          { k: 'R', t: 'Resistant' },
++          { k: 'NONE', t: 'No data' },
++        ].map((item, i) => (
++          <g key={item.k} transform={`translate(${marginLeft + i * 130}, ${marginTop + gridH + 18})`}>
++            <rect width={14} height={14} rx={3} fill={STATUS_HEX[item.k]} />
++            <text x={20} y={11} fontSize={11} fill="#64748B">{item.t}</text>
++          </g>
++        ))}
++      </svg>
++    </div>
++  );
++}
++
++function truncate(s: string, n: number): string {
++  return s.length <= n ? s : s.slice(0, n - 1) + 'ΓÇª';
++}
+diff --git a/frontend/src/cohort/ResistanceClassFrequency.tsx b/frontend/src/cohort/ResistanceClassFrequency.tsx
+new file mode 100644
+index 0000000..8fdc836
+--- /dev/null
++++ b/frontend/src/cohort/ResistanceClassFrequency.tsx
+@@ -0,0 +1,60 @@
++import React from 'react';
++import {
++  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell,
++} from 'recharts';
++import { STATUS_HEX } from '../utils/palette';
++
++export interface ClassFrequencyRow {
++  category: string; // drug class or antibiotic
++  R: number;
++  I: number;
++  S: number;
++}
++
++/**
++ * Resistance Class Frequency ΓÇö stacked S/I/R counts per drug class/antibiotic
++ * across the cohort. Recharts (SVG, vector-exportable).
++ */
++export default function ResistanceClassFrequency({
++  data,
++  height = 340,
++  asPercent = false,
++}: {
++  data: ClassFrequencyRow[];
++  height?: number;
++  asPercent?: boolean;
++}) {
++  if (!data || data.length === 0) {
++    return <div className="h-64 flex items-center justify-center text-text-muted text-sm">No phenotype data available.</div>;
++  }
++
++  const rows = asPercent
++    ? data.map((d) => {
++        const total = d.R + d.I + d.S || 1;
++        return { category: d.category, R: (d.R / total) * 100, I: (d.I / total) * 100, S: (d.S / total) * 100 };
++      })
++    : data;
++
++  return (
++    <div style={{ height }}>
++      <ResponsiveContainer width="100%" height="100%">
++        <BarChart data={rows} margin={{ top: 16, right: 16, bottom: 48, left: 8 }}>
++          <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
++          <XAxis dataKey="category" stroke="#64748B" fontSize={11} angle={-40} textAnchor="end" interval={0} height={60} />
++          <YAxis stroke="#64748B" fontSize={12}
++                 label={{ value: asPercent ? 'Isolates (%)' : 'Isolates (n)', angle: -90, position: 'insideLeft', fill: '#64748B', fontSize: 12 }} />
++          <Tooltip
++            contentStyle={{ backgroundColor: '#FFFFFF', borderColor: '#E2E8F0', color: '#0F172A', fontSize: 12, borderRadius: 8 }}
++            formatter={(v: any) => (asPercent ? `${Number(v).toFixed(1)}%` : v)}
++          />
++          <Legend wrapperStyle={{ fontSize: 12 }} />
++          <Bar dataKey="S" stackId="a" name="Susceptible" fill={STATUS_HEX.S} />
++          <Bar dataKey="I" stackId="a" name="Intermediate" fill={STATUS_HEX.I} />
++          <Bar dataKey="R" stackId="a" name="Resistant" fill={STATUS_HEX.R}>
++            {rows.map((_, i) => <Cell key={i} />)}
++          </Bar>
++        </BarChart>
++      </ResponsiveContainer>
++    </div>
++  );
++}
+diff --git a/frontend/src/cohort/VirulenceVsResistanceScatter.tsx b/frontend/src/cohort/VirulenceVsResistanceScatter.tsx
+index 12b2670..fe7fc43 100644
+--- a/frontend/src/cohort/VirulenceVsResistanceScatter.tsx
++++ b/frontend/src/cohort/VirulenceVsResistanceScatter.tsx
+@@ -17,7 +17,7 @@ export default function VirulenceVsResistanceScatter() {
+     const virCounts: Record<string, number> = {};
+ 
+     amrGenes.forEach(g => amrCounts[g.sample_id] = (amrCounts[g.sample_id] || 0) + 1);
+-    virGenes.forEach(g => virCounts[g.sample_id] = (virCounts[g.sample_id] || 0) + 1);
++    (virGenes?.genes || []).forEach(g => virCounts[g.sample_id] = (virCounts[g.sample_id] || 0) + 1);
+ 
+     const samples = Array.from(new Set([...Object.keys(amrCounts), ...Object.keys(virCounts)]));
+ 
+diff --git a/frontend/src/components/AMRDashboard.tsx b/frontend/src/components/AMRDashboard.tsx
+index 95f3224..958a845 100644
+--- a/frontend/src/components/AMRDashboard.tsx
++++ b/frontend/src/components/AMRDashboard.tsx
+@@ -216,29 +216,35 @@ export default function AMRDashboard({ data }: { data: any }) {
+           </div>
+         </CollapsibleSection>
+         
+-        <CollapsibleSection title="Detected Virulence Factors" count={data.virulence_genes?.length} defaultOpen={false}>
+-          <div className="overflow-x-auto">
+-            <table className="w-full text-left text-sm">
+-              <thead className="text-text-muted text-xs uppercase tracking-wider border-b border-surface-dark">
+-                <tr>
+-                  <th className="py-2">Factor</th>
+-                  <th className="py-2">Type</th>
+-                  <th className="py-2">Subclass</th>
+-                  <th className="py-2">Contig</th>
+-                </tr>
+-              </thead>
+-              <tbody className="divide-y divide-surface-dark">
+-                {(data.virulence_genes || []).map((g: any, i: number) => (
+-                  <tr key={i}>
+-                    <td className="py-2 font-mono font-semibold" style={{ color: PALETTE.purple1 }}>{g.gene_name}</td>
+-                    <td className="py-2 text-text-muted text-xs">{g.element_type}</td>
+-                    <td className="py-2 text-text-muted text-xs">{g.subclass}</td>
+-                    <td className="py-2 text-text-muted text-xs">{g.contig_id || "N/A"}</td>
++        <CollapsibleSection title="Detected Virulence Factors" count={data.virulence_genes?.length || 0} defaultOpen={false}>
++          {data.virulence_status === 'not_run' ? (
++            <div className="text-gray-400 text-sm p-4 border border-dashed rounded-lg text-center">Virulence not assessed.</div>
++          ) : (!data.virulence_genes || data.virulence_genes.length === 0) ? (
++            <div className="text-gray-400 text-sm p-4 border border-dashed rounded-lg text-center">No virulence factors detected.</div>
++          ) : (
++            <div className="overflow-x-auto">
++              <table className="w-full text-left text-sm">
++                <thead className="text-text-muted text-xs uppercase tracking-wider border-b border-surface-dark">
++                  <tr>
++                    <th className="py-2">Factor</th>
++                    <th className="py-2">Type</th>
++                    <th className="py-2">Subclass</th>
++                    <th className="py-2">Contig</th>
+                   </tr>
+-                ))}
+-              </tbody>
+-            </table>
+-          </div>
++                </thead>
++                <tbody className="divide-y divide-surface-dark">
++                  {data.virulence_genes.map((g: any, i: number) => (
++                    <tr key={i}>
++                      <td className="py-2 font-mono font-semibold" style={{ color: PALETTE.purple1 }}>{g.gene_name}</td>
++                      <td className="py-2 text-text-muted text-xs">{g.element_type || g.virulence_factor}</td>
++                      <td className="py-2 text-text-muted text-xs">{g.subclass || g.virulence_category}</td>
++                      <td className="py-2 text-text-muted text-xs">{g.contig_id || "N/A"}</td>
++                    </tr>
++                  ))}
++                </tbody>
++              </table>
++            </div>
++          )}
+         </CollapsibleSection>
+       </div>
+       
+diff --git a/frontend/src/components/ExportCard.tsx b/frontend/src/components/ExportCard.tsx
+index 1bbcc14..13cde91 100644
+--- a/frontend/src/components/ExportCard.tsx
++++ b/frontend/src/components/ExportCard.tsx
+@@ -1,34 +1,116 @@
+-import React, { useRef } from 'react';
+-import { toPng } from 'html-to-image';
+-import { Download } from 'lucide-react';
++import React, { useRef, useState, useEffect } from 'react';
++import { Download, ChevronDown } from 'lucide-react';
++import { exportChart, exportNodeRaster, type ExportFormat } from '../utils/exportChart';
+ 
+-export const ExportCard = ({ title, filename, children }: { title: string, filename: string, children: React.ReactNode }) => {
++interface ExportCardProps {
++  title: string;
++  filename: string;
++  children: React.ReactNode;
++  subtitle?: string;
++  /**
++   * 'card'    ΓÇö full white card with title + export menu (default).
++   * 'overlay' ΓÇö transparent wrapper with a floating export menu in the
++   *             top-right; use to add export to components that already
++   *             render their own card chrome.
++   */
++  variant?: 'card' | 'overlay';
++}
++
++/**
++ * Wraps a chart/table in a clean white card with a publication export menu.
++ * Charts that render an <svg> get vector SVG + 300 dpi PNG + PDF export; canvas
++ * based charts fall back to rasterised PNG/PDF.
++ */
++export const ExportCard: React.FC<ExportCardProps> = ({ title, filename, children, subtitle, variant = 'card' }) => {
+   const ref = useRef<HTMLDivElement>(null);
++  const [open, setOpen] = useState(false);
++  const [busy, setBusy] = useState(false);
++  const menuRef = useRef<HTMLDivElement>(null);
++
++  useEffect(() => {
++    const onClick = (e: MouseEvent) => {
++      if (menuRef.current && !menuRef.current.contains(e.target as Node)) setOpen(false);
++    };
++    document.addEventListener('mousedown', onClick);
++    return () => document.removeEventListener('mousedown', onClick);
++  }, []);
++
++  const findSvg = (): SVGSVGElement | null =>
++    (ref.current?.querySelector('svg') as SVGSVGElement | null) ?? null;
+ 
+-  const handleDownload = async () => {
++  const handleExport = async (format: ExportFormat) => {
++    setOpen(false);
+     if (!ref.current) return;
++    setBusy(true);
+     try {
+-      const dataUrl = await toPng(ref.current, { backgroundColor: '#0E1E25', pixelRatio: 2 });
+-      const a = document.createElement('a');
+-      a.href = dataUrl;
+-      a.download = filename;
+-      a.click();
++      const svg = findSvg();
++      if (svg) {
++        await exportChart(svg, format, filename);
++      } else if (format !== 'svg') {
++        await exportNodeRaster(ref.current, format, filename);
++      } else {
++        // No SVG present and SVG requested ΓÇö raster PNG as the best available.
++        await exportNodeRaster(ref.current, 'png', filename);
++      }
+     } catch (err) {
+-      console.error('Failed to export image', err);
++      console.error('Chart export failed', err);
++    } finally {
++      setBusy(false);
+     }
+   };
+ 
++  const FORMATS: { key: ExportFormat; label: string; hint: string }[] = [
++    { key: 'svg', label: 'SVG', hint: 'Vector' },
++    { key: 'png', label: 'PNG', hint: '300 dpi' },
++    { key: 'pdf', label: 'PDF', hint: 'Print' },
++  ];
++
++  const exportMenu = (
++    <div className="relative" ref={menuRef}>
++      <button
++        onClick={() => setOpen((v) => !v)}
++        disabled={busy}
++        className="flex items-center gap-1 text-text-muted hover:text-accent-teal transition-colors px-2.5 py-1.5 rounded-lg hover:bg-surface border border-surface-dark text-sm disabled:opacity-50 bg-surface-card"
++        title="Export figure"
++      >
++        <Download size={16} />
++        <span className="font-medium">{busy ? 'ExportingΓÇª' : 'Export'}</span>
++        <ChevronDown size={14} />
++      </button>
++      {open && (
++        <div className="absolute right-0 mt-1 w-36 bg-surface-card border border-surface-dark rounded-lg shadow-lg z-20 overflow-hidden">
++          {FORMATS.map((f) => (
++            <button
++              key={f.key}
++              onClick={() => handleExport(f.key)}
++              className="w-full flex items-center justify-between px-3 py-2 text-sm text-text-primary hover:bg-surface transition-colors"
++            >
++              <span className="font-medium">{f.label}</span>
++              <span className="text-[10px] text-text-muted uppercase tracking-wide">{f.hint}</span>
++            </button>
++          ))}
++        </div>
++      )}
++    </div>
++  );
++
++  if (variant === 'overlay') {
++    return (
++      <div className="relative">
++        <div className="absolute right-3 top-3 z-10">{exportMenu}</div>
++        <div ref={ref}>{children}</div>
++      </div>
++    );
++  }
++
+   return (
+-    <div className="bg-surface-card rounded-2xl p-6 shadow-lg border border-surface-dark transition-all hover:-translate-y-1 relative mb-6">
+-      <div className="flex justify-between items-center mb-6">
+-        <h3 className="text-xl font-bold text-text-primary tracking-tight">{title}</h3>
+-        <button 
+-          onClick={handleDownload}
+-          className="text-text-muted hover:text-accent-teal transition-colors p-2 rounded-full hover:bg-surface-dark"
+-          title="Download as PNG"
+-        >
+-          <Download size={20} />
+-        </button>
++    <div className="relative bg-surface-card rounded-2xl p-6 shadow-sm border border-surface-dark mb-6">
++      <div className="flex justify-between items-start mb-4">
++        <div>
++          <h3 className="text-lg font-bold text-text-primary tracking-tight">{title}</h3>
++          {subtitle && <p className="text-xs text-text-muted mt-0.5">{subtitle}</p>}
++        </div>
++        {exportMenu}
+       </div>
+       <div ref={ref} className="bg-surface-card rounded-xl">
+         {children}
+@@ -36,3 +118,5 @@ export const ExportCard = ({ title, filename, children }: { title: string, filen
+     </div>
+   );
+ };
++
++export default ExportCard;
+diff --git a/frontend/src/hooks/useAmrData.ts b/frontend/src/hooks/useAmrData.ts
+index cfebef8..483ab23 100644
+--- a/frontend/src/hooks/useAmrData.ts
++++ b/frontend/src/hooks/useAmrData.ts
+@@ -1,5 +1,5 @@
+ import { useState, useEffect } from 'react';
+-import { 
++import type { 
+   SampleMetadata, AmrGene, ResistanceMutation, MechanismClassification,
+   PhenotypePrediction, VirulenceGene, ConfidenceScore, AssemblyMetrics,
+   ClustermapPayload, PcaPayload, RarefactionPayload
+@@ -95,10 +95,12 @@ export function usePhenotypePredictions(sampleId?: string) {
+ 
+ export function useVirulenceGenes(sampleId?: string) {
+   if (sampleId) {
+-    const mock = mockVirulenceGenes.filter(v => v.sample_id === sampleId);
+-    return useAmrFetch(`/api/v1/isolates/${sampleId}/virulence`, mock, [sampleId]);
++    const mockGenes = mockVirulenceGenes.filter(v => v.sample_id === sampleId);
++    const mockResp = { status: "not_run", genes: mockGenes };
++    return useAmrFetch(`/api/v1/isolates/${sampleId}/virulence`, mockResp, [sampleId]);
+   }
+-  return useAmrFetch(`/api/v1/isolates/cohort-virulence`, mockVirulenceGenes, [sampleId]);
++  const mockResp = { status: "not_run", genes: mockVirulenceGenes };
++  return useAmrFetch(`/api/v1/isolates/cohort-virulence`, mockResp, [sampleId]);
+ }
+ 
+ export function useConfidenceScores(sampleId?: string) {
+diff --git a/frontend/src/isolate/AmrGeneInventory.tsx b/frontend/src/isolate/AmrGeneInventory.tsx
+index 415ae51..6fcbf9e 100644
+--- a/frontend/src/isolate/AmrGeneInventory.tsx
++++ b/frontend/src/isolate/AmrGeneInventory.tsx
+@@ -3,8 +3,8 @@ import {
+   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, 
+   Tooltip, ResponsiveContainer, Cell, ReferenceArea, ZAxis, BarChart, Bar 
+ } from 'recharts';
+-import { useAmrGenes } from '../../hooks/useAmrData';
+-import { theme } from '../../theme/tokens';
++import { useAmrGenes } from '../hooks/useAmrData';
++import { theme } from '../theme/tokens';
+ 
+ /**
+  * AmrGeneInventory
+diff --git a/frontend/src/isolate/AntibiogramStrip.tsx b/frontend/src/isolate/AntibiogramStrip.tsx
+index 02cea37..bf55bc3 100644
+--- a/frontend/src/isolate/AntibiogramStrip.tsx
++++ b/frontend/src/isolate/AntibiogramStrip.tsx
+@@ -1,7 +1,7 @@
+ import React from 'react';
+-import { PhenotypePrediction } from '../../types/amr';
+-import { usePhenotypePredictions } from '../../hooks/useAmrData';
+-import { theme } from '../../theme/tokens';
++import type {} from '../types/amr';
++import { usePhenotypePredictions } from '../hooks/useAmrData';
++import { theme } from '../theme/tokens';
+ 
+ /**
+  * AntibiogramStrip
+diff --git a/frontend/src/isolate/AssemblyQcPanel.tsx b/frontend/src/isolate/AssemblyQcPanel.tsx
+index ecd7eba..028ce20 100644
+--- a/frontend/src/isolate/AssemblyQcPanel.tsx
++++ b/frontend/src/isolate/AssemblyQcPanel.tsx
+@@ -1,6 +1,6 @@
+ import React from 'react';
+-import { useAssemblyMetrics } from '../../hooks/useAmrData';
+-import { theme } from '../../theme/tokens';
++import { useAssemblyMetrics } from '../hooks/useAmrData';
++import { theme } from '../theme/tokens';
+ 
+ export default function AssemblyQcPanel({ sampleId }: { sampleId: string }) {
+   const { data: metricsArray, loading } = useAssemblyMetrics(sampleId);
+@@ -42,7 +42,7 @@ export default function AssemblyQcPanel({ sampleId }: { sampleId: string }) {
+         <div className="p-3 bg-gray-50 rounded-lg border border-gray-100 flex flex-col justify-center items-center text-center">
+           <div className="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">N50 Length</div>
+           <div className="text-2xl font-bold" style={{ color: n50Color }}>{formatN50(metrics.n50)}</div>
+-          <div className="text-[10px] text-gray-400 mt-1">Expected > 100kbp</div>
++          <div className="text-[10px] text-gray-400 mt-1">Expected &gt; 100kbp</div>
+         </div>
+ 
+         {/* Contig Count Metric */}
+diff --git a/frontend/src/isolate/CircularGenomeViewer.tsx b/frontend/src/isolate/CircularGenomeViewer.tsx
+new file mode 100644
+index 0000000..c3f91d9
+--- /dev/null
++++ b/frontend/src/isolate/CircularGenomeViewer.tsx
+@@ -0,0 +1,161 @@
++import React, { useMemo } from 'react';
++import { useAmrGenes, useVirulenceGenes } from '../hooks/useAmrData';
++
++const AMR_COLOR = '#F4503B';      // status-r
++const VIR_COLOR = '#00AD9F';      // accent-teal
++const CHROM_COLOR = '#94A3B8';    // slate
++const PLASMID_COLOR = '#AF4BCE';  // purple
++const GRID = '#E2E8F0';
++const TEXT = '#0F172A';
++const MUTED = '#64748B';
++
++interface Contig {
++  id: string;
++  length: number;
++  isPlasmid: boolean;
++  startDeg: number;
++  spanDeg: number;
++}
++
++const polar = (cx: number, cy: number, r: number, deg: number) => {
++  const a = ((deg - 90) * Math.PI) / 180;
++  return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
++};
++
++const annularArc = (cx: number, cy: number, r: number, t: number, a0: number, a1: number) => {
++  const ro = r + t / 2;
++  const ri = r - t / 2;
++  const p1 = polar(cx, cy, ro, a0);
++  const p2 = polar(cx, cy, ro, a1);
++  const p3 = polar(cx, cy, ri, a1);
++  const p4 = polar(cx, cy, ri, a0);
++  const large = a1 - a0 > 180 ? 1 : 0;
++  return `M${p1.x},${p1.y} A${ro},${ro} 0 ${large} 1 ${p2.x},${p2.y} L${p3.x},${p3.y} A${ri},${ri} 0 ${large} 0 ${p4.x},${p4.y} Z`;
++};
++
++const isPlasmid = (id: string) => /plasmid|^p[0-9]|_p[_0-9]/i.test(id);
++
++/**
++ * Circular genome viewer for a single isolate. Contigs form the backbone ring
++ * (chromosome vs plasmid coloured), AMR genes are ticks on the outer ring, and
++ * virulence genes on the inner ring. Pure SVG so it exports as vector.
++ */
++export default function CircularGenomeViewer({ sampleId, size = 560 }: { sampleId: string; size?: number }) {
++  const { data: amrGenes, loading: l1 } = useAmrGenes(sampleId);
++  const { data: virGenes, loading: l2 } = useVirulenceGenes(sampleId);
++
++  const model = useMemo(() => {
++    const lengths: Record<string, number> = {};
++    const mark = (g: any) => {
++      const cid = g.contig_id || 'contig_1';
++      const end = Number(g.end ?? g.end_position ?? 0) + 5000;
++      lengths[cid] = Math.max(lengths[cid] || 50000, end);
++    };
++    (amrGenes || []).forEach(mark);
++    (virGenes || []).forEach(mark);
++
++    const ids = Object.keys(lengths);
++    if (ids.length === 0) return null;
++
++    const total = ids.reduce((s, id) => s + lengths[id], 0);
++    const GAP = 3; // degrees between contigs
++    const usable = 360 - GAP * ids.length;
++
++    let cursor = 0;
++    const contigs: Contig[] = ids.map((id) => {
++      const span = (lengths[id] / total) * usable;
++      const c: Contig = { id, length: lengths[id], isPlasmid: isPlasmid(id), startDeg: cursor, spanDeg: span };
++      cursor += span + GAP;
++      return c;
++    });
++    const byId: Record<string, Contig> = Object.fromEntries(contigs.map((c) => [c.id, c]));
++    return { contigs, byId, total };
++  }, [amrGenes, virGenes]);
++
++  if (l1 || l2) return <div className="h-[360px] animate-pulse bg-surface rounded-lg" />;
++  if (!model) return <div className="h-[360px] flex items-center justify-center text-text-muted text-sm">No genomic mapping data.</div>;
++
++  const cx = size / 2;
++  const cy = size / 2;
++  const R = size * 0.34;
++  const BACKBONE_T = size * 0.028;
++
++  const geneAngle = (g: any) => {
++    const c = model.byId[g.contig_id || 'contig_1'];
++    if (!c) return null;
++    const pos = Number(g.start ?? g.start_position ?? 0);
++    return c.startDeg + Math.min(pos / c.length, 1) * c.spanDeg;
++  };
++
++  const tick = (g: any, rInner: number, rOuter: number, color: string, key: string) => {
++    const deg = geneAngle(g);
++    if (deg == null) return null;
++    const a = polar(cx, cy, rInner, deg);
++    const b = polar(cx, cy, rOuter, deg);
++    return <line key={key} x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke={color} strokeWidth={2} strokeLinecap="round" />;
++  };
++
++  return (
++    <div className="w-full flex justify-center">
++      <svg viewBox={`0 0 ${size} ${size}`} width="100%" style={{ maxWidth: size }} role="img" aria-label="Circular genome viewer">
++        {/* faint guide rings */}
++        <circle cx={cx} cy={cy} r={R + size * 0.075} fill="none" stroke={GRID} strokeWidth={1} />
++        <circle cx={cx} cy={cy} r={R - size * 0.075} fill="none" stroke={GRID} strokeWidth={1} />
++
++        {/* contig backbone */}
++        {model.contigs.map((c) => (
++          <path
++            key={c.id}
++            d={annularArc(cx, cy, R, BACKBONE_T, c.startDeg, c.startDeg + c.spanDeg)}
++            fill={c.isPlasmid ? PLASMID_COLOR : CHROM_COLOR}
++            opacity={c.isPlasmid ? 0.85 : 0.5}
++          />
++        ))}
++
++        {/* AMR gene ticks (outer) */}
++        {(amrGenes || []).map((g: any, i: number) =>
++          tick(g, R + BACKBONE_T / 2, R + size * 0.06, AMR_COLOR, `amr-${i}`),
++        )}
++
++        {/* Virulence gene ticks (inner) */}
++        {(virGenes || []).map((g: any, i: number) =>
++          tick(g, R - size * 0.06, R - BACKBONE_T / 2, VIR_COLOR, `vir-${i}`),
++        )}
++
++        {/* contig labels */}
++        {model.contigs.map((c) => {
++          const mid = c.startDeg + c.spanDeg / 2;
++          const p = polar(cx, cy, R + size * 0.11, mid);
++          const anchor = p.x < cx - 4 ? 'end' : p.x > cx + 4 ? 'start' : 'middle';
++          return (
++            <text key={`lbl-${c.id}`} x={p.x} y={p.y} fontSize={size * 0.018} fill={MUTED}
++                  textAnchor={anchor} dominantBaseline="middle" fontFamily="monospace">
++              {c.id}
++            </text>
++          );
++        })}
++
++        {/* centre summary */}
++        <text x={cx} y={cy - 8} textAnchor="middle" fontSize={size * 0.05} fontWeight={700} fill={TEXT}>
++          {(model.total / 1_000_000).toFixed(2)} Mb
++        </text>
++        <text x={cx} y={cy + 14} textAnchor="middle" fontSize={size * 0.022} fill={MUTED}>
++          {model.contigs.length} contig{model.contigs.length > 1 ? 's' : ''}
++        </text>
++
++        {/* legend */}
++        {[
++          { c: AMR_COLOR, t: 'AMR gene' },
++          { c: VIR_COLOR, t: 'Virulence' },
++          { c: PLASMID_COLOR, t: 'Plasmid' },
++          { c: CHROM_COLOR, t: 'Chromosome' },
++        ].map((item, i) => (
++          <g key={item.t} transform={`translate(${size * 0.04}, ${size - size * 0.10 + i * size * 0.026})`}>
++            <rect width={size * 0.02} height={size * 0.02} rx={2} fill={item.c} />
++            <text x={size * 0.028} y={size * 0.017} fontSize={size * 0.02} fill={MUTED}>{item.t}</text>
++          </g>
++        ))}
++      </svg>
++    </div>
++  );
++}
+diff --git a/frontend/src/isolate/ConfidencePanel.tsx b/frontend/src/isolate/ConfidencePanel.tsx
+index 2763622..9ce409e 100644
+--- a/frontend/src/isolate/ConfidencePanel.tsx
++++ b/frontend/src/isolate/ConfidencePanel.tsx
+@@ -3,8 +3,8 @@ import {
+   Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, 
+   ResponsiveContainer, Tooltip 
+ } from 'recharts';
+-import { useConfidenceScores } from '../../hooks/useAmrData';
+-import { theme } from '../../theme/tokens';
++import { useConfidenceScores } from '../hooks/useAmrData';
++import { theme } from '../theme/tokens';
+ 
+ export default function ConfidencePanel({ sampleId }: { sampleId: string }) {
+   const { data: scores, loading } = useConfidenceScores(sampleId);
+diff --git a/frontend/src/isolate/DrugClassCoverageMatrix.tsx b/frontend/src/isolate/DrugClassCoverageMatrix.tsx
+index d91d8ef..b130e56 100644
+--- a/frontend/src/isolate/DrugClassCoverageMatrix.tsx
++++ b/frontend/src/isolate/DrugClassCoverageMatrix.tsx
+@@ -1,6 +1,6 @@
+ import React, { useMemo } from 'react';
+-import { useAmrGenes, useMechanismClassifications } from '../../hooks/useAmrData';
+-import { theme } from '../../theme/tokens';
++import { useAmrGenes, useMechanismClassifications } from '../hooks/useAmrData';
++import { theme } from '../theme/tokens';
+ 
+ export default function DrugClassCoverageMatrix({ sampleId }: { sampleId: string }) {
+   const { data: genes, loading: genesLoading } = useAmrGenes(sampleId);
+diff --git a/frontend/src/isolate/GenomicContextMap.tsx b/frontend/src/isolate/GenomicContextMap.tsx
+index 831bdaf..5edd275 100644
+--- a/frontend/src/isolate/GenomicContextMap.tsx
++++ b/frontend/src/isolate/GenomicContextMap.tsx
+@@ -1,8 +1,8 @@
+ import React, { useMemo } from 'react';
+ import { scaleLinear } from '@visx/scale';
+ import { Group } from '@visx/group';
+-import { useAmrGenes, useVirulenceGenes } from '../../hooks/useAmrData';
+-import { theme } from '../../theme/tokens';
++import { useAmrGenes, useVirulenceGenes } from '../hooks/useAmrData';
++import { theme } from '../theme/tokens';
+ 
+ export default function GenomicContextMap({ sampleId, width = 800, height = 300 }: { sampleId: string, width?: number, height?: number }) {
+   const { data: amrGenes, loading: amrLoad } = useAmrGenes(sampleId);
+diff --git a/frontend/src/isolate/IdentityCoverageScatter.tsx b/frontend/src/isolate/IdentityCoverageScatter.tsx
+new file mode 100644
+index 0000000..5a6de31
+--- /dev/null
++++ b/frontend/src/isolate/IdentityCoverageScatter.tsx
+@@ -0,0 +1,82 @@
++import React, { useMemo } from 'react';
++import {
++  ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip,
++  ResponsiveContainer, Cell, ReferenceLine, Legend,
++} from 'recharts';
++import { useAmrGenes } from '../hooks/useAmrData';
++import { CATEGORICAL } from '../utils/palette';
++
++/**
++ * Identity vs Coverage scatter for a single isolate ΓÇö visualises AMR gene-call
++ * confidence. Points are coloured by drug class and sized by confidence; the
++ * dashed guides mark the 95% identity / 80% coverage quality thresholds.
++ */
++export default function IdentityCoverageScatter({ sampleId }: { sampleId: string }) {
++  const { data: genes, loading, error } = useAmrGenes(sampleId);
++
++  const { points, classes } = useMemo(() => {
++    const pts = (genes || []).map((g: any) => ({
++      gene: g.gene_name,
++      drugClass: g.drug_class || 'Unknown',
++      identity: Number(g.identity_pct ?? g.identity_percent ?? 0),
++      coverage: Number(g.coverage_pct ?? g.coverage_percent ?? 0),
++      // size weight from confidence (accepts 0-1 or 0-100 scales)
++      z: 60 + 240 * normaliseConfidence(g.confidence_score),
++    }));
++    const cls = Array.from(new Set(pts.map((p) => p.drugClass)));
++    return { points: pts, classes: cls };
++  }, [genes]);
++
++  if (loading) return <div className="h-80 animate-pulse bg-surface rounded-lg" />;
++  if (error) return <div className="h-80 flex items-center justify-center text-status-r text-sm">Failed to load gene data.</div>;
++  if (points.length === 0) return <div className="h-80 flex items-center justify-center text-text-muted text-sm">No AMR genes detected.</div>;
++
++  return (
++    <div className="h-80">
++      <ResponsiveContainer width="100%" height="100%">
++        <ScatterChart margin={{ top: 16, right: 24, bottom: 24, left: 8 }}>
++          <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
++          <XAxis
++            type="number" dataKey="coverage" name="Coverage" unit="%"
++            domain={[Math.min(60, ...points.map((p) => p.coverage)), 100]}
++            stroke="#64748B" fontSize={12}
++            label={{ value: 'Coverage (%)', position: 'insideBottom', offset: -12, fill: '#64748B', fontSize: 12 }}
++          />
++          <YAxis
++            type="number" dataKey="identity" name="Identity" unit="%"
++            domain={[Math.min(60, ...points.map((p) => p.identity)), 100]}
++            stroke="#64748B" fontSize={12}
++            label={{ value: 'Identity (%)', angle: -90, position: 'insideLeft', fill: '#64748B', fontSize: 12 }}
++          />
++          <ZAxis type="number" dataKey="z" range={[60, 300]} />
++          <ReferenceLine y={95} stroke="#F5A623" strokeDasharray="4 4" />
++          <ReferenceLine x={80} stroke="#F5A623" strokeDasharray="4 4" />
++          <Tooltip
++            cursor={{ strokeDasharray: '3 3' }}
++            contentStyle={{ backgroundColor: '#FFFFFF', borderColor: '#E2E8F0', color: '#0F172A', fontSize: 12, borderRadius: 8 }}
++            formatter={(value: any, name: any) => [`${value}`, name]}
++            labelFormatter={() => ''}
++          />
++          <Scatter name="AMR genes" data={points}>
++            {points.map((p, i) => (
++              <Cell key={i} fill={CATEGORICAL[classes.indexOf(p.drugClass) % CATEGORICAL.length]} fillOpacity={0.8} />
++            ))}
++          </Scatter>
++          <Legend
++            payload={classes.slice(0, 10).map((c, i) => ({
++              value: c, type: 'circle', id: c,
++              color: CATEGORICAL[i % CATEGORICAL.length],
++            }))}
++            wrapperStyle={{ fontSize: 11 }}
++          />
++        </ScatterChart>
++      </ResponsiveContainer>
++    </div>
++  );
++}
++
++function normaliseConfidence(value: any): number {
++  const n = Number(value ?? 0);
++  if (!isFinite(n)) return 0.5;
++  return n > 1 ? Math.min(n / 100, 1) : Math.min(Math.max(n, 0), 1);
++}
+diff --git a/frontend/src/isolate/MechanismBreakdown.tsx b/frontend/src/isolate/MechanismBreakdown.tsx
+index 4ecdfc0..fd9d1b9 100644
+--- a/frontend/src/isolate/MechanismBreakdown.tsx
++++ b/frontend/src/isolate/MechanismBreakdown.tsx
+@@ -3,8 +3,8 @@ import {
+   PieChart, Pie, Cell, Tooltip, ResponsiveContainer, 
+   BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend
+ } from 'recharts';
+-import { useMechanismClassifications } from '../../hooks/useAmrData';
+-import { theme } from '../../theme/tokens';
++import { useMechanismClassifications } from '../hooks/useAmrData';
++import { theme } from '../theme/tokens';
+ 
+ export default function MechanismBreakdown() {
+   const { data: mechanisms, loading } = useMechanismClassifications();
+diff --git a/frontend/src/isolate/MutationLollipop.tsx b/frontend/src/isolate/MutationLollipop.tsx
+index 5bbee0e..74a06a5 100644
+--- a/frontend/src/isolate/MutationLollipop.tsx
++++ b/frontend/src/isolate/MutationLollipop.tsx
+@@ -3,8 +3,8 @@ import { scaleLinear, scaleBand } from '@visx/scale';
+ import { Group } from '@visx/group';
+ import { Line, Circle } from '@visx/shape';
+ import { AxisBottom } from '@visx/axis';
+-import { useResistanceMutations } from '../../hooks/useAmrData';
+-import { theme } from '../../theme/tokens';
++import { useResistanceMutations } from '../hooks/useAmrData';
++import { theme } from '../theme/tokens';
+ 
+ export default function MutationLollipop({ sampleId, width = 600, height = 300 }: { sampleId: string, width?: number, height?: number }) {
+   const { data: mutations, loading } = useResistanceMutations(sampleId);
+diff --git a/frontend/src/isolate/VirulenceProfile.tsx b/frontend/src/isolate/VirulenceProfile.tsx
+index 9b23386..4691867 100644
+--- a/frontend/src/isolate/VirulenceProfile.tsx
++++ b/frontend/src/isolate/VirulenceProfile.tsx
+@@ -2,27 +2,34 @@ import React, { useMemo } from 'react';
+ import { 
+   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
+ } from 'recharts';
+-import { useVirulenceGenes } from '../../hooks/useAmrData';
+-import { theme } from '../../theme/tokens';
++import { useVirulenceGenes } from '../hooks/useAmrData';
++import { theme } from '../theme/tokens';
+ 
+ export default function VirulenceProfile({ sampleId }: { sampleId: string }) {
+-  const { data: genes, loading } = useVirulenceGenes(sampleId);
++  const { data: virData, loading } = useVirulenceGenes(sampleId);
+ 
+   const chartData = useMemo(() => {
+-    if (!genes || genes.length === 0) return [];
++    if (!virData || !virData.genes || virData.genes.length === 0) return [];
+     
+-    const counts = genes.reduce((acc, curr) => {
+-      acc[curr.function_category] = (acc[curr.function_category] || 0) + 1;
++    const counts = virData.genes.reduce((acc: any, curr: any) => {
++      const cat = curr.virulence_category || curr.function_category || 'Unknown';
++      acc[cat] = (acc[cat] || 0) + 1;
+       return acc;
+     }, {} as Record<string, number>);
+ 
+     return Object.entries(counts)
+-      .map(([category, count]) => ({ category, count }))
++      .map(([category, count]) => ({ category, count: count as number }))
+       .sort((a, b) => b.count - a.count);
+-  }, [genes]);
++  }, [virData]);
+ 
+   if (loading) return <div className="animate-pulse h-64 bg-gray-100 rounded-lg w-full"></div>;
+-  if (!genes || genes.length === 0) return <div className="text-gray-400 text-sm p-4 border border-dashed rounded-lg">No virulence factors detected.</div>;
++  
++  if (!virData || virData.status === 'not_run') {
++    return <div className="text-gray-400 text-sm p-4 border border-dashed rounded-lg">Virulence not assessed.</div>;
++  }
++  if (!virData.genes || virData.genes.length === 0) {
++    return <div className="text-gray-400 text-sm p-4 border border-dashed rounded-lg">No virulence factors detected.</div>;
++  }
+ 
+   return (
+     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 h-full flex flex-col">
+diff --git a/frontend/src/mockData.ts b/frontend/src/mockData.ts
+index ad7becc..f1962e1 100644
+--- a/frontend/src/mockData.ts
++++ b/frontend/src/mockData.ts
+@@ -1,4 +1,4 @@
+-import { 
++import type { 
+   AmrGene, ResistanceMutation, MechanismClassification, 
+   PhenotypePrediction, VirulenceGene, ConfidenceScore, 
+   AssemblyMetrics, SampleMetadata, ClustermapPayload, 
+diff --git a/frontend/src/routes.jsx b/frontend/src/routes.jsx
+index 2a5fba3..bcd3e96 100644
+--- a/frontend/src/routes.jsx
++++ b/frontend/src/routes.jsx
+@@ -15,15 +15,15 @@
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ 
+ */
+-import TBioDashboard from "./TBioDashboard";
++import DashboardRouter from "./DashboardRouter";
+ import App from "./App";
+ 
+ const dashboardRoutes = [
+   {
+     path: "/dashboard",
+-    name: "Cohort Dashboard",
++    name: "Results Dashboard",
+     icon: "nc-icon nc-chart-pie-35",
+-    component: TBioDashboard,
++    component: DashboardRouter,
+     layout: "/admin"
+   },
+   {
+diff --git a/frontend/src/utils/exportChart.ts b/frontend/src/utils/exportChart.ts
+new file mode 100644
+index 0000000..7ba6395
+--- /dev/null
++++ b/frontend/src/utils/exportChart.ts
+@@ -0,0 +1,170 @@
++/**
++ * Publication-quality chart export utilities.
++ *
++ * Every chart in the platform renders as an SVG; these helpers let researchers
++ * download any chart as:
++ *   - SVG  (vector, native ΓÇö best for figure editors)
++ *   - PNG  (rasterised at 300 dpi for direct manuscript embedding)
++ *   - PDF  (300 dpi PNG embedded in a page sized to the chart)
++ *
++ * For canvas-based charts (Plotly / force-graph) that have no <svg>, callers
++ * fall back to html-to-image (see ExportCard).
++ */
++
++import { jsPDF } from 'jspdf';
++
++const CSS_DPI = 96; // 1 CSS px === 1/96 inch
++const EXPORT_BG = '#FFFFFF';
++
++export type ExportFormat = 'svg' | 'png' | 'pdf';
++
++function triggerDownload(url: string, filename: string): void {
++  const a = document.createElement('a');
++  a.href = url;
++  a.download = filename;
++  document.body.appendChild(a);
++  a.click();
++  document.body.removeChild(a);
++}
++
++function getSvgSize(svg: SVGSVGElement): { width: number; height: number } {
++  // Prefer the viewBox, then explicit attrs, then layout box.
++  const vb = svg.viewBox?.baseVal;
++  if (vb && vb.width && vb.height) {
++    return { width: vb.width, height: vb.height };
++  }
++  const rect = svg.getBoundingClientRect();
++  const w = parseFloat(svg.getAttribute('width') || '') || rect.width || 800;
++  const h = parseFloat(svg.getAttribute('height') || '') || rect.height || 600;
++  return { width: w, height: h };
++}
++
++function serializeSvg(svg: SVGSVGElement): string {
++  const clone = svg.cloneNode(true) as SVGSVGElement;
++  clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
++  clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
++
++  const { width, height } = getSvgSize(svg);
++  if (!clone.getAttribute('width')) clone.setAttribute('width', String(width));
++  if (!clone.getAttribute('height')) clone.setAttribute('height', String(height));
++
++  // Opaque white background so exported figures are not transparent.
++  const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
++  bg.setAttribute('x', '0');
++  bg.setAttribute('y', '0');
++  bg.setAttribute('width', '100%');
++  bg.setAttribute('height', '100%');
++  bg.setAttribute('fill', EXPORT_BG);
++  clone.insertBefore(bg, clone.firstChild);
++
++  return new XMLSerializer().serializeToString(clone);
++}
++
++export function exportSvg(svg: SVGSVGElement, filename: string): void {
++  const blob = new Blob([serializeSvg(svg)], { type: 'image/svg+xml;charset=utf-8' });
++  const url = URL.createObjectURL(blob);
++  triggerDownload(url, ensureExt(filename, 'svg'));
++  URL.revokeObjectURL(url);
++}
++
++async function svgToCanvas(svg: SVGSVGElement, scale: number): Promise<HTMLCanvasElement> {
++  const data = serializeSvg(svg);
++  const { width, height } = getSvgSize(svg);
++  const blob = new Blob([data], { type: 'image/svg+xml;charset=utf-8' });
++  const url = URL.createObjectURL(blob);
++
++  try {
++    const img = new Image();
++    img.width = width;
++    img.height = height;
++    await new Promise<void>((resolve, reject) => {
++      img.onload = () => resolve();
++      img.onerror = () => reject(new Error('Failed to load SVG for rasterisation'));
++      img.src = url;
++    });
++
++    const canvas = document.createElement('canvas');
++    canvas.width = Math.round(width * scale);
++    canvas.height = Math.round(height * scale);
++    const ctx = canvas.getContext('2d');
++    if (!ctx) throw new Error('Canvas 2D context unavailable');
++    ctx.fillStyle = EXPORT_BG;
++    ctx.fillRect(0, 0, canvas.width, canvas.height);
++    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
++    return canvas;
++  } finally {
++    URL.revokeObjectURL(url);
++  }
++}
++
++export async function exportPng(svg: SVGSVGElement, filename: string, dpi = 300): Promise<void> {
++  const canvas = await svgToCanvas(svg, dpi / CSS_DPI);
++  await new Promise<void>((resolve) => {
++    canvas.toBlob((blob) => {
++      if (blob) {
++        const url = URL.createObjectURL(blob);
++        triggerDownload(url, ensureExt(filename, 'png'));
++        URL.revokeObjectURL(url);
++      }
++      resolve();
++    }, 'image/png');
++  });
++}
++
++export async function exportPdf(svg: SVGSVGElement, filename: string, dpi = 300): Promise<void> {
++  const { width, height } = getSvgSize(svg);
++  const canvas = await svgToCanvas(svg, dpi / CSS_DPI);
++  const imgData = canvas.toDataURL('image/png');
++  const pdf = new jsPDF({
++    orientation: width >= height ? 'landscape' : 'portrait',
++    unit: 'pt',
++    format: [width, height],
++  });
++  pdf.addImage(imgData, 'PNG', 0, 0, width, height);
++  pdf.save(ensureExt(filename, 'pdf'));
++}
++
++/** Export a chart's <svg> in the requested format. */
++export async function exportChart(
++  svg: SVGSVGElement,
++  format: ExportFormat,
++  filename: string,
++  dpi = 300,
++): Promise<void> {
++  if (format === 'svg') return exportSvg(svg, filename);
++  if (format === 'png') return exportPng(svg, filename, dpi);
++  return exportPdf(svg, filename, dpi);
++}
++
++/**
++ * Fallback for non-SVG (canvas/WebGL) charts: rasterise a DOM node.
++ * Uses html-to-image lazily so it is only loaded when needed.
++ */
++export async function exportNodeRaster(
++  node: HTMLElement,
++  format: Exclude<ExportFormat, 'svg'>,
++  filename: string,
++  dpi = 300,
++): Promise<void> {
++  const { toPng } = await import('html-to-image');
++  const pixelRatio = dpi / CSS_DPI;
++  const dataUrl = await toPng(node, { backgroundColor: EXPORT_BG, pixelRatio });
++
++  if (format === 'png') {
++    triggerDownload(dataUrl, ensureExt(filename, 'png'));
++    return;
++  }
++  const rect = node.getBoundingClientRect();
++  const pdf = new jsPDF({
++    orientation: rect.width >= rect.height ? 'landscape' : 'portrait',
++    unit: 'pt',
++    format: [rect.width, rect.height],
++  });
++  pdf.addImage(dataUrl, 'PNG', 0, 0, rect.width, rect.height);
++  pdf.save(ensureExt(filename, 'pdf'));
++}
++
++function ensureExt(filename: string, ext: string): string {
++  const base = filename.replace(/\.(svg|png|pdf)$/i, '');
++  return `${base}.${ext}`;
++}
+diff --git a/frontend/src/utils/palette.ts b/frontend/src/utils/palette.ts
+index 0937c9e..0151f94 100644
+--- a/frontend/src/utils/palette.ts
++++ b/frontend/src/utils/palette.ts
+@@ -1,3 +1,8 @@
++/**
++ * Shared colour palette ΓÇö light / clinical theme.
++ * Aligns with tailwind.config.js tokens (status-r/i/s, accent-teal).
++ */
++
+ export const PALETTE = {
+   blue1: '#19AADE',
+   blue2: '#1AC9E6',
+@@ -12,25 +17,54 @@ export const PALETTE = {
+   orange2: '#EF7E32',
+   orange3: '#EE9A3A',
+   yellow1: '#EABD3B',
+-  yellow2: '#E7E34E'
++  yellow2: '#E7E34E',
++};
++
++/** Colour-blind-safe categorical palette (IBM Carbon) for drug classes etc. */
++export const CATEGORICAL = [
++  '#6929c4', '#1192e8', '#005d5d', '#9f1853', '#fa4d56',
++  '#198038', '#002d9c', '#ee5396', '#b28600', '#009d9a',
++  '#8a3800', '#a56eff', '#012749', '#570408',
++];
++
++export const ACCENT_TEAL = '#00AD9F';
++
++/** Fixed S/I/R fill colours (match tailwind status-r/i/s tokens). */
++export const STATUS_HEX: Record<string, string> = {
++  R: '#F4503B',
++  I: '#F5A623',
++  S: '#2BC48A',
++  NONE: '#6B7C85',
+ };
+ 
+-export const getColorForClass = (drugClass: string) => {
++export const sirFill = (sir?: string | null): string =>
++  STATUS_HEX[String(sir || '').toUpperCase()] ?? STATUS_HEX.NONE;
++
++export const getColorForClass = (drugClass: string): string => {
+   const mapping: Record<string, string> = {
+-    'Carbapenem': PALETTE.purple1,
+-    'Polymyxin': PALETTE.pink3,
+-    'Aminoglycoside': PALETTE.blue2,
+-    'Fluoroquinolone': PALETTE.orange2,
+-    'Tetracycline': PALETTE.yellow1,
+-    'Sulfonamide': PALETTE.teal1,
+-    'Rifamycin': PALETTE.pink2,
++    Carbapenem: PALETTE.purple1,
++    Polymyxin: PALETTE.pink3,
++    Aminoglycoside: PALETTE.blue2,
++    Fluoroquinolone: PALETTE.orange2,
++    Tetracycline: PALETTE.yellow1,
++    Sulfonamide: PALETTE.teal1,
++    Rifamycin: PALETTE.pink2,
+   };
+   return mapping[drugClass] || PALETTE.blue1;
+ };
+ 
++/** Deterministic categorical colour for an arbitrary label. */
++export const colorForLabel = (label: string, index?: number): string => {
++  if (typeof index === 'number') return CATEGORICAL[index % CATEGORICAL.length];
++  let hash = 0;
++  for (let i = 0; i < label.length; i++) hash = (hash * 31 + label.charCodeAt(i)) | 0;
++  return CATEGORICAL[Math.abs(hash) % CATEGORICAL.length];
++};
++
++/** Light-theme S/I/R tailwind utility classes for badges/cells. */
+ export const getStatusColors = (sir: string) => {
+-  if (sir === "R") return { bg: "bg-red-900/20", text: "text-red-400", border: "border-red-900/50", fill: "#F87171" };
+-  if (sir === "I") return { bg: "bg-yellow-900/20", text: "text-yellow-400", border: "border-yellow-900/50", fill: "#FACC15" };
+-  if (sir === "S") return { bg: "bg-green-900/20", text: "text-green-400", border: "border-green-900/50", fill: "#4ADE80" };
+-  return { bg: "bg-surface-card", text: "text-text-muted", border: "border-surface-dark", fill: "#94A3B8" };
++  if (sir === 'R') return { bg: 'bg-status-r/10', text: 'text-status-r', border: 'border-status-r/30', fill: STATUS_HEX.R };
++  if (sir === 'I') return { bg: 'bg-status-i/10', text: 'text-status-i', border: 'border-status-i/30', fill: STATUS_HEX.I };
++  if (sir === 'S') return { bg: 'bg-status-s/10', text: 'text-status-s', border: 'border-status-s/30', fill: STATUS_HEX.S };
++  return { bg: 'bg-surface', text: 'text-text-muted', border: 'border-surface-dark', fill: STATUS_HEX.NONE };
+ };

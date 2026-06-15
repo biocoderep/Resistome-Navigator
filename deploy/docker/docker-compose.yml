@@ -104,6 +104,23 @@ services:
     volumes:
       - ../../:/app
 
+  db_backup:
+    image: postgres:16
+    container_name: amr_db_backup
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      POSTGRES_DB: amrdb
+      POSTGRES_USER: amruser
+      POSTGRES_PASSWORD: amrpass
+      PGHOST: postgres
+    volumes:
+      - ../database:/scripts
+      - ../../backups:/backups
+    command: bash /scripts/scheduler.sh
+
 volumes:
   postgres_data:
   redis_data:

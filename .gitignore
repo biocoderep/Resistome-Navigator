@@ -35,3 +35,8 @@ data/uploads/*data/databases/
 *.LIB
 data/databases/
 *.LIB
+
+# Database Backups
+backups/
+deploy/database/*.dump
+
