@@ -6,23 +6,31 @@ import { useVirulenceGenes } from '../../hooks/useAmrData';
 import { theme } from '../../theme/tokens';
 
 export default function VirulenceProfile({ sampleId }: { sampleId: string }) {
-  const { data: genes, loading } = useVirulenceGenes(sampleId);
+  const { data: virData, loading } = useVirulenceGenes(sampleId);
 
   const chartData = useMemo(() => {
-    if (!genes || genes.length === 0) return [];
+    if (!virData || !virData.genes || virData.genes.length === 0) return [];
     
-    const counts = genes.reduce((acc, curr) => {
-      acc[curr.function_category] = (acc[curr.function_category] || 0) + 1;
+    const counts = virData.genes.reduce((acc: any, curr: any) => {
+      // Use category display or fallback
+      const cat = curr.virulence_category || curr.function_category || 'Unknown';
+      acc[cat] = (acc[cat] || 0) + 1;
       return acc;
     }, {} as Record<string, number>);
 
     return Object.entries(counts)
-      .map(([category, count]) => ({ category, count }))
+      .map(([category, count]) => ({ category, count: count as number }))
       .sort((a, b) => b.count - a.count);
-  }, [genes]);
+  }, [virData]);
 
   if (loading) return <div className="animate-pulse h-64 bg-gray-100 rounded-lg w-full"></div>;
-  if (!genes || genes.length === 0) return <div className="text-gray-400 text-sm p-4 border border-dashed rounded-lg">No virulence factors detected.</div>;
+  
+  if (!virData || virData.status === 'not_run') {
+    return <div className="text-gray-400 text-sm p-4 border border-dashed rounded-lg">Virulence not assessed.</div>;
+  }
+  if (!virData.genes || virData.genes.length === 0) {
+    return <div className="text-gray-400 text-sm p-4 border border-dashed rounded-lg">No virulence factors detected.</div>;
+  }
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 h-full flex flex-col">
