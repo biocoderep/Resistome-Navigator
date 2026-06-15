@@ -27,10 +27,7 @@ from backend.mutation_engine.mechanism_classification_engine import (
     MechanismClassificationEngine,
     _normalise_drug_class,
 )
-from backend.virulence_engine.virulence_classifier import VirulenceClassifier
-from backend.virulence_engine.adapters.vfdb_adapter import VFDBAdapter
-from backend.virulence_engine.pathogenicity_profile import compute_pathogenicity_profile
-from backend.virulence_engine.result_models import VirulenceFactor
+from backend.virulence_engine.engine import VirulenceDetectionEngine
 from backend.phenotype_engine.rule_repository import RuleRepository
 from backend.phenotype_engine.inference.phenotype_inference import (
     PhenotypeInferenceEngine,
@@ -223,88 +220,51 @@ def _genes_from_amr_report(
 
 
 def _run_virulence(
-    sample_id: str, assembly_path: str, genome_quality: str
+    sample_id: str, analysis_results_dir: Path, genome_quality: str
 ):
-    """Return (virulence_records, pathogenicity_summary, confidence_records)."""
+    """Return (virulence_status, virulence_records, pathogenicity_summary, confidence_records)."""
+    engine = VirulenceDetectionEngine()
+    result = engine.run(sample_id, analysis_results_dir, genome_quality=genome_quality)
+
     records: List[VirulenceGeneRecord] = []
     confidence_records: List[ConfidenceScoreRecord] = []
 
-    if not (_VIR_ONTOLOGY.exists() and _VIR_GENE_MAP.exists()):
-        logger.warning("Virulence ontology/gene-map missing; skipping virulence.")
-        return records, PathogenicitySummary(), confidence_records
-
-    classifier = VirulenceClassifier(_VIR_ONTOLOGY, _VIR_GENE_MAP)
-    adapter = VFDBAdapter(db_version_id="VFDB_2024")
-    hits = adapter.run(Path(assembly_path))
-
-    factors: List[VirulenceFactor] = []
-    for idx, hit in enumerate(hits):
-        cat = classifier.classify(hit)
-        conf = score_finding(
-            target_name=hit.gene_name,
-            context="virulence",
-            identity_pct=hit.identity_pct,
-            coverage_pct=hit.coverage_pct,
-            bit_score=hit.bit_score,
-            e_value=hit.e_value,
-            supporting_tools=[hit.tool],
-            evidence_types=["computational"],
-            genome_quality=genome_quality,
-        )
-        factors.append(
-            VirulenceFactor(
-                vf_id=f"vf_{sample_id}_{idx}",
-                sample_id=sample_id,
-                gene_name=hit.gene_name,
-                category_code=cat["category_code"],
-                category_display=cat["category_display"],
-                function_description=hit.vf_function,
-                detection_tool=hit.tool,
-                db_version_id=hit.db_version_id,
-                identity_pct=hit.identity_pct,
-                coverage_pct=hit.coverage_pct,
-                bit_score=hit.bit_score,
-                e_value=hit.e_value,
-                contig_id=hit.contig_id,
-                start=hit.start,
-                end=hit.end,
-                strand=hit.strand,
-                is_high_risk=cat["is_high_risk"],
-                risk_weight=cat["risk_weight"],
-                confidence=conf,
-            )
-        )
+    for hit in result.virulence_genes:
         records.append(
             VirulenceGeneRecord(
                 gene_name=hit.gene_name,
-                virulence_factor=hit.vf_function,
-                virulence_category=cat["category_display"],
-                mechanism=cat["category_code"],
+                virulence_factor=hit.function_description,
+                virulence_category=hit.category_display,
+                mechanism=hit.category_code,
                 identity_percent=hit.identity_pct,
                 coverage_percent=hit.coverage_pct,
                 contig_id=hit.contig_id,
                 start_position=hit.start,
                 end_position=hit.end,
-                is_high_risk=cat["is_high_risk"],
-                risk_weight=cat["risk_weight"],
-                database_source=hit.tool,
-                confidence_score=conf["overall_score"],
+                is_high_risk=hit.is_high_risk,
+                risk_weight=hit.risk_weight,
+                database_source=hit.detection_tool,
+                confidence_score=hit.confidence["overall_score"] if hit.confidence else 0.0,
             )
         )
-        confidence_records.append(ConfidenceScoreRecord(**conf))
+        if hit.confidence:
+            confidence_records.append(ConfidenceScoreRecord(**hit.confidence))
 
-    profile = compute_pathogenicity_profile(sample_id, factors)
-    summary = PathogenicitySummary(
-        total_vf_genes=profile.total_vf_genes,
-        category_diversity=profile.category_diversity,
-        high_risk_count=profile.high_risk_count,
-        high_risk_genes=profile.high_risk_genes,
-        categories_detected=profile.categories_detected,
-        category_summary=profile.category_summary,
-        risk_score=profile.risk_score,
-        risk_class=profile.risk_class,
-    )
-    return records, summary, confidence_records
+    summary = PathogenicitySummary()
+    if result.pathogenicity_profile:
+        p = result.pathogenicity_profile
+        summary = PathogenicitySummary(
+            total_vf_genes=p.total_vf_genes,
+            category_diversity=p.category_diversity,
+            high_risk_count=p.high_risk_count,
+            high_risk_genes=p.high_risk_genes,
+            categories_detected=p.categories_detected,
+            category_summary=p.category_summary,
+            risk_score=p.risk_score,
+            risk_class=p.risk_class,
+        )
+
+    return result.status, records, summary, confidence_records
 
 
 # --------------------------------------------------------------------------- #
@@ -387,10 +347,12 @@ def run_isolate_analysis(
     amr_report: Dict[str, Any],
     config: Optional[Dict[str, Any]] = None,
     job_id: Optional[str] = None,
+    analysis_results_dir: Optional[Path] = None,
 ) -> Dict[str, Any]:
     """Run all post-AMR engines for one isolate and return the report dict."""
     config = config or {}
     job_id = job_id or sample_id
+    analysis_results_dir = analysis_results_dir or Path(".")
     genome_quality = _map_genome_quality(validation_report)
     errors: List[str] = []
     confidence_records: List[ConfidenceScoreRecord] = []
@@ -548,14 +510,14 @@ def run_isolate_analysis(
 
     # 4. Virulence
     try:
-        virulence_records, pathogenicity, vir_conf = _run_virulence(
-            sample_id, assembly_path, genome_quality
+        vir_status, virulence_records, pathogenicity, vir_conf = _run_virulence(
+            sample_id, analysis_results_dir, genome_quality
         )
         confidence_records.extend(vir_conf)
     except Exception as exc:  # noqa: BLE001
         logger.exception("Virulence profiling failed: %s", exc)
         errors.append(f"virulence: {exc}")
-        virulence_records, pathogenicity = [], PathogenicitySummary()
+        vir_status, virulence_records, pathogenicity = "not_run", [], PathogenicitySummary()
 
     # 5. Phenotype
     try:
@@ -603,6 +565,7 @@ def run_isolate_analysis(
         generated_at=datetime.now(timezone.utc).isoformat(),
         genome_quality=genome_quality,
         validation_status=validation_report.get("validation_status"),
+        virulence_status=vir_status,
         amr_genes=amr_records,
         virulence_genes=virulence_records,
         mutations=mutation_records,
@@ -641,6 +604,7 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     logging.basicConfig(level=logging.INFO)
 
+    analysis_results_dir = Path(args.amr).parent if args.amr else Path(".")
     report = run_isolate_analysis(
         sample_id=args.sample_id,
         assembly_path=args.assembly,
@@ -649,6 +613,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         amr_report=_load_json(args.amr),
         config={"reference_fasta": args.reference_fasta},
         job_id=args.job_id,
+        analysis_results_dir=analysis_results_dir
     )
 
     Path(args.output).write_text(json.dumps(report, indent=2, default=str), encoding="utf-8")

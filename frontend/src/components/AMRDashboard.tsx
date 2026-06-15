@@ -216,29 +216,35 @@ export default function AMRDashboard({ data }: { data: any }) {
           </div>
         </CollapsibleSection>
         
-        <CollapsibleSection title="Detected Virulence Factors" count={data.virulence_genes?.length} defaultOpen={false}>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
-              <thead className="text-text-muted text-xs uppercase tracking-wider border-b border-surface-dark">
-                <tr>
-                  <th className="py-2">Factor</th>
-                  <th className="py-2">Type</th>
-                  <th className="py-2">Subclass</th>
-                  <th className="py-2">Contig</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-surface-dark">
-                {(data.virulence_genes || []).map((g: any, i: number) => (
-                  <tr key={i}>
-                    <td className="py-2 font-mono font-semibold" style={{ color: PALETTE.purple1 }}>{g.gene_name}</td>
-                    <td className="py-2 text-text-muted text-xs">{g.element_type}</td>
-                    <td className="py-2 text-text-muted text-xs">{g.subclass}</td>
-                    <td className="py-2 text-text-muted text-xs">{g.contig_id || "N/A"}</td>
+        <CollapsibleSection title="Detected Virulence Factors" count={data.virulence_genes?.length || 0} defaultOpen={false}>
+          {data.virulence_status === 'not_run' ? (
+            <div className="text-gray-400 text-sm p-4 border border-dashed rounded-lg text-center">Virulence not assessed.</div>
+          ) : (!data.virulence_genes || data.virulence_genes.length === 0) ? (
+            <div className="text-gray-400 text-sm p-4 border border-dashed rounded-lg text-center">No virulence factors detected.</div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm">
+                <thead className="text-text-muted text-xs uppercase tracking-wider border-b border-surface-dark">
+                  <tr>
+                    <th className="py-2">Factor</th>
+                    <th className="py-2">Type</th>
+                    <th className="py-2">Subclass</th>
+                    <th className="py-2">Contig</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody className="divide-y divide-surface-dark">
+                  {data.virulence_genes.map((g: any, i: number) => (
+                    <tr key={i}>
+                      <td className="py-2 font-mono font-semibold" style={{ color: PALETTE.purple1 }}>{g.gene_name}</td>
+                      <td className="py-2 text-text-muted text-xs">{g.element_type || g.virulence_factor}</td>
+                      <td className="py-2 text-text-muted text-xs">{g.subclass || g.virulence_category}</td>
+                      <td className="py-2 text-text-muted text-xs">{g.contig_id || "N/A"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </CollapsibleSection>
       </div>
       

@@ -17,7 +17,7 @@ export default function VirulenceVsResistanceScatter() {
     const virCounts: Record<string, number> = {};
 
     amrGenes.forEach(g => amrCounts[g.sample_id] = (amrCounts[g.sample_id] || 0) + 1);
-    virGenes.forEach(g => virCounts[g.sample_id] = (virCounts[g.sample_id] || 0) + 1);
+    (virGenes?.genes || []).forEach(g => virCounts[g.sample_id] = (virCounts[g.sample_id] || 0) + 1);
 
     const samples = Array.from(new Set([...Object.keys(amrCounts), ...Object.keys(virCounts)]));
 

@@ -168,6 +168,7 @@ class IsolateReport(BaseModel):
     pipeline_stage: str = "Module 1 - AMR Characterisation"
     genome_quality: str = "LOW"
     validation_status: Optional[str] = None
+    virulence_status: str = "not_run"
 
     amr_genes: List[AmrGeneRecord] = Field(default_factory=list)
     virulence_genes: List[VirulenceGeneRecord] = Field(default_factory=list)

@@ -106,10 +106,14 @@ def get_isolate_phenotypes(sample_id: uuid.UUID, db: Session = Depends(get_sessi
         "explanation": p.explanation
     } for p in preds]
 
-@router.get("/{sample_id}/virulence", response_model=List[Dict[str, Any]])
+@router.get("/{sample_id}/virulence", response_model=Dict[str, Any])
 def get_isolate_virulence(sample_id: uuid.UUID, db: Session = Depends(get_session)):
+    sample = db.execute(select(Sample).where(Sample.id == sample_id)).scalar_one_or_none()
+    if not sample:
+        raise HTTPException(status_code=404, detail="Sample not found")
+        
     virs = db.execute(select(VirulenceGene).where(VirulenceGene.sample_id == sample_id)).scalars().all()
-    return [{
+    genes = [{
         "sample_id": str(v.sample_id),
         "gene_name": v.gene_name,
         "virulence_factor": v.virulence_factor,
@@ -121,6 +125,11 @@ def get_isolate_virulence(sample_id: uuid.UUID, db: Session = Depends(get_sessio
         "coverage_pct": float(v.coverage_percent) if v.coverage_percent else 100.0,
         "database_source": v.database_source or "VFDB"
     } for v in virs]
+    
+    return {
+        "status": getattr(sample, "virulence_status", "not_run"),
+        "genes": genes
+    }
 
 @router.get("/{sample_id}/confidence", response_model=List[Dict[str, Any]])
 def get_isolate_confidence(sample_id: uuid.UUID, db: Session = Depends(get_session)):
@@ -202,13 +211,13 @@ def get_cohort_mutations(batch_id: uuid.UUID | None = None, db: Session = Depend
         "database_source": m.database_source or "CARD"
     } for m in muts]
 
-@router.get("/cohort-virulence", response_model=List[Dict[str, Any]])
+@router.get("/cohort-virulence", response_model=Dict[str, Any])
 def get_cohort_virulence(batch_id: uuid.UUID | None = None, db: Session = Depends(get_session)):
     query = select(VirulenceGene)
     if batch_id:
         query = query.join(Sample, Sample.id == VirulenceGene.sample_id).where(Sample.batch_id == str(batch_id))
     virs = db.execute(query).scalars().all()
-    return [{
+    genes = [{
         "sample_id": str(v.sample_id),
         "gene_name": v.gene_name,
         "virulence_factor": v.virulence_factor,
@@ -220,3 +229,7 @@ def get_cohort_virulence(batch_id: uuid.UUID | None = None, db: Session = Depend
         "coverage_pct": float(v.coverage_percent) if v.coverage_percent else 100.0,
         "database_source": v.database_source or "VFDB"
     } for v in virs]
+    return {
+        "status": "completed",
+        "genes": genes
+    }
