@@ -54,11 +54,11 @@ params.amrfinder_database = "${params.reference_db_dir}/amrfinderplus"
 
 // Resource Limits
 params.validation_cpus = 4
-params.validation_memory = "8 GB"
+params.validation_memory = "3 GB"
 params.alignment_cpus = 8
-params.alignment_memory = "16 GB"
+params.alignment_memory = "4 GB"
 params.amr_cpus = 8
-params.amr_memory = "16 GB"    
+params.amr_memory = "4 GB"    
     // Output Formats
     params.output_formats = "json,tsv,pdf"
     params.publish_dir = "${params.output}"
@@ -218,20 +218,23 @@ workflow {
 
     // Step 5: Aggregate Results (legacy consensus/alignment summary)
     log.info "Step 5/6: Aggregating Results"
-    aggregated = aggregate_results(
-        amr_results.combine(alignment_results, by: 0)
-    )
+    
+    dummy_align_report = file("${projectDir}/assets/dummy_alignment.json")
+    dummy_align_bam = file("${projectDir}/assets/dummy.bam")
+    
+    combined_for_agg = amr_results.join(alignment_results, remainder: true)
+        .map { row ->
+            def align_rep = row[4] ?: dummy_align_report
+            def align_bam = row[5] ?: dummy_align_bam
+            tuple(row[0], row[1], row[2], row[3], align_rep, align_bam)
+        }
+    
+    aggregated = aggregate_results(combined_for_agg)
 
     // Step 6: Generate Report
     log.info "Step 6/6: Generating Report"
     reports = generate_report(aggregated)
     
-    // Publish outputs
-    reports.publishDir(
-        path: params.publish_dir,
-        mode: "copy",
-        pattern: "*"
-    )
 }
 
 // =============================================================================

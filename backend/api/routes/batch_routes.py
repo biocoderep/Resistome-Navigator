@@ -29,7 +29,7 @@ from backend.schemas.batch import BatchResponse, BatchIsolateStatus, CohortAnaly
 from backend.tasks.batch_tasks import dispatch_batch_workflow
 
 router = APIRouter(prefix="/batches", tags=["batches"])
-UPLOAD_DIR = os.getenv("UPLOAD_DIR", "/tmp/amr_uploads")
+UPLOAD_DIR = os.getenv("UPLOAD_DIR", "data/uploads")
 ALLOWED_EXTENSIONS = (".fasta", ".fa", ".fna", ".fasta.gz", ".fa.gz")
 
 @router.post("", response_model=BatchResponse, status_code=status.HTTP_201_CREATED)

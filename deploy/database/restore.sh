@@ -1,6 +1,6 @@
 #!/bin/bash
 # Exit immediately if a command exits with a non-zero status
-set -e
+set -euo pipefail
 
 if [ "$1" != "--force" ]; then
     echo "ERROR: Restore will overwrite the current database!"
@@ -17,13 +17,20 @@ fi
 
 PGHOST=${PGHOST:-postgres}
 PGPORT=${PGPORT:-5432}
-PGDATABASE=${POSTGRES_DB:-amrdb}
+PGDATABASE=${POSTGRES_DB:?ERROR: POSTGRES_DB must be set explicitly to prevent accidental overwrites}
 PGUSER=${POSTGRES_USER:-amruser}
 export PGPASSWORD=${POSTGRES_PASSWORD:-amrpass}
 
 echo "============================================================"
-echo "WARNING: About to OVERWRITE database: $PGDATABASE — proceeding"
+echo "WARNING: About to OVERWRITE database: $PGDATABASE"
 echo "============================================================"
+
+read -p "To proceed, please type the exact database name ($PGDATABASE): " CONFIRM_DB
+if [ "$CONFIRM_DB" != "$PGDATABASE" ]; then
+    echo "ERROR: Name mismatch. Aborting restore."
+    exit 1
+fi
+echo "Proceeding..."
 
 echo "[$(date -u)] Restoring database from $BACKUP_FILE..."
 # Clean (-c) and ignore errors if objects don't exist (--if-exists)

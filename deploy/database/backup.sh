@@ -1,6 +1,6 @@
 #!/bin/bash
 # Exit immediately if a command exits with a non-zero status
-set -e
+set -euo pipefail
 
 # Default to docker-compose environment variables if not set
 PGHOST=${PGHOST:-postgres}
@@ -18,10 +18,29 @@ BACKUP_FILE="$BACKUP_DIR/${PGDATABASE}_backup_$TIMESTAMP.dump"
 
 echo "[$(date -u)] Starting database backup to temporary file $TEMP_FILE..."
 pg_dump -h "$PGHOST" -p "$PGPORT" -U "$PGUSER" -d "$PGDATABASE" -F c -f "$TEMP_FILE"
+
+echo "[$(date -u)] Validating dump file..."
+if ! pg_restore -l "$TEMP_FILE" >/dev/null 2>&1; then
+    echo "ERROR: Dump validation failed. The backup may be corrupted." >&2
+    rm -f "$TEMP_FILE"
+    exit 1
+fi
+
+if [ ! -s "$TEMP_FILE" ]; then
+    echo "ERROR: Dump file is empty." >&2
+    rm -f "$TEMP_FILE"
+    exit 1
+fi
+
 mv "$TEMP_FILE" "$BACKUP_FILE"
-echo "[$(date -u)] Backup completed successfully: $BACKUP_FILE"
+echo "[$(date -u)] Backup completed and validated successfully: $BACKUP_FILE"
 
 # Retention policy: keep last 7 backups, delete the rest
 echo "Cleaning up old backups (keeping the latest 7)..."
-ls -1t "$BACKUP_DIR"/*.dump 2>/dev/null | tail -n +8 | xargs -r rm --
+shopt -s nullglob
+dumps=("$BACKUP_DIR"/*.dump)
+if [ ${#dumps[@]} -gt 7 ]; then
+    printf "%s\n" "${dumps[@]}" | sort -r | tail -n +8 | xargs -r rm -f
+fi
+shopt -u nullglob
 echo "Cleanup complete."

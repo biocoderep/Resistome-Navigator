@@ -1,209 +1,121 @@
-Jun-12 04:24:19.129 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /app/nextflow/main.nf --samples /tmp/amr_uploads/c0ae0b76-8111-4da2-8b16-c931e5b89d10/samples.csv --output /tmp/amr_uploads/c0ae0b76-8111-4da2-8b16-c931e5b89d10/results -profile local
-Jun-12 04:24:20.305 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.10.6
-Jun-12 04:24:20.375 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/root/.nextflow/plugins; core-plugins: nf-amazon@2.9.3,nf-azure@1.10.2,nf-cloudcache@0.4.2,nf-codecommit@0.2.2,nf-console@1.1.4,nf-google@1.15.4,nf-tower@1.9.3,nf-wave@1.7.5
-Jun-12 04:24:20.478 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Jun-12 04:24:20.496 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Jun-12 04:24:20.514 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Jun-12 04:24:20.646 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Jun-12 04:24:20.764 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /app/nextflow/nextflow.config
-Jun-12 04:24:20.779 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /app/nextflow/nextflow.config
-Jun-12 04:24:20.909 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /root/.nextflow/secrets/store.json
-Jun-12 04:24:20.919 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@336365bc] - activable => nextflow.secret.LocalSecretsProvider@336365bc
-Jun-12 04:24:20.986 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `local`
-Jun-12 04:24:24.883 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [slurm, test, singularity, local, docker]
-Jun-12 04:24:25.471 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
-Jun-12 04:24:25.626 [main] DEBUG nextflow.cli.CmdRun - Launching `/app/nextflow/main.nf` [maniac_newton] DSL2 - revision: dddd5c44d9
-Jun-12 04:24:25.644 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Jun-12 04:24:25.650 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Jun-12 04:24:25.934 [main] DEBUG nextflow.Session - Session UUID: 314ed7e9-dc6c-403c-a963-636c840cb44f
-Jun-12 04:24:25.937 [main] DEBUG nextflow.Session - Run name: maniac_newton
-Jun-12 04:24:25.940 [main] DEBUG nextflow.Session - Executor pool size: 12
-Jun-12 04:24:25.986 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Jun-12 04:24:26.012 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=36; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Jun-12 04:24:26.109 [main] DEBUG nextflow.cli.CmdRun - 
-  Version: 24.10.6 build 5937
-  Created: 23-04-2025 16:53 UTC 
+Jun-17 09:08:11.132 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /app/nextflow/main.nf --samples /tmp/amr_uploads/5178eb92-dc5f-4894-a389-9e65c583951e/samples.csv --output /tmp/amr_uploads/5178eb92-dc5f-4894-a389-9e65c583951e/results -profile local
+Jun-17 09:08:14.050 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.10.1
+Jun-17 09:08:14.278 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/root/.nextflow/plugins; core-plugins: nf-amazon@2.1.4,nf-azure@1.3.3,nf-cloudcache@0.3.0,nf-codecommit@0.1.5,nf-console@1.0.6,nf-ga4gh@1.1.0,nf-google@1.8.3,nf-tower@1.6.3,nf-wave@1.0.1
+Jun-17 09:08:14.556 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jun-17 09:08:14.588 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jun-17 09:08:14.639 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Jun-17 09:08:15.000 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jun-17 09:08:15.235 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /app/nextflow/nextflow.config
+Jun-17 09:08:15.300 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /app/nextflow/nextflow.config
+Jun-17 09:08:15.793 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `local`
+Jun-17 09:08:26.609 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [slurm, test, singularity, local, docker]
+Jun-17 09:08:26.992 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declararion
+Jun-17 09:08:27.342 [main] INFO  nextflow.cli.CmdRun - Launching `/app/nextflow/main.nf` [mighty_miescher] DSL2 - revision: 01df925c7c
+Jun-17 09:08:27.347 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jun-17 09:08:27.359 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Jun-17 09:08:27.510 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /root/.nextflow/secrets/store.json
+Jun-17 09:08:27.571 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@ffd4cba] - activable => nextflow.secret.LocalSecretsProvider@ffd4cba
+Jun-17 09:08:28.753 [main] DEBUG nextflow.Session - Session UUID: fa846361-317c-4d7d-a8e2-d7bc9cd22aeb
+Jun-17 09:08:28.760 [main] DEBUG nextflow.Session - Run name: mighty_miescher
+Jun-17 09:08:28.767 [main] DEBUG nextflow.Session - Executor pool size: 4
+Jun-17 09:08:28.974 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Jun-17 09:08:29.308 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Jun-17 09:08:30.507 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 23.10.1 build 5891
+  Created: 12-01-2024 22:01 UTC 
   System: Linux 6.6.87.1-microsoft-standard-WSL2
-  Runtime: Groovy 4.0.23 on OpenJDK 64-Bit Server VM 11.0.1+13-LTS
+  Runtime: Groovy 3.0.19 on OpenJDK 64-Bit Server VM 11.0.30-internal+0-adhoc.conda.src
   Encoding: UTF-8 (UTF-8)
-  Process: 2972@fee0fd1c5682 [172.18.0.2]
-  CPUs: 12 - Mem: 7.6 GB (4.7 GB) - Swap: 2 GB (2 GB)
-Jun-12 04:24:26.337 [main] DEBUG nextflow.Session - Work-dir: /app/nextflow/.nextflow/work [v9fs]
-Jun-12 04:24:26.345 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /app/nextflow/bin
-Jun-12 04:24:26.387 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Jun-12 04:24:26.435 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Jun-12 04:24:26.608 [main] WARN  nextflow.config.Manifest - Invalid config manifest attribute `url`
-Jun-12 04:24:26.687 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Jun-12 04:24:26.769 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 13; maxThreads: 1000
-Jun-12 04:24:27.424 [main] DEBUG nextflow.Session - Session start
-Jun-12 04:24:27.449 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /tmp/amr_uploads/c0ae0b76-8111-4da2-8b16-c931e5b89d10/results/.nextflow/trace.txt
-Jun-12 04:24:29.444 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Jun-12 04:24:29.554 [main] INFO  nextflow.Nextflow - 
+  Process: 27927@5bbacc67b505 [172.18.0.7]
+  CPUs: 4 - Mem: 9.7 GB (7.2 GB) - Swap: 3 GB (2.4 GB)
+Jun-17 09:08:31.351 [main] DEBUG nextflow.Session - Work-dir: /app/nextflow/.nextflow/work [v9fs]
+Jun-17 09:08:32.826 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jun-17 09:08:33.113 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jun-17 09:08:33.759 [main] WARN  nextflow.config.Manifest - Invalid config manifest attribute `url`
+Jun-17 09:08:33.969 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Jun-17 09:08:34.167 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 5; maxThreads: 1000
+Jun-17 09:08:35.411 [main] DEBUG nextflow.Session - Session start
+Jun-17 09:08:35.458 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /tmp/amr_uploads/5178eb92-dc5f-4894-a389-9e65c583951e/results/.nextflow/trace.txt
+Jun-17 09:08:43.227 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jun-17 09:08:43.630 [main] INFO  nextflow.Nextflow - 
 ╔════════════════════════════════════════════════════════════════════════╗
 ║              AMR DETECTION PIPELINE - NEXTFLOW DSL2                    ║
 ║                          Module 1 MVP                                  ║
 ╚════════════════════════════════════════════════════════════════════════╝
 
 PARAMETERS:
-  Samples:                    /tmp/amr_uploads/c0ae0b76-8111-4da2-8b16-c931e5b89d10/samples.csv
-  Output Directory:           /tmp/amr_uploads/c0ae0b76-8111-4da2-8b16-c931e5b89d10/results
+  Samples:                    /tmp/amr_uploads/5178eb92-dc5f-4894-a389-9e65c583951e/samples.csv
+  Output Directory:           /tmp/amr_uploads/5178eb92-dc5f-4894-a389-9e65c583951e/results
   Alignment Method:           bowtie2
   AMR Tools:                  card_rgi,amrfinderplus
   Reference DB Directory:     /opt/conda/share/amrfinderplus/data/latest
 
 RESOURCES:
   Validation Cpus:            2
-  Validation Memory:          8 GB
+  Validation Memory:          3 GB
   Alignment Cpus:             2
-  Alignment Memory:           16 GB
+  Alignment Memory:           4 GB
   AMR Detection Cpus:         2
-  AMR Detection Memory:       16 GB
+  AMR Detection Memory:       4 GB
 
 
-Jun-12 04:24:30.068 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
-  Script_8a8305cff9cc24e2: /app/nextflow/./processes/genome_validation.nf
-  Script_0622d4b3fa91e23b: /app/nextflow/main.nf
-Jun-12 04:24:30.074 [main] DEBUG nextflow.Session - Session aborted -- Cause: No signature of method: nextflow.script.ScriptBinding.export() is applicable for argument types: () values: []
-Possible solutions: every(), every(groovy.lang.Closure), split(groovy.lang.Closure), wait(), init(), inspect()
-Jun-12 04:24:30.084 [main] DEBUG nextflow.Session - 
-Thread[Signal Dispatcher,9,system]
-
-Thread[Common-Cleaner,8,InnocuousThreadGroup]
-  java.base@11.0.1/java.lang.Object.wait(Native Method)
-  java.base@11.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
-  java.base@11.0.1/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:148)
-  java.base@11.0.1/java.lang.Thread.run(Thread.java:834)
-  java.base@11.0.1/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:134)
-
-Thread[Thread-1,5,main]
-  java.base@11.0.1/jdk.internal.misc.Unsafe.park(Native Method)
-  java.base@11.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
-  java.base@11.0.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
-  java.base@11.0.1/java.util.concurrent.LinkedBlockingDeque.pollFirst(LinkedBlockingDeque.java:513)
-  java.base@11.0.1/java.util.concurrent.LinkedBlockingDeque.poll(LinkedBlockingDeque.java:675)
-  app//nextflow.util.SimpleAgent.run(SimpleAgent.groovy:89)
-  java.base@11.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-  java.base@11.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-  java.base@11.0.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-  java.base@11.0.1/java.lang.reflect.Method.invoke(Method.java:566)
-  app//org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
-  app//groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
-  app//groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
-  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
-  app//groovy.lang.MetaClassImpl.invokeMethodClosure(MetaClassImpl.java:1017)
-  app//groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1207)
-  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
-  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
-  app//groovy.lang.Closure.call(Closure.java:433)
-  app//groovy.lang.Closure.call(Closure.java:412)
-  app//groovy.lang.Closure.run(Closure.java:505)
-  java.base@11.0.1/java.lang.Thread.run(Thread.java:834)
-
-Thread[Finalizer,8,system]
-  java.base@11.0.1/java.lang.Object.wait(Native Method)
-  java.base@11.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
-  java.base@11.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
-  java.base@11.0.1/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:170)
-
-Thread[AnsiLogObserver,5,main]
-  java.base@11.0.1/java.lang.Object.wait(Native Method)
-  app//nextflow.trace.AnsiLogObserver.render0(AnsiLogObserver.groovy:185)
-  java.base@11.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-  java.base@11.0.1/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-  java.base@11.0.1/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-  java.base@11.0.1/java.lang.reflect.Method.invoke(Method.java:566)
-  app//org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
-  app//groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
-  app//groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
-  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
-  app//groovy.lang.MetaClassImpl.invokeMethodClosure(MetaClassImpl.java:1017)
-  app//groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1207)
-  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
-  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
-  app//groovy.lang.Closure.call(Closure.java:433)
-  app//groovy.lang.Closure.call(Closure.java:412)
-  app//groovy.lang.Closure.run(Closure.java:505)
-  java.base@11.0.1/java.lang.Thread.run(Thread.java:834)
-
-Thread[process reaper,10,system]
-  java.base@11.0.1/jdk.internal.misc.Unsafe.park(Native Method)
-  java.base@11.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
-  java.base@11.0.1/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:462)
-  java.base@11.0.1/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
-  java.base@11.0.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:937)
-  java.base@11.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1053)
-  java.base@11.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
-  java.base@11.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-  java.base@11.0.1/java.lang.Thread.run(Thread.java:834)
-
-Thread[main,5,main]
-  java.base@11.0.1/java.lang.Thread.dumpThreads(Native Method)
-  java.base@11.0.1/java.lang.Thread.getAllStackTraces(Thread.java:1657)
-  app//nextflow.util.SysHelper.dumpThreads(SysHelper.groovy:188)
-  app//nextflow.Session.abort(Session.groovy:800)
-  app//nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:149)
-  app//nextflow.cli.CmdRun.run(CmdRun.groovy:376)
-  app//nextflow.cli.Launcher.run(Launcher.groovy:503)
-  app//nextflow.cli.Launcher.main(Launcher.groovy:658)
-
-Thread[Reference Handler,10,system]
-  java.base@11.0.1/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
-  java.base@11.0.1/java.lang.ref.Reference.processPendingReferences(Reference.java:241)
-  java.base@11.0.1/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:213)
-
-Thread[Actor Thread 1,5,main]
-  java.base@11.0.1/jdk.internal.misc.Unsafe.park(Native Method)
-  java.base@11.0.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
-  java.base@11.0.1/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:460)
-  java.base@11.0.1/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
-  java.base@11.0.1/java.util.concurrent.SynchronousQueue.take(SynchronousQueue.java:920)
-  java.base@11.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1054)
-  java.base@11.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
-  java.base@11.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-  java.base@11.0.1/java.lang.Thread.run(Thread.java:834)
-
-Jun-12 04:24:30.102 [main] ERROR nextflow.cli.Launcher - @unknown
-groovy.lang.MissingMethodException: No signature of method: nextflow.script.ScriptBinding.export() is applicable for argument types: () values: []
-Possible solutions: every(), every(groovy.lang.Closure), split(groovy.lang.Closure), wait(), init(), inspect()
-	at nextflow.script.WorkflowBinding.invokeMethod(WorkflowBinding.groovy:111)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.script.BaseScript.invokeMethod(BaseScript.groovy:155)
-	at org.codehaus.groovy.vmplugin.v8.IndyGuardsFiltersAndSignatures.invokeGroovyObjectInvoker(IndyGuardsFiltersAndSignatures.java:151)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at Script_8a8305cff9cc24e2.runScript(Script_8a8305cff9cc24e2:57)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.script.BaseScript.run0(BaseScript.groovy:159)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.script.BaseScript.run(BaseScript.groovy:209)
-	at nextflow.script.ScriptParser.runScript(ScriptParser.groovy:236)
-	at nextflow.script.ScriptParser.runScript(ScriptParser.groovy:222)
-	at nextflow.script.IncludeDef.memoizedMethodPriv$loadModule0PathMapSession(IncludeDef.groovy:142)
-	at nextflow.script.IncludeDef.access$0(IncludeDef.groovy)
-	at nextflow.script.IncludeDef$__clinit__closure2.doCall(IncludeDef.groovy)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
-	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
-	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:279)
-	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
-	at groovy.lang.Closure.call(Closure.java:433)
-	at org.codehaus.groovy.runtime.memoize.Memoize$MemoizeFunction.lambda$call$0(Memoize.java:137)
-	at org.codehaus.groovy.runtime.memoize.ConcurrentCommonCache.getAndPut(ConcurrentCommonCache.java:137)
-	at org.codehaus.groovy.runtime.memoize.ConcurrentCommonCache.getAndPut(ConcurrentCommonCache.java:113)
-	at org.codehaus.groovy.runtime.memoize.Memoize$MemoizeFunction.call(Memoize.java:136)
-	at nextflow.script.IncludeDef.loadModule0(IncludeDef.groovy)
-	at nextflow.script.IncludeDef.load0(IncludeDef.groovy:114)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at Script_0622d4b3fa91e23b.runScript(Script_0622d4b3fa91e23b:166)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.script.BaseScript.run0(BaseScript.groovy:159)
-	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
-	at nextflow.script.BaseScript.run(BaseScript.groovy:209)
-	at nextflow.script.ScriptParser.runScript(ScriptParser.groovy:236)
-	at nextflow.script.ScriptRunner.run(ScriptRunner.groovy:243)
-	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:138)
-	at nextflow.cli.CmdRun.run(CmdRun.groovy:376)
-	at nextflow.cli.Launcher.run(Launcher.groovy:503)
-	at nextflow.cli.Launcher.main(Launcher.groovy:658)
+Jun-17 09:08:51.631 [main] INFO  nextflow.Nextflow - Step 1/6: Running Genome Validation Engine
+Jun-17 09:08:52.655 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:validation` matches labels `validation` for process with name genome_validation
+Jun-17 09:08:52.768 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-17 09:08:52.780 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-17 09:08:52.864 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Jun-17 09:08:52.930 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=4; memory=9.7 GB; capacity=4; pollInterval=1m; dumpInterval=5m
+Jun-17 09:08:52.972 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Jun-17 09:08:55.162 [main] INFO  nextflow.Nextflow - Step 2/6: Running Sequence Alignment
+Jun-17 09:08:55.297 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:alignment` matches labels `alignment` for process with name sequence_alignment
+Jun-17 09:08:55.308 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-17 09:08:55.321 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-17 09:08:55.402 [main] INFO  nextflow.Nextflow - Step 3/6: Running AMR Detection
+Jun-17 09:08:55.538 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:amr_detection` matches labels `amr_detection` for process with name amr_detection
+Jun-17 09:08:55.555 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-17 09:08:55.576 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-17 09:08:55.619 [main] INFO  nextflow.Nextflow - Step 4/6: Running Biological Characterisation
+Jun-17 09:08:55.879 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:aggregation` matches labels `aggregation` for process with name bio_analysis
+Jun-17 09:08:55.896 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-17 09:08:55.906 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-17 09:08:55.957 [main] INFO  nextflow.Nextflow - Step 5/6: Aggregating Results
+Jun-17 09:08:56.031 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:aggregation` matches labels `aggregation` for process with name aggregate_results
+Jun-17 09:08:56.049 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-17 09:08:56.052 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-17 09:08:56.076 [main] INFO  nextflow.Nextflow - Step 6/6: Generating Report
+Jun-17 09:08:56.130 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:reporting` matches labels `reporting` for process with name generate_report
+Jun-17 09:08:56.138 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-17 09:08:56.143 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-17 09:08:56.170 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: generate_report, amr_detection, sequence_alignment, aggregate_results, genome_validation, bio_analysis
+Jun-17 09:08:56.172 [main] DEBUG nextflow.Session - Igniting dataflow network (7)
+Jun-17 09:08:56.251 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > genome_validation
+Jun-17 09:08:56.276 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > sequence_alignment
+Jun-17 09:08:56.281 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > amr_detection
+Jun-17 09:08:56.297 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > bio_analysis
+Jun-17 09:08:56.302 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > aggregate_results
+Jun-17 09:08:56.329 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > generate_report
+Jun-17 09:08:56.344 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_4d30a88f478d225c: /app/nextflow/./processes/alignment.nf
+  Script_6753f25d6f3fff7d: /app/nextflow/./processes/bio_analysis.nf
+  Script_f23c48edbd284c40: /app/nextflow/./processes/amr_detection.nf
+  Script_f47024abb0a70ffe: /app/nextflow/./processes/genome_validation.nf
+  Script_5a63d2cabbc5e207: /app/nextflow/main.nf
+  Script_a58ab9ce187bda8f: /app/nextflow/./processes/aggregation.nf
+  Script_715db835c850257c: /app/nextflow/./processes/reporting.nf
+Jun-17 09:08:56.352 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Jun-17 09:08:56.355 [main] DEBUG nextflow.Session - Session await
+Jun-17 09:09:00.071 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-17 09:09:00.110 [Task submitter] INFO  nextflow.Session - [5a/0c7552] Submitted process > genome_validation (5178eb92-dc5f-4894-a389-9e65c583951e)
+Jun-17 09:09:13.739 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: genome_validation (5178eb92-dc5f-4894-a389-9e65c583951e); status: COMPLETED; exit: 0; error: -; workDir: /app/nextflow/.nextflow/work/5a/0c755260c065594eedfdd87b47b2e5]
+Jun-17 09:09:15.515 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Jun-17 09:09:15.753 [Actor Thread 8] DEBUG nextflow.util.CacheHelper - Unable to get file attributes file: /opt/conda/share/amrfinderplus/data/latest/card -- Cause: java.nio.file.NoSuchFileException: /opt/conda/share/amrfinderplus/data/latest/card
+Jun-17 09:09:16.451 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-17 09:09:16.489 [Task submitter] INFO  nextflow.Session - [eb/9561dc] Submitted process > sequence_alignment (5178eb92-dc5f-4894-a389-9e65c583951e)
+Jun-17 09:09:16.954 [Actor Thread 1] DEBUG nextflow.util.CacheHelper - Unable to get file attributes file: /opt/conda/share/amrfinderplus/data/latest/card -- Cause: java.nio.file.NoSuchFileException: /opt/conda/share/amrfinderplus/data/latest/card
+Jun-17 09:09:16.957 [Actor Thread 1] DEBUG nextflow.util.CacheHelper - Unable to get file attributes file: /opt/conda/share/amrfinderplus/data/latest/amrfinderplus -- Cause: java.nio.file.NoSuchFileException: /opt/conda/share/amrfinderplus/data/latest/amrfinderplus
+Jun-17 09:09:17.357 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-17 09:09:17.360 [Task submitter] INFO  nextflow.Session - [ea/aa3e7e] Submitted process > amr_detection (5178eb92-dc5f-4894-a389-9e65c583951e)
+Jun-17 09:10:04.567 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: amr_detection (5178eb92-dc5f-4894-a389-9e65c583951e); status: COMPLETED; exit: 0; error: -; workDir: /app/nextflow/.nextflow/work/ea/aa3e7e5e6abbee1228a8826b97f948]
+Jun-17 09:10:05.912 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-17 09:10:05.939 [Task submitter] INFO  nextflow.Session - [5e/080d13] Submitted process > bio_analysis (5178eb92-dc5f-4894-a389-9e65c583951e)
+Jun-17 09:10:19.795 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: bio_analysis (5178eb92-dc5f-4894-a389-9e65c583951e); status: COMPLETED; exit: 0; error: -; workDir: /app/nextflow/.nextflow/work/5e/080d13a1c02ad89fe5f996a01d49d2]

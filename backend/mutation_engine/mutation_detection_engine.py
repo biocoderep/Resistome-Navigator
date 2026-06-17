@@ -45,7 +45,7 @@ class MutationDetectionEngine:
 
         kb_entries = self.kb_loader.get_entries()
         references = get_reference_sequences(
-            self.config.get("reference_fasta"), kb_entries
+            self.config.get("reference_fasta"), kb_entries, species=species
         )
 
         if progress_cb:

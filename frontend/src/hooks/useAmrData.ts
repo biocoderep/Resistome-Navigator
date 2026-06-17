@@ -8,7 +8,7 @@ import type {
 import {
   mockSampleMetadata, mockAmrGenes, mockMutations, mockMechanismClassifications,
   mockPhenotypes, mockVirulenceGenes, mockConfidenceScores, mockAssemblyMetrics,
-  mockClustermapPayload, mockPcaPayload, mockRarefactionPayload
+  mockClustermapPayload, mockPcaPayload, mockRarefactionPayload, mockOverviewSummary
 } from '../mockData';
 
 const USE_MOCK = import.meta.env.VITE_USE_MOCK === 'true';
@@ -135,4 +135,9 @@ export function useCohortPca(filters?: any) {
 export function useCohortRarefaction(filters?: any) {
   const qs = filters?.project ? `?batch_id=${filters.project}` : '';
   return useAmrFetch(`/api/v1/surveillance/rarefaction${qs}`, mockRarefactionPayload, [filters]);
+}
+
+export function useOverviewSummary(filters?: any) {
+  const qs = filters?.project ? `?batch_id=${filters.project}` : '';
+  return useAmrFetch(`/api/v1/isolates/overview-summary${qs}`, mockOverviewSummary, [filters]);
 }

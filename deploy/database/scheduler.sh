@@ -1,12 +1,12 @@
 #!/bin/bash
 # Exit immediately if a command exits with a non-zero status
-set -e
+set -euo pipefail
 
 echo "[$(date -u)] Initializing backup scheduler..."
 
 # Run an initial backup immediately upon startup
 echo "[$(date -u)] Running initial startup backup..."
-bash /scripts/backup.sh || echo "[$(date -u)] ERROR: Startup backup failed. Continuing to schedule..."
+bash /scripts/backup.sh && touch /tmp/backup_success || echo "[$(date -u)] ERROR: Startup backup failed. Continuing to schedule..." >&2
 
 echo "[$(date -u)] Entering daily backup schedule loop."
 while true; do
@@ -30,5 +30,5 @@ while true; do
   sleep $sleep_time
   
   echo "[$(date -u)] Executing scheduled backup..."
-  bash /scripts/backup.sh || echo "[$(date -u)] ERROR: Scheduled backup failed. Will retry next cycle."
+  bash /scripts/backup.sh && touch /tmp/backup_success || echo "[$(date -u)] ERROR: Scheduled backup failed. Will retry next cycle." >&2
 done

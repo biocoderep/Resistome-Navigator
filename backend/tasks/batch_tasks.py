@@ -161,7 +161,7 @@ def dispatch_batch_workflow(self, batch_id: str, sample_ids: list[str], run_coho
     """Entry point for orchestrating a batch run."""
     db = SessionLocal()
     try:
-        batch = db.scalars(select(Batch).where(Batch.id == uuid.UUID(batch_id))).first()
+        batch = db.scalars(select(Batch).where(Batch.id == str(batch_id))).first()
         if batch:
             batch.status = "RUNNING"
             db.commit()
@@ -184,7 +184,7 @@ def run_single_isolate_pipeline(self, sample_id: str):
     db = SessionLocal()
     sample = None
     job: Optional[AnalysisJob] = None
-    sample_uuid = uuid.UUID(str(sample_id))
+    sample_uuid = str(sample_id)
     try:
         sample = db.scalars(select(Sample).where(Sample.id == sample_uuid)).first()
         if not sample:
@@ -255,7 +255,7 @@ def run_single_isolate_pipeline(self, sample_id: str):
         # Update batch progress.
         if sample.batch_id:
             batch = db.scalars(
-                select(Batch).where(Batch.id == uuid.UUID(str(sample.batch_id)))
+                select(Batch).where(Batch.id == str(sample.batch_id))
             ).first()
             if batch:
                 batch.completed_isolates = (batch.completed_isolates or 0) + 1
@@ -273,7 +273,7 @@ def run_single_isolate_pipeline(self, sample_id: str):
         db.commit()
         if sample is not None and sample.batch_id:
             batch = db.scalars(
-                select(Batch).where(Batch.id == uuid.UUID(str(sample.batch_id)))
+                select(Batch).where(Batch.id == str(sample.batch_id))
             ).first()
             if batch:
                 batch.failed_isolates = (batch.failed_isolates or 0) + 1
@@ -289,7 +289,7 @@ def run_cohort_analysis(self, results, batch_id: str):
     db = SessionLocal()
     batch = None
     try:
-        batch = db.scalars(select(Batch).where(Batch.id == uuid.UUID(batch_id))).first()
+        batch = db.scalars(select(Batch).where(Batch.id == str(batch_id))).first()
         if batch:
             batch.status = "ISOLATES_COMPLETE"
             batch.cohort_analysis_status = "RUNNING"
@@ -300,7 +300,12 @@ def run_cohort_analysis(self, results, batch_id: str):
         if len(successful_samples) < 3:
             if batch:
                 batch.cohort_analysis_status = "SKIPPED_INSUFFICIENT_ISOLATES"
-                batch.status = "COMPLETED"
+                if (batch.completed_isolates or 0) > 0 and (batch.failed_isolates or 0) > 0:
+                    batch.status = "PARTIAL"
+                elif (batch.completed_isolates or 0) == 0 and (batch.failed_isolates or 0) > 0:
+                    batch.status = "FAILED"
+                else:
+                    batch.status = "COMPLETED"
                 db.commit()
             return {"batch_id": batch_id, "status": "skipped"}
 
@@ -310,14 +315,22 @@ def run_cohort_analysis(self, results, batch_id: str):
 
         if batch:
             batch.cohort_analysis_status = "COMPLETED"
-            batch.status = "COMPLETED"
+            if (batch.failed_isolates or 0) > 0:
+                batch.status = "PARTIAL"
+            else:
+                batch.status = "COMPLETED"
             db.commit()
 
         return {"batch_id": batch_id, "status": "completed"}
     except Exception as e:  # noqa: BLE001
         if batch:
             batch.cohort_analysis_status = "FAILED"
-            batch.status = "COMPLETED"
+            if (batch.completed_isolates or 0) > 0 and (batch.failed_isolates or 0) > 0:
+                batch.status = "PARTIAL"
+            elif (batch.completed_isolates or 0) == 0 and (batch.failed_isolates or 0) > 0:
+                batch.status = "FAILED"
+            else:
+                batch.status = "COMPLETED"
             db.commit()
         raise e
     finally:

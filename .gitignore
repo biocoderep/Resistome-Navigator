@@ -31,12 +31,22 @@ build/
 data/results/*
 
 # Uploads
-data/uploads/*data/databases/
-*.LIB
-data/databases/
-*.LIB
+data/uploads/
 
 # Database Backups
 backups/
 deploy/database/*.dump
 
+# Nextflow
+.nextflow/
+nextflow/.nextflow/
+.nextflow.log*
+
+# Celery
+celerybeat-schedule
+celerybeat-schedule.db
+celerybeat-schedule.bak
+celerybeat-schedule.dir
+celerybeat-schedule.dat
+celerybeat-schedule-shm
+celerybeat-schedule-wal

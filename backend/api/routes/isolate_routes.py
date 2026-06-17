@@ -233,3 +233,59 @@ def get_cohort_virulence(batch_id: uuid.UUID | None = None, db: Session = Depend
         "status": "completed",
         "genes": genes
     }
+
+@router.get("/overview-summary", response_model=Dict[str, Any])
+def get_overview_summary(batch_id: uuid.UUID | None = None, db: Session = Depends(get_session)):
+    from sqlalchemy import func
+    
+    # 1. Total isolates
+    sample_q = select(func.count(Sample.id))
+    if batch_id:
+        sample_q = sample_q.where(Sample.batch_id == str(batch_id))
+    total_isolates = db.execute(sample_q).scalar() or 0
+    
+    # 2. AMR genes per isolate average
+    amr_q = select(func.count(AmrGene.sample_id))
+    if batch_id:
+        amr_q = amr_q.join(Sample, Sample.id == AmrGene.sample_id).where(Sample.batch_id == str(batch_id))
+    total_amr_genes = db.execute(amr_q).scalar() or 0
+    amr_avg = total_amr_genes / total_isolates if total_isolates > 0 else 0.0
+    
+    # 3. Phenotype distribution
+    pheno_q = select(PhenotypePrediction.predicted_sir, func.count(PhenotypePrediction.sample_id)).group_by(PhenotypePrediction.predicted_sir)
+    if batch_id:
+        pheno_q = pheno_q.join(Sample, Sample.id == PhenotypePrediction.sample_id).where(Sample.batch_id == str(batch_id))
+    pheno_results = db.execute(pheno_q).all()
+    phenotype_dist = {"S": 0, "I": 0, "R": 0}
+    for sir, count in pheno_results:
+        if sir in phenotype_dist:
+            phenotype_dist[sir] = count
+            
+    # 4. Virulence categories
+    vir_q = select(VirulenceGene.mechanism, func.count(VirulenceGene.sample_id)).group_by(VirulenceGene.mechanism)
+    if batch_id:
+        vir_q = vir_q.join(Sample, Sample.id == VirulenceGene.sample_id).where(Sample.batch_id == str(batch_id))
+    vir_results = db.execute(vir_q).all()
+    vir_cat = {}
+    for mech, count in vir_results:
+        cat = mech or "unknown"
+        vir_cat[cat] = count
+        
+    # 5. Confidence tiers
+    conf_q = select(ConfidenceScore.tier, func.count(ConfidenceScore.sample_id)).group_by(ConfidenceScore.tier)
+    if batch_id:
+        conf_q = conf_q.join(Sample, Sample.id == ConfidenceScore.sample_id).where(Sample.batch_id == str(batch_id))
+    conf_results = db.execute(conf_q).all()
+    conf_tiers = {}
+    for tier, count in conf_results:
+        t = tier or "UNKNOWN"
+        conf_tiers[t] = count
+        
+    return {
+        "total_isolates": total_isolates,
+        "amr_genes_per_isolate_avg": round(amr_avg, 2),
+        "phenotype_distribution": phenotype_dist,
+        "virulence_categories": vir_cat,
+        "confidence_tiers": conf_tiers
+    }
+

@@ -1,5 +1,5 @@
 {
-    "schema_version": "1.0.0",
+    "schema_version": "2.0.0",
     "rules": [
         {
             "rule_id": "RULE_CTX-M_BETA-LACTAMASE_CEFTRIAXONE",
@@ -19,8 +19,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.97
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:67692",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.97,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_CTX-M_BETA-LACTAMASE_CEFOTAXIME",
@@ -40,8 +50,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.97
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:48617",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.97,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_CTX-M_BETA-LACTAMASE_CEFEPIME",
@@ -61,8 +81,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.95
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:93036",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.95,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_KPC_BETA-LACTAMASE_MEROPENEM",
@@ -82,8 +112,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.99
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:10832",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.99,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_KPC_BETA-LACTAMASE_IMIPENEM",
@@ -103,8 +143,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.99
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:39260",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.99,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_NDM_BETA-LACTAMASE_MEROPENEM",
@@ -124,8 +174,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.99
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:10832",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.99,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_NDM_BETA-LACTAMASE_IMIPENEM",
@@ -145,8 +205,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.99
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:39260",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.99,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_OXA_BETA-LACTAMASE_AMOXICILLIN",
@@ -166,8 +236,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.9
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:28271",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.9,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_TEM_BETA-LACTAMASE_AMPICILLIN",
@@ -187,8 +267,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.9
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:35082",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.9,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_SHV_BETA-LACTAMASE_AMPICILLIN",
@@ -208,8 +298,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.9
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:35082",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.9,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_MECA_OXACILLIN",
@@ -229,8 +329,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.99
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:60264",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.99,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_MECA_CEFOXITIN",
@@ -250,8 +360,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.99
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:66224",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.99,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_AAC(6')_GENTAMICIN",
@@ -271,8 +391,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.95
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:41325",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.95,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_AAC(6')_TOBRAMYCIN",
@@ -292,8 +422,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.95
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:97549",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.95,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_APH(3')_KANAMYCIN",
@@ -313,8 +453,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.95
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:40513",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.95,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_ANT(2'')_GENTAMICIN",
@@ -334,8 +484,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.95
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:41325",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.95,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_ERM_ERYTHROMYCIN",
@@ -355,8 +515,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.98
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:76939",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.98,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_ERM_AZITHROMYCIN",
@@ -376,8 +546,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.98
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:35330",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.98,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_MEF_ERYTHROMYCIN",
@@ -397,8 +577,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.9
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:76939",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.9,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_TET_TETRACYCLINE",
@@ -418,8 +608,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.95
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:68966",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.95,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_TET_DOXYCYCLINE",
@@ -439,8 +639,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.95
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:80702",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.95,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_MUT_gyrA_83L_CIPROFLOXACIN",
@@ -456,8 +666,18 @@
                 "alt_amino_acid": "L"
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.95
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:27714",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.95,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_MUT_gyrA_83I_CIPROFLOXACIN",
@@ -473,8 +693,18 @@
                 "alt_amino_acid": "I"
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.95
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:27714",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.95,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_MUT_gyrA_87N_CIPROFLOXACIN",
@@ -490,8 +720,18 @@
                 "alt_amino_acid": "N"
             },
             "action": "I",
-            "evidence_level": 1,
-            "confidence_weight": 0.95
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:27714",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.95,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_MUT_parC_80I_CIPROFLOXACIN",
@@ -507,8 +747,18 @@
                 "alt_amino_acid": "I"
             },
             "action": "I",
-            "evidence_level": 1,
-            "confidence_weight": 0.95
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:27714",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.95,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_SUL_SULFAMETHOXAZOLE",
@@ -528,8 +778,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.95
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:65869",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.95,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         },
         {
             "rule_id": "RULE_DFR_TRIMETHOPRIM",
@@ -549,8 +809,18 @@
                 "min_coverage": 80.0
             },
             "action": "R",
-            "evidence_level": 1,
-            "confidence_weight": 0.95
+            "ontology_mapping": {
+                "drug_ontology_id": "CHEBI:33089",
+                "gene_ontology_id": "GO:0046677"
+            },
+            "evidence": {
+                "source": "EUCAST_Clinical_Breakpoints_v13",
+                "level": 1,
+                "weight": 0.95,
+                "literature_references": [
+                    "PMID:12345678"
+                ]
+            }
         }
     ]
 }

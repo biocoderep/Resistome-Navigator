@@ -1,19 +1,146 @@
 {
-    "schema_version": "1.0.0",
+    "schema_version": "2.0.0",
     "categories": [
-        {"code":"adhesin", "display":"Adhesion Factor", "risk_weight":0.70, "description":"Enables attachment to host epithelium or matrix"},
-        {"code":"toxin", "display":"Toxin", "risk_weight":1.00, "description":"Directly damages host cells or tissues"},
-        {"code":"invasin", "display":"Invasion Factor", "risk_weight":0.90, "description":"Mediates intracellular penetration"},
-        {"code":"biofilm", "display":"Biofilm Factor", "risk_weight":0.50, "description":"Promotes surface colonisation and persistence"},
-        {"code":"iron_acquisition", "display":"Iron Acquisition System", "risk_weight":0.75, "description":"Overcomes iron limitation in host environment"},
-        {"code":"capsule", "display":"Capsule Biosynthesis", "risk_weight":0.85, "description":"Polysaccharide capsule evades innate immunity"},
-        {"code":"secretion_system", "display":"Secretion System", "risk_weight":0.85, "description":"T3SS/T4SS/T6SS delivers effectors into host"},
-        {"code":"immune_evasion", "display":"Immune Evasion Factor", "risk_weight":0.80, "description":"Suppresses complement, opsonisation, or phagocytosis"},
-        {"code":"stress_response", "display":"Stress Response Factor", "risk_weight":0.40, "description":"Tolerance to host-imposed stresses"},
-        {"code":"colonisation", "display":"Host Colonisation Factor", "risk_weight":0.45, "description":"General fitness advantage during infection"},
-        {"code":"amr_tolerance", "display":"Antimicrobial Tolerance", "risk_weight":0.60, "description":"Phenotypic tolerance without genetic resistance"},
-        {"code":"unknown", "display":"Unknown Function", "risk_weight":0.10, "description":"Annotated in VF database; function unclear"}
+        {
+            "code": "adhesin",
+            "display": "Adhesion Factor",
+            "risk_weight": 0.7,
+            "description": "Enables attachment to host epithelium or matrix",
+            "ontology_mapping": {
+                "vfdb_category": "ADHESION_FACTOR",
+                "go_term": "GO:0009405"
+            }
+        },
+        {
+            "code": "toxin",
+            "display": "Toxin",
+            "risk_weight": 1.0,
+            "description": "Directly damages host cells or tissues",
+            "ontology_mapping": {
+                "vfdb_category": "TOXIN",
+                "go_term": "GO:0009405"
+            }
+        },
+        {
+            "code": "invasin",
+            "display": "Invasion Factor",
+            "risk_weight": 0.9,
+            "description": "Mediates intracellular penetration",
+            "ontology_mapping": {
+                "vfdb_category": "INVASION_FACTOR",
+                "go_term": "GO:0009405"
+            }
+        },
+        {
+            "code": "biofilm",
+            "display": "Biofilm Factor",
+            "risk_weight": 0.5,
+            "description": "Promotes surface colonisation and persistence",
+            "ontology_mapping": {
+                "vfdb_category": "BIOFILM_FACTOR",
+                "go_term": "GO:0009405"
+            }
+        },
+        {
+            "code": "iron_acquisition",
+            "display": "Iron Acquisition System",
+            "risk_weight": 0.75,
+            "description": "Overcomes iron limitation in host environment",
+            "ontology_mapping": {
+                "vfdb_category": "IRON_ACQUISITION_SYSTEM",
+                "go_term": "GO:0009405"
+            }
+        },
+        {
+            "code": "capsule",
+            "display": "Capsule Biosynthesis",
+            "risk_weight": 0.85,
+            "description": "Polysaccharide capsule evades innate immunity",
+            "ontology_mapping": {
+                "vfdb_category": "CAPSULE_BIOSYNTHESIS",
+                "go_term": "GO:0009405"
+            }
+        },
+        {
+            "code": "secretion_system",
+            "display": "Secretion System",
+            "risk_weight": 0.85,
+            "description": "T3SS/T4SS/T6SS delivers effectors into host",
+            "ontology_mapping": {
+                "vfdb_category": "SECRETION_SYSTEM",
+                "go_term": "GO:0009405"
+            }
+        },
+        {
+            "code": "immune_evasion",
+            "display": "Immune Evasion Factor",
+            "risk_weight": 0.8,
+            "description": "Suppresses complement, opsonisation, or phagocytosis",
+            "ontology_mapping": {
+                "vfdb_category": "IMMUNE_EVASION_FACTOR",
+                "go_term": "GO:0009405"
+            }
+        },
+        {
+            "code": "stress_response",
+            "display": "Stress Response Factor",
+            "risk_weight": 0.4,
+            "description": "Tolerance to host-imposed stresses",
+            "ontology_mapping": {
+                "vfdb_category": "STRESS_RESPONSE_FACTOR",
+                "go_term": "GO:0009405"
+            }
+        },
+        {
+            "code": "colonisation",
+            "display": "Host Colonisation Factor",
+            "risk_weight": 0.45,
+            "description": "General fitness advantage during infection",
+            "ontology_mapping": {
+                "vfdb_category": "HOST_COLONISATION_FACTOR",
+                "go_term": "GO:0009405"
+            }
+        },
+        {
+            "code": "amr_tolerance",
+            "display": "Antimicrobial Tolerance",
+            "risk_weight": 0.6,
+            "description": "Phenotypic tolerance without genetic resistance",
+            "ontology_mapping": {
+                "vfdb_category": "ANTIMICROBIAL_TOLERANCE",
+                "go_term": "GO:0009405"
+            }
+        },
+        {
+            "code": "unknown",
+            "display": "Unknown Function",
+            "risk_weight": 0.1,
+            "description": "Annotated in VF database; function unclear",
+            "ontology_mapping": {
+                "vfdb_category": "UNKNOWN_FUNCTION",
+                "go_term": "GO:0009405"
+            }
+        }
     ],
-    "high_risk_categories": ["toxin", "invasin", "capsule", "secretion_system", "immune_evasion"],
-    "high_risk_genes": ["stx1", "stx2", "hlyA", "cdtB", "cna", "lukSF", "tcdA", "tcdB"]
+    "high_risk_categories": [
+        "toxin",
+        "invasin",
+        "capsule",
+        "secretion_system",
+        "immune_evasion"
+    ],
+    "high_risk_genes": [
+        "stx1",
+        "stx2",
+        "hlyA",
+        "cdtB",
+        "cna",
+        "lukSF",
+        "tcdA",
+        "tcdB"
+    ],
+    "evidence_scoring": {
+        "high_risk_multiplier": 1.5,
+        "base_confidence": 0.85
+    }
 }
