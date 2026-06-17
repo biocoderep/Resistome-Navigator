@@ -72,7 +72,7 @@ class CARDRGIDetector(BaseAMRDetector):
                 "-o",
                 str(output_prefix),
                 "-t",
-                "nucl",
+                "contig",
                 "-a",
                 "BLAST",
                 "-n",

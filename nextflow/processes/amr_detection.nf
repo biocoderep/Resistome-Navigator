@@ -78,6 +78,7 @@ process amr_detection {
             Path("amrfinderplus_empty.tsv").touch()
         
         # Create master report
+        all_errors = rgi_result.errors + amrfinder_result.errors
         master_report = {
             "sample_id": "${sample_id}",
             "species": "${species}",
@@ -87,7 +88,7 @@ process amr_detection {
             "unique_gene_families": unique_genes,
             "rgi_results": rgi_result.model_dump(),
             "amrfinderplus_results": amrfinder_result.model_dump(),
-            "errors": rgi_result.errors + amrfinder_result.errors
+            "errors": all_errors
         }
         
         with open("amr_detection_report.json", "w") as f:
@@ -95,6 +96,13 @@ process amr_detection {
         
         print(f"Total AMR genes detected: {len(all_hits)}")
         print(f"Unique gene families: {unique_genes}")
+        
+        if all_errors:
+            print("ERROR: One or more AMR detection tools failed:", flush=True)
+            for err in all_errors:
+                print(f"  - {err}", flush=True)
+            import sys
+            sys.exit(1)
         EOF
         """
 }

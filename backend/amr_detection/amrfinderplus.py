@@ -70,10 +70,6 @@ class AMRFinderPlusDetector(BaseAMRDetector):
                 str(assembly_file),
                 "-o",
                 str(output_file),
-                "-d",
-                "database_dir",  # Requires AMRFINDER_DB env var set
-                "-t",
-                "nucleotide",
                 "--report_common",
                 "--plus"  # <--- NEW FLAG added here
             ]
