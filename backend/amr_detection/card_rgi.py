@@ -151,6 +151,10 @@ class CARDRGIDetector(BaseAMRDetector):
                 if not isinstance(orf_hits, dict):
                     continue
                 
+                best_hit = None
+                best_score = -1.0
+                best_type_rank = -1
+                
                 for _k, hit in orf_hits.items():
                     if not isinstance(hit, dict):
                         continue
@@ -158,88 +162,104 @@ class CARDRGIDetector(BaseAMRDetector):
                     hittype = hit.get("type_match", "")
                     if hittype not in ("Perfect", "Strict"):
                         continue
-
-                    gene_name = hit.get("ARO_name", "Unknown")
-                    
-                    # Parse ARO_category for gene_family and drug_class
-                    aro_category = hit.get("ARO_category", {})
-                    gene_family = "Unknown"
-                    drug_class = ""
-                    
-                    if isinstance(aro_category, dict):
-                        drug_classes = []
-                        for cat_id, cat_info in aro_category.items():
-                            if not isinstance(cat_info, dict):
-                                continue
-                            cat_name = cat_info.get("category_aro_name", "")
-                            cat_class = cat_info.get("category_aro_class_name", "")
-                            if cat_class == "AMR Gene Family":
-                                gene_family = cat_name
-                            elif cat_class == "Drug Class":
-                                drug_classes.append(cat_name)
                         
-                        if drug_classes:
-                            drug_class = ", ".join(drug_classes)
-                            
-                    if not drug_class:
-                        drug_class = gene_family
-                    
-                    contig = hit.get("orf_from", "Unknown")
-                    start = int(hit.get("orf_start", 0))
-                    stop = int(hit.get("orf_end", 0))
-                    identity = float(hit.get("perc_identity", 0.0))
-                    coverage = float(hit.get("query_coverage", 0.0))
-                    model_type = hit.get("model_type", "")
-                    snps = hit.get("snps_in_isolate", [])
-
-                    if model_type == "protein variant model" or "Variant" in model_type:
-                        # RGI SNP format: {"original": "S", "mutation": "L", "position": 83}
-                        for snp in snps:
-                            orig = snp.get("original", "")
-                            mut = snp.get("mutation", "")
-                            pos = snp.get("position", "")
-                            mutation_str = f"{orig}{pos}{mut}" if orig and mut and pos else str(snp)
-                            
-                            mutation_hits.append({
-                                "gene_name": gene_name,
-                                "mutation": mutation_str,
-                                "mechanism": "Point Mutation",
-                                "effect": "Missense",
-                                "identity_percent": identity,
-                                "coverage_percent": coverage,
-                                "database_source": "CARD"
-                            })
+                    type_rank = 2 if hittype == "Perfect" else 1
+                    try:
+                        score = float(hit.get("pass_bitscore", 0.0))
+                    except ValueError:
+                        score = 0.0
                         
-                        # We might still want to add the hit itself to AMR genes or just mutations
-                        # Given the contract, mutations are separate, so we can skip adding to hits
-                        continue
+                    if type_rank > best_type_rank or (type_rank == best_type_rank and score > best_score):
+                        best_type_rank = type_rank
+                        best_score = score
+                        best_hit = hit
 
-                    # Determine confidence
-                    if identity >= 99.0:
-                        confidence = ConfidenceLevel.HIGH
-                    elif identity >= 95.0:
-                        confidence = ConfidenceLevel.MEDIUM
-                    else:
-                        confidence = ConfidenceLevel.LOW
+                if not best_hit:
+                    continue
+                
+                hit = best_hit
+                
+                gene_name = hit.get("ARO_name", "Unknown")
+                
+                # Parse ARO_category for gene_family and drug_class
+                aro_category = hit.get("ARO_category", {})
+                gene_family = "Unknown"
+                drug_class = ""
+                
+                if isinstance(aro_category, dict):
+                    drug_classes = []
+                    for cat_id, cat_info in aro_category.items():
+                        if not isinstance(cat_info, dict):
+                            continue
+                        cat_name = cat_info.get("category_aro_name", "")
+                        cat_class = cat_info.get("category_aro_class_name", "")
+                        if cat_class == "AMR Gene Family":
+                            gene_family = cat_name
+                        elif cat_class == "Drug Class":
+                            drug_classes.append(cat_name)
+                    
+                    if drug_classes:
+                        drug_class = ", ".join(drug_classes)
+                        
+                if not drug_class:
+                    drug_class = gene_family
+                
+                contig = hit.get("orf_from", "Unknown")
+                start = int(hit.get("orf_start", 0))
+                stop = int(hit.get("orf_end", 0))
+                identity = float(hit.get("perc_identity", 0.0))
+                coverage = float(hit.get("query_coverage", 0.0))
+                model_type = hit.get("model_type", "")
+                snps = hit.get("snps_in_isolate", [])
 
-                    # Determine resistance class
-                    resistance_class = map_resistance_class(drug_class)
+                if model_type == "protein variant model" or "Variant" in model_type:
+                    # RGI SNP format: {"original": "S", "mutation": "L", "position": 83}
+                    for snp in snps:
+                        orig = snp.get("original", "")
+                        mut = snp.get("mutation", "")
+                        pos = snp.get("position", "")
+                        mutation_str = f"{orig}{pos}{mut}" if orig and mut and pos else str(snp)
+                        
+                        mutation_hits.append({
+                            "gene_name": gene_name,
+                            "mutation": mutation_str,
+                            "mechanism": "Point Mutation",
+                            "effect": "Missense",
+                            "identity_percent": identity,
+                            "coverage_percent": coverage,
+                            "database_source": "CARD"
+                        })
+                    
+                    # We might still want to add the hit itself to AMR genes or just mutations
+                    # Given the contract, mutations are separate, so we can skip adding to hits
+                    continue
 
-                    amr_hit = AMRHit(
-                        gene_name=gene_name,
-                        gene_family=gene_family,
-                        resistance_class=resistance_class,
-                        contig_id=contig,
-                        start_position=min(start, stop),
-                        end_position=max(start, stop),
-                        gene_length=abs(stop - start),
-                        identity_percent=identity,
-                        coverage_percent=coverage,
-                        tool_name="card_rgi",
-                        confidence=confidence,
-                        phenotype=hit.get("phenotype", None),
-                    )
-                    hits.append(amr_hit)
+                # Determine confidence
+                if identity >= 99.0:
+                    confidence = ConfidenceLevel.HIGH
+                elif identity >= 95.0:
+                    confidence = ConfidenceLevel.MEDIUM
+                else:
+                    confidence = ConfidenceLevel.LOW
+
+                # Determine resistance class
+                resistance_class = map_resistance_class(drug_class)
+
+                amr_hit = AMRHit(
+                    gene_name=gene_name,
+                    gene_family=gene_family,
+                    resistance_class=resistance_class,
+                    contig_id=contig,
+                    start_position=min(start, stop),
+                    end_position=max(start, stop),
+                    gene_length=abs(stop - start),
+                    identity_percent=identity,
+                    coverage_percent=coverage,
+                    tool_name="card_rgi",
+                    confidence=confidence,
+                    phenotype=hit.get("phenotype", None),
+                )
+                hits.append(amr_hit)
 
         except Exception as e:
             return [], []
