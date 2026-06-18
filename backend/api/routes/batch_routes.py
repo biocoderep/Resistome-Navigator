@@ -37,6 +37,7 @@ def upload_batch(
     background_tasks: BackgroundTasks,
     project_id: UUID = Form(...),
     batch_name: str | None = Form(default=None),
+    species: str | None = Form(default=None),
     run_cohort_analysis: bool = Form(default=True),
     files: list[UploadFile] = File(...),
     db: Session = Depends(get_session)
@@ -66,6 +67,7 @@ def upload_batch(
             batch_id=batch.id,
             project_id=str(project_id),
             isolate_name=file.filename,
+            species=species,
             status="QUEUED"
         )
         db.add(sample)

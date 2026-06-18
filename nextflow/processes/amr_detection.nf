@@ -64,7 +64,8 @@ process amr_detection {
         amrfinder_result = amrfinder_detector.detect(
             assembly_file=Path("${assembly_file}"),
             output_dir=output_dir,
-            sample_id="${sample_id}"
+            sample_id="${sample_id}",
+            species="${species}"
         )
         
         # Aggregate results

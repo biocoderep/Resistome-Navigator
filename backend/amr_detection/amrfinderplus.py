@@ -16,6 +16,24 @@ from backend.amr_detection.base import (
     map_resistance_class,
 )
 
+SPECIES_MAP = {
+    "acinetobacter_baumannii": "Acinetobacter_baumannii",
+    "acinetobacter baumannii": "Acinetobacter_baumannii",
+    "escherichia": "Escherichia",
+    "escherichia coli": "Escherichia",
+    "e. coli": "Escherichia",
+    "klebsiella_pneumoniae": "Klebsiella_pneumoniae",
+    "klebsiella pneumoniae": "Klebsiella_pneumoniae",
+    "staphylococcus_aureus": "Staphylococcus_aureus",
+    "staphylococcus aureus": "Staphylococcus_aureus",
+    "pseudomonas_aeruginosa": "Pseudomonas_aeruginosa",
+    "pseudomonas aeruginosa": "Pseudomonas_aeruginosa",
+    "salmonella": "Salmonella",
+    "enterococcus_faecium": "Enterococcus_faecium",
+    "enterococcus faecium": "Enterococcus_faecium",
+    "campylobacter": "Campylobacter",
+}
+
 
 class AMRFinderPlusDetector(BaseAMRDetector):
     """AMRFinderPlus-based AMR detection tool."""
@@ -32,6 +50,7 @@ class AMRFinderPlusDetector(BaseAMRDetector):
         output_dir: Path,
         sample_id: UUID = None,
         assembly_id: UUID = None,
+        species: str = None,
         progress_callback=None,
     ) -> AMRDetectionResult:
         """
@@ -73,6 +92,11 @@ class AMRFinderPlusDetector(BaseAMRDetector):
                 str(output_file),
                 "--plus"  # <--- NEW FLAG added here
             ]
+            
+            if species:
+                mapped_org = SPECIES_MAP.get(species.lower().strip())
+                if mapped_org:
+                    cmd.extend(["-O", mapped_org])
 
             if progress_callback:
                 progress_callback(20, "Running AMRFinderPlus analysis")
