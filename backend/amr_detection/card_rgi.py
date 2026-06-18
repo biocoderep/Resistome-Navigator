@@ -13,6 +13,7 @@ from backend.amr_detection.base import (
     BaseAMRDetector,
     ConfidenceLevel,
     ResistanceClass,
+    map_resistance_class,
 )
 
 
@@ -77,7 +78,6 @@ class CARDRGIDetector(BaseAMRDetector):
                 "BLAST",
                 "-n",
                 str(self.config.threads),
-                "--include_loose",
             ]
 
             if progress_callback:
@@ -146,80 +146,100 @@ class CARDRGIDetector(BaseAMRDetector):
             with open(json_file) as f:
                 data = json.load(f)
 
-            # RGI output format: {"ORF#": {...}}
-            for orf_id, hit_data in data.items():
-                if not isinstance(hit_data, dict):
+            # RGI output format: {"ORF#": {"Blast_Hit_ID": {...}}}
+            for orf_id, orf_hits in data.items():
+                if not isinstance(orf_hits, dict):
                     continue
-
-                gene_name = hit_data.get("ARO_name", "Unknown")
-                gene_family = hit_data.get("ARO_category", "Unknown")
-                contig = hit_data.get("contig", "Unknown")
-                start = int(hit_data.get("start", 0))
-                stop = int(hit_data.get("stop", 0))
-                identity = float(hit_data.get("perc_identity", 0.0))
-                coverage = float(hit_data.get("query_coverage", 0.0))
-                hittype = hit_data.get("type_match", "Strict")
-                model_type = hit_data.get("model_type", "")
-                snps = hit_data.get("snps_in_isolate", [])
-
-                if model_type == "protein variant model" or "Variant" in model_type:
-                    # RGI SNP format: {"original": "S", "mutation": "L", "position": 83}
-                    for snp in snps:
-                        orig = snp.get("original", "")
-                        mut = snp.get("mutation", "")
-                        pos = snp.get("position", "")
-                        mutation_str = f"{orig}{pos}{mut}" if orig and mut and pos else str(snp)
+                
+                for _k, hit in orf_hits.items():
+                    if not isinstance(hit, dict):
+                        continue
                         
-                        mutation_hits.append({
-                            "gene_name": gene_name,
-                            "mutation": mutation_str,
-                            "mechanism": "Point Mutation",
-                            "effect": "Missense",
-                            "identity_percent": identity,
-                            "coverage_percent": coverage,
-                            "database_source": "CARD"
-                        })
+                    hittype = hit.get("type_match", "")
+                    if hittype not in ("Perfect", "Strict"):
+                        continue
+
+                    gene_name = hit.get("ARO_name", "Unknown")
                     
-                    # We might still want to add the hit itself to AMR genes or just mutations
-                    # Given the contract, mutations are separate, so we can skip adding to hits
-                    continue
+                    # Parse ARO_category for gene_family and drug_class
+                    aro_category = hit.get("ARO_category", {})
+                    gene_family = "Unknown"
+                    drug_class = ""
+                    
+                    if isinstance(aro_category, dict):
+                        drug_classes = []
+                        for cat_id, cat_info in aro_category.items():
+                            if not isinstance(cat_info, dict):
+                                continue
+                            cat_name = cat_info.get("category_aro_name", "")
+                            cat_class = cat_info.get("category_aro_class_name", "")
+                            if cat_class == "AMR Gene Family":
+                                gene_family = cat_name
+                            elif cat_class == "Drug Class":
+                                drug_classes.append(cat_name)
+                        
+                        if drug_classes:
+                            drug_class = ", ".join(drug_classes)
+                            
+                    if not drug_class:
+                        drug_class = gene_family
+                    
+                    contig = hit.get("orf_from", "Unknown")
+                    start = int(hit.get("orf_start", 0))
+                    stop = int(hit.get("orf_end", 0))
+                    identity = float(hit.get("perc_identity", 0.0))
+                    coverage = float(hit.get("query_coverage", 0.0))
+                    model_type = hit.get("model_type", "")
+                    snps = hit.get("snps_in_isolate", [])
 
-                # Determine confidence
-                if identity >= 99.0:
-                    confidence = ConfidenceLevel.HIGH
-                elif identity >= 95.0:
-                    confidence = ConfidenceLevel.MEDIUM
-                else:
-                    confidence = ConfidenceLevel.LOW
+                    if model_type == "protein variant model" or "Variant" in model_type:
+                        # RGI SNP format: {"original": "S", "mutation": "L", "position": 83}
+                        for snp in snps:
+                            orig = snp.get("original", "")
+                            mut = snp.get("mutation", "")
+                            pos = snp.get("position", "")
+                            mutation_str = f"{orig}{pos}{mut}" if orig and mut and pos else str(snp)
+                            
+                            mutation_hits.append({
+                                "gene_name": gene_name,
+                                "mutation": mutation_str,
+                                "mechanism": "Point Mutation",
+                                "effect": "Missense",
+                                "identity_percent": identity,
+                                "coverage_percent": coverage,
+                                "database_source": "CARD"
+                            })
+                        
+                        # We might still want to add the hit itself to AMR genes or just mutations
+                        # Given the contract, mutations are separate, so we can skip adding to hits
+                        continue
 
-                # Determine resistance class
-                resistance_class = ResistanceClass.OTHER
-                if "Aminoglycoside" in gene_family:
-                    resistance_class = ResistanceClass.AMINOGLYCOSIDES
-                elif "Beta-lactam" in gene_family:
-                    resistance_class = ResistanceClass.BETA_LACTAMS
-                elif "Fluoroquinolone" in gene_family:
-                    resistance_class = ResistanceClass.FLUOROQUINOLONES
-                elif "Tetracycline" in gene_family:
-                    resistance_class = ResistanceClass.TETRACYCLINES
-                elif "Macrolide" in gene_family:
-                    resistance_class = ResistanceClass.MACROLIDES
+                    # Determine confidence
+                    if identity >= 99.0:
+                        confidence = ConfidenceLevel.HIGH
+                    elif identity >= 95.0:
+                        confidence = ConfidenceLevel.MEDIUM
+                    else:
+                        confidence = ConfidenceLevel.LOW
 
-                hit = AMRHit(
-                    gene_name=gene_name,
-                    gene_family=gene_family,
-                    resistance_class=resistance_class,
-                    contig_id=contig,
-                    start_position=min(start, stop),
-                    end_position=max(start, stop),
-                    gene_length=abs(stop - start),
-                    identity_percent=identity,
-                    coverage_percent=coverage,
-                    tool_name="card_rgi",
-                    confidence=confidence,
-                    phenotype=hit_data.get("phenotype", None),
-                )
-                hits.append(hit)
+                    # Determine resistance class
+                    resistance_class = map_resistance_class(drug_class)
+
+                    amr_hit = AMRHit(
+                        gene_name=gene_name,
+                        gene_family=gene_family,
+                        resistance_class=resistance_class,
+                        contig_id=contig,
+                        start_position=min(start, stop),
+                        end_position=max(start, stop),
+                        gene_length=abs(stop - start),
+                        identity_percent=identity,
+                        coverage_percent=coverage,
+                        tool_name="card_rgi",
+                        confidence=confidence,
+                        phenotype=hit.get("phenotype", None),
+                    )
+                    hits.append(amr_hit)
 
         except Exception as e:
             return [], []

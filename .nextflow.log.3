@@ -1,89 +1,51 @@
-Jun-18 03:56:36.298 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /app/nextflow/main.nf --samples /tmp/amr_uploads/bb96efe4-7491-48eb-a69d-4ec58d049c63/samples.csv --output /tmp/amr_uploads/bb96efe4-7491-48eb-a69d-4ec58d049c63/results -profile local
-Jun-18 03:56:36.522 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /app/nextflow/main.nf --samples /tmp/amr_uploads/f215fb16-27de-44bb-baec-a87ea350f644/samples.csv --output /tmp/amr_uploads/f215fb16-27de-44bb-baec-a87ea350f644/results -profile local
-Jun-18 03:56:37.199 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.10.1
-Jun-18 03:56:37.300 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/root/.nextflow/plugins; core-plugins: nf-amazon@2.1.4,nf-azure@1.3.3,nf-cloudcache@0.3.0,nf-codecommit@0.1.5,nf-console@1.0.6,nf-ga4gh@1.1.0,nf-google@1.8.3,nf-tower@1.6.3,nf-wave@1.0.1
-Jun-18 03:56:37.370 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Jun-18 03:56:37.381 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Jun-18 03:56:37.385 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
-Jun-18 03:56:37.473 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Jun-18 03:56:37.551 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /app/nextflow/nextflow.config
-Jun-18 03:56:37.561 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /app/nextflow/nextflow.config
-Jun-18 03:56:37.741 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `local`
-Jun-18 03:56:37.753 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.10.1
-Jun-18 03:56:37.839 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/root/.nextflow/plugins; core-plugins: nf-amazon@2.1.4,nf-azure@1.3.3,nf-cloudcache@0.3.0,nf-codecommit@0.1.5,nf-console@1.0.6,nf-ga4gh@1.1.0,nf-google@1.8.3,nf-tower@1.6.3,nf-wave@1.0.1
-Jun-18 03:56:37.897 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Jun-18 03:56:37.912 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Jun-18 03:56:37.921 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
-Jun-18 03:56:38.071 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Jun-18 03:56:38.131 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /app/nextflow/nextflow.config
-Jun-18 03:56:38.149 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /app/nextflow/nextflow.config
-Jun-18 03:56:38.312 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `local`
-Jun-18 03:56:41.360 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [slurm, test, singularity, local, docker]
-Jun-18 03:56:41.431 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [slurm, test, singularity, local, docker]
-Jun-18 03:56:41.463 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declararion
-Jun-18 03:56:41.533 [main] INFO  nextflow.cli.CmdRun - Launching `/app/nextflow/main.nf` [astonishing_ride] DSL2 - revision: 01df925c7c
-Jun-18 03:56:41.534 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Jun-18 03:56:41.534 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Jun-18 03:56:41.561 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /root/.nextflow/secrets/store.json
-Jun-18 03:56:41.568 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@7affc159] - activable => nextflow.secret.LocalSecretsProvider@7affc159
-Jun-18 03:56:41.606 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declararion
-Jun-18 03:56:41.747 [main] INFO  nextflow.cli.CmdRun - Launching `/app/nextflow/main.nf` [high_sax] DSL2 - revision: 01df925c7c
-Jun-18 03:56:41.753 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Jun-18 03:56:41.754 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Jun-18 03:56:41.786 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /root/.nextflow/secrets/store.json
-Jun-18 03:56:41.796 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@4ace284d] - activable => nextflow.secret.LocalSecretsProvider@4ace284d
-Jun-18 03:56:41.880 [main] DEBUG nextflow.Session - Session UUID: 98d7182b-6028-4aad-a7c2-832535742b2a
-Jun-18 03:56:41.884 [main] DEBUG nextflow.Session - Run name: astonishing_ride
-Jun-18 03:56:41.889 [main] DEBUG nextflow.Session - Executor pool size: 4
-Jun-18 03:56:41.924 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Jun-18 03:56:41.953 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
-Jun-18 03:56:42.018 [main] DEBUG nextflow.Session - Session UUID: ab503420-7b1d-44b0-9fa9-983ce11d63e3
-Jun-18 03:56:42.024 [main] DEBUG nextflow.Session - Run name: high_sax
-Jun-18 03:56:42.025 [main] DEBUG nextflow.Session - Executor pool size: 4
-Jun-18 03:56:42.048 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Jun-18 03:56:42.078 [main] DEBUG nextflow.cli.CmdRun - 
+Jun-18 11:28:26.768 [main] DEBUG nextflow.cli.Launcher - $> nextflow run /app/nextflow/main.nf --samples /tmp/amr_uploads/92a54176-d869-4956-998d-5a86fd4afb44/samples.csv --output /tmp/amr_uploads/92a54176-d869-4956-998d-5a86fd4afb44/results -profile local
+Jun-18 11:28:27.529 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 23.10.1
+Jun-18 11:28:27.631 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/root/.nextflow/plugins; core-plugins: nf-amazon@2.1.4,nf-azure@1.3.3,nf-cloudcache@0.3.0,nf-codecommit@0.1.5,nf-console@1.0.6,nf-ga4gh@1.1.0,nf-google@1.8.3,nf-tower@1.6.3,nf-wave@1.0.1
+Jun-18 11:28:27.682 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jun-18 11:28:27.686 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jun-18 11:28:27.692 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Jun-18 11:28:27.738 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jun-18 11:28:27.800 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /app/nextflow/nextflow.config
+Jun-18 11:28:27.814 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /app/nextflow/nextflow.config
+Jun-18 11:28:27.903 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `local`
+Jun-18 11:28:31.467 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [slurm, test, singularity, local, docker]
+Jun-18 11:28:31.627 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declararion
+Jun-18 11:28:31.713 [main] INFO  nextflow.cli.CmdRun - Launching `/app/nextflow/main.nf` [fervent_darwin] DSL2 - revision: 01df925c7c
+Jun-18 11:28:31.720 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jun-18 11:28:31.722 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Jun-18 11:28:31.817 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /root/.nextflow/secrets/store.json
+Jun-18 11:28:31.862 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@72bdd7c7] - activable => nextflow.secret.LocalSecretsProvider@72bdd7c7
+Jun-18 11:28:32.203 [main] DEBUG nextflow.Session - Session UUID: 582af619-b2bd-479d-9659-80656aa0c61a
+Jun-18 11:28:32.213 [main] DEBUG nextflow.Session - Run name: fervent_darwin
+Jun-18 11:28:32.215 [main] DEBUG nextflow.Session - Executor pool size: 4
+Jun-18 11:28:32.253 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Jun-18 11:28:32.276 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Jun-18 11:28:32.411 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 23.10.1 build 5891
   Created: 12-01-2024 22:01 UTC 
   System: Linux 6.6.87.1-microsoft-standard-WSL2
   Runtime: Groovy 3.0.19 on OpenJDK 64-Bit Server VM 11.0.30-internal+0-adhoc.conda.src
   Encoding: UTF-8 (UTF-8)
-  Process: 90@5bbacc67b505 [172.18.0.5]
-  CPUs: 4 - Mem: 9.7 GB (7.2 GB) - Swap: 3 GB (2.8 GB)
-Jun-18 03:56:42.080 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
-Jun-18 03:56:42.190 [main] DEBUG nextflow.cli.CmdRun - 
-  Version: 23.10.1 build 5891
-  Created: 12-01-2024 22:01 UTC 
-  System: Linux 6.6.87.1-microsoft-standard-WSL2
-  Runtime: Groovy 3.0.19 on OpenJDK 64-Bit Server VM 11.0.30-internal+0-adhoc.conda.src
-  Encoding: UTF-8 (UTF-8)
-  Process: 73@5bbacc67b505 [172.18.0.5]
-  CPUs: 4 - Mem: 9.7 GB (7.2 GB) - Swap: 3 GB (2.8 GB)
-Jun-18 03:56:42.242 [main] DEBUG nextflow.Session - Work-dir: /app/nextflow/.nextflow/work [v9fs]
-Jun-18 03:56:42.355 [main] DEBUG nextflow.Session - Work-dir: /app/nextflow/.nextflow/work [v9fs]
-Jun-18 03:56:42.369 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Jun-18 03:56:42.430 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Jun-18 03:56:42.460 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Jun-18 03:56:42.512 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Jun-18 03:56:42.676 [main] WARN  nextflow.config.Manifest - Invalid config manifest attribute `url`
-Jun-18 03:56:42.733 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Jun-18 03:56:42.757 [main] WARN  nextflow.config.Manifest - Invalid config manifest attribute `url`
-Jun-18 03:56:42.825 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 5; maxThreads: 1000
-Jun-18 03:56:42.839 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Jun-18 03:56:42.886 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 5; maxThreads: 1000
-Jun-18 03:56:43.312 [main] DEBUG nextflow.Session - Session start
-Jun-18 03:56:43.321 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /tmp/amr_uploads/bb96efe4-7491-48eb-a69d-4ec58d049c63/results/.nextflow/trace.txt
-Jun-18 03:56:43.343 [main] DEBUG nextflow.Session - Session start
-Jun-18 03:56:43.361 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /tmp/amr_uploads/f215fb16-27de-44bb-baec-a87ea350f644/results/.nextflow/trace.txt
-Jun-18 03:56:45.044 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Jun-18 03:56:45.211 [main] INFO  nextflow.Nextflow - 
+  Process: 55718@5bbacc67b505 [172.18.0.5]
+  CPUs: 4 - Mem: 9.7 GB (7.3 GB) - Swap: 3 GB (2.1 GB)
+Jun-18 11:28:32.598 [main] DEBUG nextflow.Session - Work-dir: /app/nextflow/.nextflow/work [v9fs]
+Jun-18 11:28:32.742 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jun-18 11:28:32.832 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jun-18 11:28:33.103 [main] WARN  nextflow.config.Manifest - Invalid config manifest attribute `url`
+Jun-18 11:28:33.175 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Jun-18 11:28:33.260 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 5; maxThreads: 1000
+Jun-18 11:28:33.663 [main] DEBUG nextflow.Session - Session start
+Jun-18 11:28:33.688 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /tmp/amr_uploads/92a54176-d869-4956-998d-5a86fd4afb44/results/.nextflow/trace.txt
+Jun-18 11:28:36.134 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jun-18 11:28:36.309 [main] INFO  nextflow.Nextflow - 
 ╔════════════════════════════════════════════════════════════════════════╗
 ║              AMR DETECTION PIPELINE - NEXTFLOW DSL2                    ║
 ║                          Module 1 MVP                                  ║
 ╚════════════════════════════════════════════════════════════════════════╝
 
 PARAMETERS:
-  Samples:                    /tmp/amr_uploads/bb96efe4-7491-48eb-a69d-4ec58d049c63/samples.csv
-  Output Directory:           /tmp/amr_uploads/bb96efe4-7491-48eb-a69d-4ec58d049c63/results
+  Samples:                    /tmp/amr_uploads/92a54176-d869-4956-998d-5a86fd4afb44/samples.csv
+  Output Directory:           /tmp/amr_uploads/92a54176-d869-4956-998d-5a86fd4afb44/results
   Alignment Method:           bowtie2
   AMR Tools:                  card_rgi,amrfinderplus
   Reference DB Directory:     /opt/conda/share/amrfinderplus/data/latest
@@ -97,81 +59,42 @@ RESOURCES:
   AMR Detection Memory:       4 GB
 
 
-Jun-18 03:56:45.954 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Jun-18 03:56:46.074 [main] INFO  nextflow.Nextflow - 
-╔════════════════════════════════════════════════════════════════════════╗
-║              AMR DETECTION PIPELINE - NEXTFLOW DSL2                    ║
-║                          Module 1 MVP                                  ║
-╚════════════════════════════════════════════════════════════════════════╝
-
-PARAMETERS:
-  Samples:                    /tmp/amr_uploads/f215fb16-27de-44bb-baec-a87ea350f644/samples.csv
-  Output Directory:           /tmp/amr_uploads/f215fb16-27de-44bb-baec-a87ea350f644/results
-  Alignment Method:           bowtie2
-  AMR Tools:                  card_rgi,amrfinderplus
-  Reference DB Directory:     /opt/conda/share/amrfinderplus/data/latest
-
-RESOURCES:
-  Validation Cpus:            2
-  Validation Memory:          3 GB
-  Alignment Cpus:             2
-  Alignment Memory:           4 GB
-  AMR Detection Cpus:         2
-  AMR Detection Memory:       4 GB
-
-
-Jun-18 03:56:48.425 [main] INFO  nextflow.Nextflow - Step 1/6: Running Genome Validation Engine
-Jun-18 03:56:48.690 [main] INFO  nextflow.Nextflow - Step 1/6: Running Genome Validation Engine
-Jun-18 03:56:48.784 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:validation` matches labels `validation` for process with name genome_validation
-Jun-18 03:56:48.807 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Jun-18 03:56:48.812 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jun-18 03:56:48.838 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
-Jun-18 03:56:48.871 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=4; memory=9.7 GB; capacity=4; pollInterval=1m; dumpInterval=5m
-Jun-18 03:56:48.884 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
-Jun-18 03:56:48.978 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:validation` matches labels `validation` for process with name genome_validation
-Jun-18 03:56:49.010 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Jun-18 03:56:49.011 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jun-18 03:56:49.140 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
-Jun-18 03:56:49.161 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=4; memory=9.7 GB; capacity=4; pollInterval=1m; dumpInterval=5m
-Jun-18 03:56:49.174 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
-Jun-18 03:56:49.246 [main] INFO  nextflow.Nextflow - Step 2/6: Running Sequence Alignment
-Jun-18 03:56:49.278 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:alignment` matches labels `alignment` for process with name sequence_alignment
-Jun-18 03:56:49.291 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Jun-18 03:56:49.291 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jun-18 03:56:49.312 [main] INFO  nextflow.Nextflow - Step 3/6: Running AMR Detection
-Jun-18 03:56:49.335 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:amr_detection` matches labels `amr_detection` for process with name amr_detection
-Jun-18 03:56:49.346 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Jun-18 03:56:49.352 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jun-18 03:56:49.359 [main] INFO  nextflow.Nextflow - Step 4/6: Running Biological Characterisation
-Jun-18 03:56:49.490 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:aggregation` matches labels `aggregation` for process with name bio_analysis
-Jun-18 03:56:49.502 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Jun-18 03:56:49.503 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jun-18 03:56:49.517 [main] INFO  nextflow.Nextflow - Step 5/6: Aggregating Results
-Jun-18 03:56:49.544 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:aggregation` matches labels `aggregation` for process with name aggregate_results
-Jun-18 03:56:49.553 [main] INFO  nextflow.Nextflow - Step 2/6: Running Sequence Alignment
-Jun-18 03:56:49.556 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Jun-18 03:56:49.557 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jun-18 03:56:49.570 [main] INFO  nextflow.Nextflow - Step 6/6: Generating Report
-Jun-18 03:56:49.571 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:alignment` matches labels `alignment` for process with name sequence_alignment
-Jun-18 03:56:49.592 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Jun-18 03:56:49.593 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jun-18 03:56:49.594 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:reporting` matches labels `reporting` for process with name generate_report
-Jun-18 03:56:49.600 [main] INFO  nextflow.Nextflow - Step 3/6: Running AMR Detection
-Jun-18 03:56:49.604 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Jun-18 03:56:49.607 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jun-18 03:56:49.618 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: generate_report, amr_detection, sequence_alignment, aggregate_results, genome_validation, bio_analysis
-Jun-18 03:56:49.621 [main] DEBUG nextflow.Session - Igniting dataflow network (7)
-Jun-18 03:56:49.627 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:amr_detection` matches labels `amr_detection` for process with name amr_detection
-Jun-18 03:56:49.637 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Jun-18 03:56:49.637 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jun-18 03:56:49.653 [main] INFO  nextflow.Nextflow - Step 4/6: Running Biological Characterisation
-Jun-18 03:56:49.657 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > genome_validation
-Jun-18 03:56:49.671 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > sequence_alignment
-Jun-18 03:56:49.674 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > amr_detection
-Jun-18 03:56:49.675 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > bio_analysis
-Jun-18 03:56:49.676 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > aggregate_results
-Jun-18 03:56:49.677 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > generate_report
-Jun-18 03:56:49.678 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+Jun-18 11:28:39.043 [main] INFO  nextflow.Nextflow - Step 1/6: Running Genome Validation Engine
+Jun-18 11:28:39.416 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:validation` matches labels `validation` for process with name genome_validation
+Jun-18 11:28:39.444 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-18 11:28:39.453 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-18 11:28:39.469 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Jun-18 11:28:39.485 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=4; memory=9.7 GB; capacity=4; pollInterval=1m; dumpInterval=5m
+Jun-18 11:28:39.499 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Jun-18 11:28:39.774 [main] INFO  nextflow.Nextflow - Step 2/6: Running Sequence Alignment
+Jun-18 11:28:39.827 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:alignment` matches labels `alignment` for process with name sequence_alignment
+Jun-18 11:28:39.858 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-18 11:28:39.860 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-18 11:28:39.869 [main] INFO  nextflow.Nextflow - Step 3/6: Running AMR Detection
+Jun-18 11:28:39.975 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:amr_detection` matches labels `amr_detection` for process with name amr_detection
+Jun-18 11:28:39.988 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-18 11:28:39.991 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-18 11:28:40.010 [main] INFO  nextflow.Nextflow - Step 4/6: Running Biological Characterisation
+Jun-18 11:28:40.179 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:aggregation` matches labels `aggregation` for process with name bio_analysis
+Jun-18 11:28:40.197 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-18 11:28:40.224 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-18 11:28:40.233 [main] INFO  nextflow.Nextflow - Step 5/6: Aggregating Results
+Jun-18 11:28:40.314 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:aggregation` matches labels `aggregation` for process with name aggregate_results
+Jun-18 11:28:40.317 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-18 11:28:40.321 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-18 11:28:40.335 [main] INFO  nextflow.Nextflow - Step 6/6: Generating Report
+Jun-18 11:28:40.341 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:reporting` matches labels `reporting` for process with name generate_report
+Jun-18 11:28:40.358 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Jun-18 11:28:40.360 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Jun-18 11:28:40.378 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: generate_report, amr_detection, sequence_alignment, aggregate_results, genome_validation, bio_analysis
+Jun-18 11:28:40.382 [main] DEBUG nextflow.Session - Igniting dataflow network (7)
+Jun-18 11:28:40.416 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > genome_validation
+Jun-18 11:28:40.421 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > sequence_alignment
+Jun-18 11:28:40.462 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > amr_detection
+Jun-18 11:28:40.463 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > bio_analysis
+Jun-18 11:28:40.464 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > aggregate_results
+Jun-18 11:28:40.483 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > generate_report
+Jun-18 11:28:40.489 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
   Script_4d30a88f478d225c: /app/nextflow/./processes/alignment.nf
   Script_6753f25d6f3fff7d: /app/nextflow/./processes/bio_analysis.nf
   Script_f47024abb0a70ffe: /app/nextflow/./processes/genome_validation.nf
@@ -179,432 +102,56 @@ Jun-18 03:56:49.678 [main] DEBUG nextflow.script.ScriptRunner - Parsed script fi
   Script_a58ab9ce187bda8f: /app/nextflow/./processes/aggregation.nf
   Script_2c85cbe4c68d21f7: /app/nextflow/./processes/amr_detection.nf
   Script_715db835c850257c: /app/nextflow/./processes/reporting.nf
-Jun-18 03:56:49.684 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Jun-18 03:56:49.688 [main] DEBUG nextflow.Session - Session await
-Jun-18 03:56:49.746 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:aggregation` matches labels `aggregation` for process with name bio_analysis
-Jun-18 03:56:49.762 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Jun-18 03:56:49.771 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jun-18 03:56:49.779 [main] INFO  nextflow.Nextflow - Step 5/6: Aggregating Results
-Jun-18 03:56:49.821 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:aggregation` matches labels `aggregation` for process with name aggregate_results
-Jun-18 03:56:49.822 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Jun-18 03:56:49.828 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jun-18 03:56:49.844 [main] INFO  nextflow.Nextflow - Step 6/6: Generating Report
-Jun-18 03:56:49.920 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:reporting` matches labels `reporting` for process with name generate_report
-Jun-18 03:56:49.923 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
-Jun-18 03:56:49.924 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Jun-18 03:56:49.938 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: generate_report, amr_detection, sequence_alignment, aggregate_results, genome_validation, bio_analysis
-Jun-18 03:56:49.946 [main] DEBUG nextflow.Session - Igniting dataflow network (7)
-Jun-18 03:56:49.987 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > genome_validation
-Jun-18 03:56:50.000 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > sequence_alignment
-Jun-18 03:56:50.001 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > amr_detection
-Jun-18 03:56:50.002 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > bio_analysis
-Jun-18 03:56:50.010 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > aggregate_results
-Jun-18 03:56:50.014 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > generate_report
-Jun-18 03:56:50.037 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
-  Script_4d30a88f478d225c: /app/nextflow/./processes/alignment.nf
-  Script_6753f25d6f3fff7d: /app/nextflow/./processes/bio_analysis.nf
-  Script_f47024abb0a70ffe: /app/nextflow/./processes/genome_validation.nf
-  Script_a58ab9ce187bda8f: /app/nextflow/./processes/aggregation.nf
-  Script_5a63d2cabbc5e207: /app/nextflow/main.nf
-  Script_2c85cbe4c68d21f7: /app/nextflow/./processes/amr_detection.nf
-  Script_715db835c850257c: /app/nextflow/./processes/reporting.nf
-Jun-18 03:56:50.041 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Jun-18 03:56:50.054 [main] DEBUG nextflow.Session - Session await
-Jun-18 03:56:50.853 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jun-18 03:56:50.876 [Task submitter] INFO  nextflow.Session - [2d/611d17] Submitted process > genome_validation (bb96efe4-7491-48eb-a69d-4ec58d049c63)
-Jun-18 03:56:51.166 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jun-18 03:56:51.177 [Task submitter] INFO  nextflow.Session - [55/c3f7e8] Submitted process > genome_validation (f215fb16-27de-44bb-baec-a87ea350f644)
-Jun-18 03:56:54.190 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: genome_validation (f215fb16-27de-44bb-baec-a87ea350f644); status: COMPLETED; exit: 0; error: -; workDir: /app/nextflow/.nextflow/work/55/c3f7e8313ad0c74ac101ba6e346d43]
-Jun-18 03:56:54.249 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: genome_validation (bb96efe4-7491-48eb-a69d-4ec58d049c63); status: COMPLETED; exit: 0; error: -; workDir: /app/nextflow/.nextflow/work/2d/611d1724395913ee353855cb23a35f]
-Jun-18 03:56:54.408 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
-Jun-18 03:56:54.410 [Actor Thread 6] DEBUG nextflow.util.CacheHelper - Unable to get file attributes file: /opt/conda/share/amrfinderplus/data/latest/card -- Cause: java.nio.file.NoSuchFileException: /opt/conda/share/amrfinderplus/data/latest/card
-Jun-18 03:56:54.438 [Actor Thread 1] DEBUG nextflow.util.CacheHelper - Unable to get file attributes file: /opt/conda/share/amrfinderplus/data/latest/card -- Cause: java.nio.file.NoSuchFileException: /opt/conda/share/amrfinderplus/data/latest/card
-Jun-18 03:56:54.439 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
-Jun-18 03:56:54.536 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jun-18 03:56:54.540 [Task submitter] INFO  nextflow.Session - [54/d1e502] Submitted process > sequence_alignment (f215fb16-27de-44bb-baec-a87ea350f644)
-Jun-18 03:56:54.555 [Actor Thread 7] DEBUG nextflow.util.CacheHelper - Unable to get file attributes file: /opt/conda/share/amrfinderplus/data/latest/card -- Cause: java.nio.file.NoSuchFileException: /opt/conda/share/amrfinderplus/data/latest/card
-Jun-18 03:56:54.555 [Actor Thread 7] DEBUG nextflow.util.CacheHelper - Unable to get file attributes file: /opt/conda/share/amrfinderplus/data/latest/amrfinderplus -- Cause: java.nio.file.NoSuchFileException: /opt/conda/share/amrfinderplus/data/latest/amrfinderplus
-Jun-18 03:56:54.556 [Actor Thread 3] DEBUG nextflow.util.CacheHelper - Unable to get file attributes file: /opt/conda/share/amrfinderplus/data/latest/card -- Cause: java.nio.file.NoSuchFileException: /opt/conda/share/amrfinderplus/data/latest/card
-Jun-18 03:56:54.555 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jun-18 03:56:54.561 [Actor Thread 3] DEBUG nextflow.util.CacheHelper - Unable to get file attributes file: /opt/conda/share/amrfinderplus/data/latest/amrfinderplus -- Cause: java.nio.file.NoSuchFileException: /opt/conda/share/amrfinderplus/data/latest/amrfinderplus
-Jun-18 03:56:54.563 [Task submitter] INFO  nextflow.Session - [db/1b9144] Submitted process > sequence_alignment (bb96efe4-7491-48eb-a69d-4ec58d049c63)
-Jun-18 03:56:54.690 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jun-18 03:56:54.692 [Task submitter] INFO  nextflow.Session - [6e/0f6d56] Submitted process > amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63)
-Jun-18 03:56:54.846 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jun-18 03:56:54.850 [Task submitter] INFO  nextflow.Session - [5c/bd0e0e] Submitted process > amr_detection (f215fb16-27de-44bb-baec-a87ea350f644)
-Jun-18 03:57:52.724 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: sequence_alignment (f215fb16-27de-44bb-baec-a87ea350f644); status: COMPLETED; exit: 137; error: -; workDir: /app/nextflow/.nextflow/work/54/d1e50238660e02097da5d114ec4e7f]
-Jun-18 03:57:53.109 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=sequence_alignment (f215fb16-27de-44bb-baec-a87ea350f644); work-dir=/app/nextflow/.nextflow/work/54/d1e50238660e02097da5d114ec4e7f
-  error [nextflow.exception.ProcessFailedException]: Process `sequence_alignment (f215fb16-27de-44bb-baec-a87ea350f644)` terminated with an error exit status (137)
-Jun-18 03:57:53.216 [Task monitor] INFO  nextflow.processor.TaskProcessor - [54/d1e502] NOTE: Process `sequence_alignment (f215fb16-27de-44bb-baec-a87ea350f644)` terminated with an error exit status (137) -- Error is ignored
-Jun-18 03:57:57.516 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: sequence_alignment (bb96efe4-7491-48eb-a69d-4ec58d049c63); status: COMPLETED; exit: 137; error: -; workDir: /app/nextflow/.nextflow/work/db/1b9144d85577af73d19fa8e2d0b058]
-Jun-18 03:57:58.517 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=sequence_alignment (bb96efe4-7491-48eb-a69d-4ec58d049c63); work-dir=/app/nextflow/.nextflow/work/db/1b9144d85577af73d19fa8e2d0b058
-  error [nextflow.exception.ProcessFailedException]: Process `sequence_alignment (bb96efe4-7491-48eb-a69d-4ec58d049c63)` terminated with an error exit status (137)
-Jun-18 03:57:58.627 [Task monitor] INFO  nextflow.processor.TaskProcessor - [db/1b9144] NOTE: Process `sequence_alignment (bb96efe4-7491-48eb-a69d-4ec58d049c63)` terminated with an error exit status (137) -- Error is ignored
-Jun-18 04:02:46.419 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[id: 2; name: amr_detection (f215fb16-27de-44bb-baec-a87ea350f644); status: RUNNING; exit: -; error: -; workDir: /app/nextflow/.nextflow/work/5c/bd0e0eba784c2612b38908d5192866]
-Jun-18 04:02:53.676 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[id: 3; name: amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63); status: RUNNING; exit: -; error: -; workDir: /app/nextflow/.nextflow/work/6e/0f6d56e211327d3a3bbafe70f447f7]
-Jun-18 04:02:54.464 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: amr_detection (f215fb16-27de-44bb-baec-a87ea350f644); status: COMPLETED; exit: 1; error: -; workDir: /app/nextflow/.nextflow/work/5c/bd0e0eba784c2612b38908d5192866]
-Jun-18 04:02:54.492 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=amr_detection (f215fb16-27de-44bb-baec-a87ea350f644); work-dir=/app/nextflow/.nextflow/work/5c/bd0e0eba784c2612b38908d5192866
-  error [nextflow.exception.ProcessFailedException]: Process `amr_detection (f215fb16-27de-44bb-baec-a87ea350f644)` terminated with an error exit status (1)
-Jun-18 04:02:54.619 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63); status: COMPLETED; exit: 1; error: -; workDir: /app/nextflow/.nextflow/work/6e/0f6d56e211327d3a3bbafe70f447f7]
-Jun-18 04:02:54.647 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63); work-dir=/app/nextflow/.nextflow/work/6e/0f6d56e211327d3a3bbafe70f447f7
-  error [nextflow.exception.ProcessFailedException]: Process `amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63)` terminated with an error exit status (1)
-Jun-18 04:02:54.993 [Task monitor] INFO  nextflow.processor.TaskProcessor - [5c/bd0e0e] NOTE: Process `amr_detection (f215fb16-27de-44bb-baec-a87ea350f644)` terminated with an error exit status (1) -- Execution is retried (1)
-Jun-18 04:02:55.119 [Task monitor] INFO  nextflow.processor.TaskProcessor - [6e/0f6d56] NOTE: Process `amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63)` terminated with an error exit status (1) -- Execution is retried (1)
-Jun-18 04:02:55.447 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jun-18 04:02:55.457 [Task submitter] INFO  nextflow.Session - [d9/f5ceca] Re-submitted process > amr_detection (f215fb16-27de-44bb-baec-a87ea350f644)
-Jun-18 04:02:55.647 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jun-18 04:02:55.651 [Task submitter] INFO  nextflow.Session - [a4/a31e53] Re-submitted process > amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63)
-Jun-18 04:07:42.806 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63); status: COMPLETED; exit: 1; error: -; workDir: /app/nextflow/.nextflow/work/a4/a31e53a9638cf2d9362ed26100324e]
-Jun-18 04:07:42.817 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63); work-dir=/app/nextflow/.nextflow/work/a4/a31e53a9638cf2d9362ed26100324e
-  error [nextflow.exception.ProcessFailedException]: Process `amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63)` terminated with an error exit status (1)
-Jun-18 04:07:42.825 [Task monitor] INFO  nextflow.processor.TaskProcessor - [a4/a31e53] NOTE: Process `amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63)` terminated with an error exit status (1) -- Execution is retried (2)
-Jun-18 04:07:43.127 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jun-18 04:07:43.131 [Task submitter] INFO  nextflow.Session - [d4/12c595] Re-submitted process > amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63)
-Jun-18 04:07:45.273 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: amr_detection (f215fb16-27de-44bb-baec-a87ea350f644); status: COMPLETED; exit: 1; error: -; workDir: /app/nextflow/.nextflow/work/d9/f5ceca38b4656f721aa8ad47ff934b]
-Jun-18 04:07:45.286 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=amr_detection (f215fb16-27de-44bb-baec-a87ea350f644); work-dir=/app/nextflow/.nextflow/work/d9/f5ceca38b4656f721aa8ad47ff934b
-  error [nextflow.exception.ProcessFailedException]: Process `amr_detection (f215fb16-27de-44bb-baec-a87ea350f644)` terminated with an error exit status (1)
-Jun-18 04:07:45.295 [Task monitor] INFO  nextflow.processor.TaskProcessor - [d9/f5ceca] NOTE: Process `amr_detection (f215fb16-27de-44bb-baec-a87ea350f644)` terminated with an error exit status (1) -- Execution is retried (2)
-Jun-18 04:07:45.491 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Jun-18 04:07:45.493 [Task submitter] INFO  nextflow.Session - [87/3855db] Re-submitted process > amr_detection (f215fb16-27de-44bb-baec-a87ea350f644)
-Jun-18 04:08:42.772 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[id: 5; name: amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63); status: SUBMITTED; exit: -; error: -; workDir: /app/nextflow/.nextflow/work/d4/12c595e8ed2640f2039dd700476a0f]
-Jun-18 04:08:45.242 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[id: 5; name: amr_detection (f215fb16-27de-44bb-baec-a87ea350f644); status: SUBMITTED; exit: -; error: -; workDir: /app/nextflow/.nextflow/work/87/3855db349e2a24d720042456aa6da0]
-Jun-18 04:12:35.405 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63); status: COMPLETED; exit: 1; error: -; workDir: /app/nextflow/.nextflow/work/d4/12c595e8ed2640f2039dd700476a0f]
-Jun-18 04:12:35.422 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63); work-dir=/app/nextflow/.nextflow/work/d4/12c595e8ed2640f2039dd700476a0f
-  error [nextflow.exception.ProcessFailedException]: Process `amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63)` terminated with an error exit status (1)
-Jun-18 04:12:36.255 [Task monitor] ERROR nextflow.processor.TaskProcessor - Error executing process > 'amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63)'
-
-Caused by:
-  Process `amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63)` terminated with an error exit status (1)
-
-Command executed:
-
-  python << 'EOF'
-  import json
-  from pathlib import Path
-  from backend.amr_detection import CARDRGIDetector, AMRFinderPlusDetector, AMRConfig
-  
-  # Load validation report
-  with open("validation_report.json") as f:
-      validation = json.load(f)
-  
-  if not validation.get("proceed_to_amr", False):
-      print("ERROR: Assembly did not pass validation. Cannot proceed to AMR analysis.")
-      exit(1)
-  
-  output_dir = Path(".")
-  
-  # Configure AMR detection
-  config = AMRConfig(
-      tools=["card_rgi", "amrfinderplus"],
-      min_identity_percent=95.0,
-      min_coverage_percent=80.0,
-      threads=2,
-      enable_consensus=True
-  )
-  
-  # Run CARD RGI
-  print("Starting CARD RGI analysis...")
-  rgi_detector = CARDRGIDetector(config=config)
-  rgi_result = rgi_detector.detect(
-      assembly_file=Path("SRR11589113_consensus.fasta"),
-      output_dir=output_dir,
-      sample_id="bb96efe4-7491-48eb-a69d-4ec58d049c63"
-  )
-  
-  # Run AMRFinderPlus
-  print("Starting AMRFinderPlus analysis...")
-  amrfinder_detector = AMRFinderPlusDetector(config=config)
-  amrfinder_result = amrfinder_detector.detect(
-      assembly_file=Path("SRR11589113_consensus.fasta"),
-      output_dir=output_dir,
-      sample_id="bb96efe4-7491-48eb-a69d-4ec58d049c63"
-  )
-  
-  # Aggregate results
-  all_hits = rgi_result.hits + amrfinder_result.hits
-  unique_genes = len(set((h.gene_name, h.resistance_class) for h in all_hits))
-  
-  # Belt-and-suspenders: Nextflow requires the files to exist even with optional: true
-  if not list(Path(".").glob("rgi*.json")):
-      with open("rgi_empty.json", "w") as f: json.dump({}, f)
-  if not list(Path(".").glob("amrfinderplus*.tsv")):
-      Path("amrfinderplus_empty.tsv").touch()
-  
-  # Create master report
-  all_errors = rgi_result.errors + amrfinder_result.errors
-  master_report = {
-      "sample_id": "bb96efe4-7491-48eb-a69d-4ec58d049c63",
-      "species": "Unknown",
-      "validation_status": validation.get("validation_status"),
-      "quality_score": validation.get("quality_score"),
-      "total_amr_genes_detected": len(all_hits),
-      "unique_gene_families": unique_genes,
-      "rgi_results": rgi_result.model_dump(),
-      "amrfinderplus_results": amrfinder_result.model_dump(),
-      "errors": all_errors
-  }
-  
-  with open("amr_detection_report.json", "w") as f:
-      json.dump(master_report, f, indent=2, default=str)
-  
-  print(f"Total AMR genes detected: {len(all_hits)}")
-  print(f"Unique gene families: {unique_genes}")
-  
-  if all_errors:
-      print("ERROR: One or more AMR detection tools failed:", flush=True)
-      for err in all_errors:
-          print(f"  - {err}", flush=True)
-      import sys
-      sys.exit(1)
-  EOF
-
-Command exit status:
-  1
-
-Command output:
-  Starting CARD RGI analysis...
-  Starting AMRFinderPlus analysis...
-  Total AMR genes detected: 3055
-  Unique gene families: 1
-  ERROR: One or more AMR detection tools failed:
-    - AMRFinderPlus failed: Running: amrfinder -n SRR11589113_consensus.fasta -o amrfinderplus_report.tsv --report_common --plus
-  Software directory: /opt/conda/bin/
-  Software version: 4.2.7
-  *** ERROR ***
-  --report_common requires --organism
-
-Command error:
-  Starting CARD RGI analysis...
-  Starting AMRFinderPlus analysis...
-  Total AMR genes detected: 3055
-  Unique gene families: 1
-  ERROR: One or more AMR detection tools failed:
-    - AMRFinderPlus failed: Running: amrfinder -n SRR11589113_consensus.fasta -o amrfinderplus_report.tsv --report_common --plus
-  Software directory: /opt/conda/bin/
-  Software version: 4.2.7
-  *** ERROR ***
-  --report_common requires --organism
-
-Work dir:
-  /app/nextflow/.nextflow/work/d4/12c595e8ed2640f2039dd700476a0f
-
-Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
-Jun-18 04:12:36.562 [Task monitor] DEBUG nextflow.Session - Session aborted -- Cause: Process `amr_detection (bb96efe4-7491-48eb-a69d-4ec58d049c63)` terminated with an error exit status (1)
-Jun-18 04:12:36.742 [main] DEBUG nextflow.Session - Session await > all processes finished
-Jun-18 04:12:37.159 [Task monitor] ERROR nextflow.Nextflow - 
-    ╔════════════════════════════════════════════════════════════════════════╗
-    ║                       PIPELINE ERROR                                   ║
-    ╚════════════════════════════════════════════════════════════════════════╝
-    
-    Error Message:  Starting CARD RGI analysis...
-Starting AMRFinderPlus analysis...
-Total AMR genes detected: 3055
-Unique gene families: 1
-ERROR: One or more AMR detection tools failed:
-  - AMRFinderPlus failed: Running: amrfinder -n SRR11589113_consensus.fasta -o amrfinderplus_report.tsv --report_common --plus
-Software directory: /opt/conda/bin/
-Software version: 4.2.7
-*** ERROR ***
---report_common requires --organism
-    Exit Code:      1
-    
-    For troubleshooting, check:
-    1. Log file: /app/nextflow/.nextflow/work/.nextflow.log
-    2. Work directory: /app/nextflow/.nextflow/work
-    
-Jun-18 04:12:37.174 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Jun-18 04:12:37.270 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
-Jun-18 04:12:37.297 [main] INFO  nextflow.Nextflow - 
+Jun-18 11:28:40.501 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Jun-18 11:28:40.504 [main] DEBUG nextflow.Session - Session await
+Jun-18 11:28:41.413 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-18 11:28:41.424 [Task submitter] INFO  nextflow.Session - [fb/32f055] Submitted process > genome_validation (92a54176-d869-4956-998d-5a86fd4afb44)
+Jun-18 11:28:44.675 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: genome_validation (92a54176-d869-4956-998d-5a86fd4afb44); status: COMPLETED; exit: 0; error: -; workDir: /app/nextflow/.nextflow/work/fb/32f055143b900f6f00bfdae052b211]
+Jun-18 11:28:44.783 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[10000]; allowCoreThreadTimeout=false
+Jun-18 11:28:44.877 [Actor Thread 2] DEBUG nextflow.util.CacheHelper - Unable to get file attributes file: /opt/conda/share/amrfinderplus/data/latest/card -- Cause: java.nio.file.NoSuchFileException: /opt/conda/share/amrfinderplus/data/latest/card
+Jun-18 11:28:44.922 [Actor Thread 6] DEBUG nextflow.util.CacheHelper - Unable to get file attributes file: /opt/conda/share/amrfinderplus/data/latest/card -- Cause: java.nio.file.NoSuchFileException: /opt/conda/share/amrfinderplus/data/latest/card
+Jun-18 11:28:44.924 [Actor Thread 6] DEBUG nextflow.util.CacheHelper - Unable to get file attributes file: /opt/conda/share/amrfinderplus/data/latest/amrfinderplus -- Cause: java.nio.file.NoSuchFileException: /opt/conda/share/amrfinderplus/data/latest/amrfinderplus
+Jun-18 11:28:44.983 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-18 11:28:44.985 [Task submitter] INFO  nextflow.Session - [02/856298] Submitted process > sequence_alignment (92a54176-d869-4956-998d-5a86fd4afb44)
+Jun-18 11:28:45.026 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-18 11:28:45.027 [Task submitter] INFO  nextflow.Session - [fd/87c46f] Submitted process > amr_detection (92a54176-d869-4956-998d-5a86fd4afb44)
+Jun-18 11:29:52.040 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: sequence_alignment (92a54176-d869-4956-998d-5a86fd4afb44); status: COMPLETED; exit: 137; error: -; workDir: /app/nextflow/.nextflow/work/02/856298529645dca1aae462e6c27c80]
+Jun-18 11:29:52.317 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=sequence_alignment (92a54176-d869-4956-998d-5a86fd4afb44); work-dir=/app/nextflow/.nextflow/work/02/856298529645dca1aae462e6c27c80
+  error [nextflow.exception.ProcessFailedException]: Process `sequence_alignment (92a54176-d869-4956-998d-5a86fd4afb44)` terminated with an error exit status (137)
+Jun-18 11:29:52.370 [Task monitor] INFO  nextflow.processor.TaskProcessor - [02/856298] NOTE: Process `sequence_alignment (92a54176-d869-4956-998d-5a86fd4afb44)` terminated with an error exit status (137) -- Error is ignored
+Jun-18 11:33:50.079 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor local > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[id: 2; name: amr_detection (92a54176-d869-4956-998d-5a86fd4afb44); status: RUNNING; exit: -; error: -; workDir: /app/nextflow/.nextflow/work/fd/87c46f98ec26f76561bd6e258450ff]
+Jun-18 11:33:50.892 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: amr_detection (92a54176-d869-4956-998d-5a86fd4afb44); status: COMPLETED; exit: 0; error: -; workDir: /app/nextflow/.nextflow/work/fd/87c46f98ec26f76561bd6e258450ff]
+Jun-18 11:33:51.977 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-18 11:33:51.985 [Task submitter] INFO  nextflow.Session - [85/4ab059] Submitted process > bio_analysis (92a54176-d869-4956-998d-5a86fd4afb44)
+Jun-18 11:33:52.086 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-18 11:33:52.088 [Task submitter] INFO  nextflow.Session - [41/4ebe9e] Submitted process > aggregate_results (92a54176-d869-4956-998d-5a86fd4afb44)
+Jun-18 11:33:52.860 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: aggregate_results (92a54176-d869-4956-998d-5a86fd4afb44); status: COMPLETED; exit: 0; error: -; workDir: /app/nextflow/.nextflow/work/41/4ebe9ede37c973783089782874cf03]
+Jun-18 11:33:53.103 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Jun-18 11:33:53.106 [Task submitter] INFO  nextflow.Session - [0e/adad66] Submitted process > generate_report (92a54176-d869-4956-998d-5a86fd4afb44)
+Jun-18 11:33:53.885 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: generate_report (92a54176-d869-4956-998d-5a86fd4afb44); status: COMPLETED; exit: 0; error: -; workDir: /app/nextflow/.nextflow/work/0e/adad6664c51805603752633f7c5e60]
+Jun-18 11:33:55.230 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: bio_analysis (92a54176-d869-4956-998d-5a86fd4afb44); status: COMPLETED; exit: 0; error: -; workDir: /app/nextflow/.nextflow/work/85/4ab059d09201dc81904d1f93612634]
+Jun-18 11:33:55.251 [main] DEBUG nextflow.Session - Session await > all processes finished
+Jun-18 11:33:55.274 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Jun-18 11:33:55.276 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jun-18 11:33:55.339 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Jun-18 11:33:55.385 [main] INFO  nextflow.Nextflow - 
 ╔════════════════════════════════════════════════════════════════════════╗
 ║                    PIPELINE EXECUTION COMPLETED                        ║
 ╚════════════════════════════════════════════════════════════════════════╝
 
-Status:         ✗ FAILED
-Exit Code:      1
-Duration:       15m 55s
-Output Dir:     /tmp/amr_uploads/bb96efe4-7491-48eb-a69d-4ec58d049c63/results
+Status:         ✓ SUCCESS
+Exit Code:      0
+Duration:       5m 22s
+Output Dir:     /tmp/amr_uploads/92a54176-d869-4956-998d-5a86fd4afb44/results
 
-Pipeline failed. Check logs for details.
+Pipeline completed successfully!
 
-Jun-18 04:12:37.399 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=1; failedCount=4; ignoredCount=1; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=2; abortedCount=0; succeedDuration=5.4s; failedDuration=25m 21s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=2; peakMemory=4 GB; ]
-Jun-18 04:12:37.403 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
-Jun-18 04:12:37.454 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
-Jun-18 04:12:37.837 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: amr_detection (f215fb16-27de-44bb-baec-a87ea350f644); status: COMPLETED; exit: 1; error: -; workDir: /app/nextflow/.nextflow/work/87/3855db349e2a24d720042456aa6da0]
-Jun-18 04:12:37.843 [Task monitor] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
-  task: name=amr_detection (f215fb16-27de-44bb-baec-a87ea350f644); work-dir=/app/nextflow/.nextflow/work/87/3855db349e2a24d720042456aa6da0
-  error [nextflow.exception.ProcessFailedException]: Process `amr_detection (f215fb16-27de-44bb-baec-a87ea350f644)` terminated with an error exit status (1)
-Jun-18 04:12:38.142 [Task monitor] ERROR nextflow.processor.TaskProcessor - Error executing process > 'amr_detection (f215fb16-27de-44bb-baec-a87ea350f644)'
-
-Caused by:
-  Process `amr_detection (f215fb16-27de-44bb-baec-a87ea350f644)` terminated with an error exit status (1)
-
-Command executed:
-
-  python << 'EOF'
-  import json
-  from pathlib import Path
-  from backend.amr_detection import CARDRGIDetector, AMRFinderPlusDetector, AMRConfig
-  
-  # Load validation report
-  with open("validation_report.json") as f:
-      validation = json.load(f)
-  
-  if not validation.get("proceed_to_amr", False):
-      print("ERROR: Assembly did not pass validation. Cannot proceed to AMR analysis.")
-      exit(1)
-  
-  output_dir = Path(".")
-  
-  # Configure AMR detection
-  config = AMRConfig(
-      tools=["card_rgi", "amrfinderplus"],
-      min_identity_percent=95.0,
-      min_coverage_percent=80.0,
-      threads=2,
-      enable_consensus=True
-  )
-  
-  # Run CARD RGI
-  print("Starting CARD RGI analysis...")
-  rgi_detector = CARDRGIDetector(config=config)
-  rgi_result = rgi_detector.detect(
-      assembly_file=Path("SRR11589114_consensus.fasta"),
-      output_dir=output_dir,
-      sample_id="f215fb16-27de-44bb-baec-a87ea350f644"
-  )
-  
-  # Run AMRFinderPlus
-  print("Starting AMRFinderPlus analysis...")
-  amrfinder_detector = AMRFinderPlusDetector(config=config)
-  amrfinder_result = amrfinder_detector.detect(
-      assembly_file=Path("SRR11589114_consensus.fasta"),
-      output_dir=output_dir,
-      sample_id="f215fb16-27de-44bb-baec-a87ea350f644"
-  )
-  
-  # Aggregate results
-  all_hits = rgi_result.hits + amrfinder_result.hits
-  unique_genes = len(set((h.gene_name, h.resistance_class) for h in all_hits))
-  
-  # Belt-and-suspenders: Nextflow requires the files to exist even with optional: true
-  if not list(Path(".").glob("rgi*.json")):
-      with open("rgi_empty.json", "w") as f: json.dump({}, f)
-  if not list(Path(".").glob("amrfinderplus*.tsv")):
-      Path("amrfinderplus_empty.tsv").touch()
-  
-  # Create master report
-  all_errors = rgi_result.errors + amrfinder_result.errors
-  master_report = {
-      "sample_id": "f215fb16-27de-44bb-baec-a87ea350f644",
-      "species": "Unknown",
-      "validation_status": validation.get("validation_status"),
-      "quality_score": validation.get("quality_score"),
-      "total_amr_genes_detected": len(all_hits),
-      "unique_gene_families": unique_genes,
-      "rgi_results": rgi_result.model_dump(),
-      "amrfinderplus_results": amrfinder_result.model_dump(),
-      "errors": all_errors
-  }
-  
-  with open("amr_detection_report.json", "w") as f:
-      json.dump(master_report, f, indent=2, default=str)
-  
-  print(f"Total AMR genes detected: {len(all_hits)}")
-  print(f"Unique gene families: {unique_genes}")
-  
-  if all_errors:
-      print("ERROR: One or more AMR detection tools failed:", flush=True)
-      for err in all_errors:
-          print(f"  - {err}", flush=True)
-      import sys
-      sys.exit(1)
-  EOF
-
-Command exit status:
-  1
-
-Command output:
-  Starting CARD RGI analysis...
-  Starting AMRFinderPlus analysis...
-  Total AMR genes detected: 3049
-  Unique gene families: 1
-  ERROR: One or more AMR detection tools failed:
-    - AMRFinderPlus failed: Running: amrfinder -n SRR11589114_consensus.fasta -o amrfinderplus_report.tsv --report_common --plus
-  Software directory: /opt/conda/bin/
-  Software version: 4.2.7
-  *** ERROR ***
-  --report_common requires --organism
-
-Command error:
-  Starting CARD RGI analysis...
-  Starting AMRFinderPlus analysis...
-  Total AMR genes detected: 3049
-  Unique gene families: 1
-  ERROR: One or more AMR detection tools failed:
-    - AMRFinderPlus failed: Running: amrfinder -n SRR11589114_consensus.fasta -o amrfinderplus_report.tsv --report_common --plus
-  Software directory: /opt/conda/bin/
-  Software version: 4.2.7
-  *** ERROR ***
-  --report_common requires --organism
-
-Work dir:
-  /app/nextflow/.nextflow/work/87/3855db349e2a24d720042456aa6da0
-
-Tip: view the complete command output by changing to the process work dir and entering the command `cat .command.out`
-Jun-18 04:12:38.251 [Task monitor] DEBUG nextflow.Session - Session aborted -- Cause: Process `amr_detection (f215fb16-27de-44bb-baec-a87ea350f644)` terminated with an error exit status (1)
-Jun-18 04:12:38.362 [main] DEBUG nextflow.Session - Session await > all processes finished
-Jun-18 04:12:38.617 [Task monitor] ERROR nextflow.Nextflow - 
-    ╔════════════════════════════════════════════════════════════════════════╗
-    ║                       PIPELINE ERROR                                   ║
-    ╚════════════════════════════════════════════════════════════════════════╝
-    
-    Error Message:  Starting CARD RGI analysis...
-Starting AMRFinderPlus analysis...
-Total AMR genes detected: 3049
-Unique gene families: 1
-ERROR: One or more AMR detection tools failed:
-  - AMRFinderPlus failed: Running: amrfinder -n SRR11589114_consensus.fasta -o amrfinderplus_report.tsv --report_common --plus
-Software directory: /opt/conda/bin/
-Software version: 4.2.7
-*** ERROR ***
---report_common requires --organism
-    Exit Code:      1
-    
-    For troubleshooting, check:
-    1. Log file: /app/nextflow/.nextflow/work/.nextflow.log
-    2. Work directory: /app/nextflow/.nextflow/work
-    
-Jun-18 04:12:38.642 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Jun-18 04:12:38.741 [main] INFO  nextflow.Nextflow - 
-╔════════════════════════════════════════════════════════════════════════╗
-║                    PIPELINE EXECUTION COMPLETED                        ║
-╚════════════════════════════════════════════════════════════════════════╝
-
-Status:         ✗ FAILED
-Exit Code:      1
-Duration:       15m 56s
-Output Dir:     /tmp/amr_uploads/f215fb16-27de-44bb-baec-a87ea350f644/results
-
-Pipeline failed. Check logs for details.
-
-Jun-18 04:12:38.766 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
-Jun-18 04:12:38.832 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=1; failedCount=4; ignoredCount=1; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=2; abortedCount=0; succeedDuration=5s; failedDuration=25m 42s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=2; peakMemory=4 GB; ]
-Jun-18 04:12:38.835 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
-Jun-18 04:12:38.881 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
-Jun-18 04:12:42.181 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
-Jun-18 04:12:42.203 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
-Jun-18 04:12:42.642 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
-Jun-18 04:12:42.807 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
-Jun-18 04:12:42.873 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
-Jun-18 04:12:43.038 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
+Jun-18 11:33:55.448 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=5; failedCount=1; ignoredCount=1; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=10m 22s; failedDuration=14.5s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=2; peakCpus=4; peakMemory=8 GB; ]
+Jun-18 11:33:55.449 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Jun-18 11:33:55.474 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Jun-18 11:33:58.766 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Jun-18 11:34:00.156 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Jun-18 11:34:00.279 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Jun-18 11:34:00.283 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
