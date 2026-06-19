@@ -32,7 +32,8 @@ def run_test():
         
     data = {
         "project_id": "123e4567-e89b-12d3-a456-426614174000",
-        "batch_name": "Test 7 SRA Genomes Batch"
+        "batch_name": "Test 7 SRA Genomes Batch",
+        "species": "Acinetobacter baumannii"
     }
 
     try:
