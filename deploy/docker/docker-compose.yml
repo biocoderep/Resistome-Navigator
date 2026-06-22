@@ -63,7 +63,7 @@ services:
       dockerfile: Dockerfile
     container_name: amr_celery_worker
     restart: unless-stopped
-    command: celery -A backend.celery_app worker --loglevel=info --concurrency=4
+    command: celery -A backend.celery_app worker --loglevel=info --concurrency=1
     environment:
       DATABASE_URL: postgresql://amruser:amrpass@postgres:5432/amrdb
       CELERY_BROKER_URL: redis://redis:6379/0
