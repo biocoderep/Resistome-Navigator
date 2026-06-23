@@ -1,11 +1,22 @@
-.git
-.venv
-.pip_cache
-__pycache__
-tmp
-node_modules
-frontend/node_modules
-amr_mvp.db
-.nextflow
-.singularity
-data
+# Nextflow runtime — must never enter the build context (huge + broken symlinks)
+nextflow/.nextflow/
+nextflow/work/
+.nextflow/
+.nextflow.log*
+work/
+
+# Uploads, results, backups
+data/uploads/
+backups/
+/tmp/
+
+# Python / git / node
+__pycache__/
+*.pyc
+.git/
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# DB volumes
+*.vhdx

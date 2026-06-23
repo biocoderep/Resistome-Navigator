@@ -23,6 +23,13 @@ RUN mkdir -p /opt/card && cd /opt/card && \
     wget -qO- https://card.mcmaster.ca/latest/data | tar -xj && \
     rgi load --card_json card.json --local || true
 
+# Install abricate (VFDB virulence screening) in an isolated env to avoid
+# dependency conflicts with amrfinderplus/rgi
+RUN conda create -y -n abricate -c bioconda -c conda-forge abricate
+RUN /opt/conda/envs/abricate/bin/abricate --setupdb || true
+# Fail the build if the VFDB database is not available (no silent empty DB)
+RUN /opt/conda/envs/abricate/bin/abricate --list | grep -qi vfdb || (echo "ERROR: VFDB not available in abricate" && exit 1)
+
 # Copy Python requirements and install
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
