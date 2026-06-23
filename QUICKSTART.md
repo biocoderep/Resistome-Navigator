@@ -59,7 +59,18 @@ alembic upgrade head
 python -c "from backend.database import engine; print('Database connected ✓')"
 ```
 
-### 6. Start FastAPI Server
+### 6. Database Backups
+
+An automated database backup runs daily via the `db_backup` service.
+- **Container Name:** `amr_db_backup`
+- **Location:** Dumps are saved to the `backups/` directory on the host.
+- **Retention:** The most recent 7 dumps are kept automatically.
+- **Manual Restore:** 
+  ```bash
+  docker exec -it amr_db_backup bash /scripts/restore.sh --force /backups/your_dump.dump
+  ```
+
+### 7. Start FastAPI Server
 
 ```bash
 uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000

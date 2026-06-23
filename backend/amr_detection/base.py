@@ -22,8 +22,60 @@ class ResistanceClass(str, Enum):
     TETRACYCLINES = "Tetracyclines"
     LIPOPEPTIDES = "Lipopeptides"
     OXAZOLIDINONES = "Oxazolidinones"
+    FOSFOMYCIN = "Fosfomycin"
+    SULFONAMIDES = "Sulfonamides"
+    TRIMETHOPRIM = "Trimethoprim"
+    POLYMYXINS = "Polymyxins"
+    GLYCOPEPTIDES = "Glycopeptides"
     MULTI_DRUG = "Multi-drug"
     OTHER = "Other"
+
+
+def map_resistance_class(raw: str) -> ResistanceClass:
+    if not raw:
+        return ResistanceClass.OTHER
+    s = raw.lower()
+    keywords = [
+        ("aminoglycoside", ResistanceClass.AMINOGLYCOSIDES),
+        ("beta-lactam", ResistanceClass.BETA_LACTAMS),
+        ("cephalosporin", ResistanceClass.BETA_LACTAMS),
+        ("cephamycin", ResistanceClass.BETA_LACTAMS),
+        ("penam", ResistanceClass.BETA_LACTAMS),
+        ("penicillin", ResistanceClass.BETA_LACTAMS),
+        ("carbapenem", ResistanceClass.BETA_LACTAMS),
+        ("monobactam", ResistanceClass.BETA_LACTAMS),
+        ("glycylcycline", ResistanceClass.GLYCYLCYCLINES),
+        ("tigecycline", ResistanceClass.GLYCYLCYCLINES),
+        ("tetracycline", ResistanceClass.TETRACYCLINES),
+        ("quinolone", ResistanceClass.FLUOROQUINOLONES),
+        ("macrolide", ResistanceClass.MACROLIDES),
+        ("phenicol", ResistanceClass.PHENICOLS),
+        ("chloramphenicol", ResistanceClass.PHENICOLS),
+        ("rifamycin", ResistanceClass.RIFAMYCINS),
+        ("rifampin", ResistanceClass.RIFAMYCINS),
+        ("oxazolidinone", ResistanceClass.OXAZOLIDINONES),
+        ("linezolid", ResistanceClass.OXAZOLIDINONES),
+        ("lipopeptide", ResistanceClass.LIPOPEPTIDES),
+        ("daptomycin", ResistanceClass.LIPOPEPTIDES),
+        ("fosfomycin", ResistanceClass.FOSFOMYCIN),
+        ("sulfonamide", ResistanceClass.SULFONAMIDES),
+        ("sulphonamide", ResistanceClass.SULFONAMIDES),
+        ("trimethoprim", ResistanceClass.TRIMETHOPRIM),
+        ("diaminopyrimidine", ResistanceClass.TRIMETHOPRIM),
+        ("polymyxin", ResistanceClass.POLYMYXINS),
+        ("colistin", ResistanceClass.POLYMYXINS),
+        ("glycopeptide", ResistanceClass.GLYCOPEPTIDES),
+        ("vancomycin", ResistanceClass.GLYCOPEPTIDES),
+        ("efflux", ResistanceClass.MULTI_DRUG),
+        ("multidrug", ResistanceClass.MULTI_DRUG),
+        ("multi-drug", ResistanceClass.MULTI_DRUG),
+    ]
+    matches = {cls for kw, cls in keywords if kw in s}
+    if len(matches) == 1:
+        return next(iter(matches))
+    if len(matches) > 1:
+        return ResistanceClass.MULTI_DRUG
+    return ResistanceClass.OTHER
 
 
 class ConfidenceLevel(str, Enum):

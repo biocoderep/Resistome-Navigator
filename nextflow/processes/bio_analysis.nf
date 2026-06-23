@@ -37,7 +37,6 @@ process bio_analysis {
         // Prepend the repo root (parent of the Nextflow project dir) so that
         // `backend.*` is importable regardless of the container PYTHONPATH.
         """
-        export PYTHONPATH="${projectDir}/..:\${PYTHONPATH}"
         python -m backend.pipeline.isolate_pipeline \\
             --sample-id "${sample_id}" \\
             --assembly "${assembly_file}" \\

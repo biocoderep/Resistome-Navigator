@@ -63,12 +63,13 @@ services:
       dockerfile: Dockerfile
     container_name: amr_celery_worker
     restart: unless-stopped
-    command: celery -A backend.celery_app worker --loglevel=info --concurrency=4
+    command: celery -A backend.celery_app worker --loglevel=info --concurrency=1
     environment:
       DATABASE_URL: postgresql://amruser:amrpass@postgres:5432/amrdb
       CELERY_BROKER_URL: redis://redis:6379/0
       CELERY_RESULT_BACKEND: redis://redis:6379/1
       PYTHONUNBUFFERED: 1
+      NXF_VER: "23.10.1"
     depends_on:
       postgres:
         condition: service_healthy
@@ -96,6 +97,7 @@ services:
       CELERY_BROKER_URL: redis://redis:6379/0
       CELERY_RESULT_BACKEND: redis://redis:6379/1
       PYTHONUNBUFFERED: 1
+      NXF_VER: "23.10.1"
     depends_on:
       postgres:
         condition: service_healthy
@@ -103,6 +105,30 @@ services:
         condition: service_healthy
     volumes:
       - ../../:/app
+
+  db_backup:
+    image: postgres:16
+    container_name: amr_db_backup
+    restart: unless-stopped
+    # TODO: Verify UID/GID mapping works on Windows host before uncommenting user below
+    # user: "${UID:-1000}:${GID:-1000}"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      POSTGRES_DB: amrdb
+      POSTGRES_USER: amruser
+      POSTGRES_PASSWORD: amrpass
+      PGHOST: postgres
+    volumes:
+      - ../database:/scripts
+      - ../../backups:/backups
+    command: bash /scripts/scheduler.sh
+    healthcheck:
+      test: ["CMD-SHELL", "test -f /tmp/backup_success && test $$(expr $$(date +%s) - $$(stat -c %Y /tmp/backup_success)) -lt 90000 || exit 1"]
+      interval: 1h
+      timeout: 10s
+      retries: 3
 
 volumes:
   postgres_data:

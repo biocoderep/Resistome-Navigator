@@ -46,9 +46,15 @@ class ValidationError(BaseModel):
         "CONTIG_TOO_SHORT",
         "INVALID_FILE_TYPE",
         "GENOME_TOO_SMALL",
+        "GENOME_SMALL",
+        "GENOME_TOO_LARGE",
+        "GENOME_LARGE",
+        "GC_OUTLIERS",
         "UNEXPECTED_ERROR",
         "N_PERCENT_TOO_HIGH",
+        "N_PERCENT_WARNING",
         "VALIDATION_ERROR",
+        "VALIDATION_WARNING",
     ]
     contig: str | None = None
     detail: str | None = None

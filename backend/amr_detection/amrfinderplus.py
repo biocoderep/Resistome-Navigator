@@ -13,7 +13,26 @@ from backend.amr_detection.base import (
     BaseAMRDetector,
     ConfidenceLevel,
     ResistanceClass,
+    map_resistance_class,
 )
+
+SPECIES_MAP = {
+    "acinetobacter_baumannii": "Acinetobacter_baumannii",
+    "acinetobacter baumannii": "Acinetobacter_baumannii",
+    "escherichia": "Escherichia",
+    "escherichia coli": "Escherichia",
+    "e. coli": "Escherichia",
+    "klebsiella_pneumoniae": "Klebsiella_pneumoniae",
+    "klebsiella pneumoniae": "Klebsiella_pneumoniae",
+    "staphylococcus_aureus": "Staphylococcus_aureus",
+    "staphylococcus aureus": "Staphylococcus_aureus",
+    "pseudomonas_aeruginosa": "Pseudomonas_aeruginosa",
+    "pseudomonas aeruginosa": "Pseudomonas_aeruginosa",
+    "salmonella": "Salmonella",
+    "enterococcus_faecium": "Enterococcus_faecium",
+    "enterococcus faecium": "Enterococcus_faecium",
+    "campylobacter": "Campylobacter",
+}
 
 
 class AMRFinderPlusDetector(BaseAMRDetector):
@@ -31,6 +50,7 @@ class AMRFinderPlusDetector(BaseAMRDetector):
         output_dir: Path,
         sample_id: UUID = None,
         assembly_id: UUID = None,
+        species: str = None,
         progress_callback=None,
     ) -> AMRDetectionResult:
         """
@@ -70,13 +90,13 @@ class AMRFinderPlusDetector(BaseAMRDetector):
                 str(assembly_file),
                 "-o",
                 str(output_file),
-                "-d",
-                "database_dir",  # Requires AMRFINDER_DB env var set
-                "-t",
-                "nucleotide",
-                "--report_common",
                 "--plus"  # <--- NEW FLAG added here
             ]
+            
+            if species:
+                mapped_org = SPECIES_MAP.get(species.lower().strip())
+                if mapped_org:
+                    cmd.extend(["-O", mapped_org])
 
             if progress_callback:
                 progress_callback(20, "Running AMRFinderPlus analysis")
@@ -146,12 +166,37 @@ class AMRFinderPlusDetector(BaseAMRDetector):
                     continue
 
                 # Parse fields
-                protein_name = fields[header_map.get("Protein_name", 0)]
-                gene_symbol = fields[header_map.get("Gene_symbol", 1)]
-                sequence_name = fields[header_map.get("Sequence_name", 2)]
-                scope = fields[header_map.get("Scope", 3)]
-                element_type = fields[header_map.get("Element_type", 4)]
-                subclass = fields[header_map.get("Subclass", 5)] if "Subclass" in header_map else ""
+                def get_field(name, fallback_idx):
+                    idx = header_map.get(name, fallback_idx)
+                    return fields[idx] if idx < len(fields) else ""
+
+                gene_symbol = get_field("Element symbol", 5)
+                protein_name = get_field("Element name", 6)
+                sequence_name = get_field("Contig id", 1)
+                scope = get_field("Scope", 7)
+                element_type = get_field("Type", 8)
+                subclass = get_field("Subclass", 11)
+                class_name = get_field("Class", 10)
+
+                try:
+                    start_position = int(get_field("Start", 2))
+                except ValueError:
+                    start_position = 0
+
+                try:
+                    end_position = int(get_field("Stop", 3))
+                except ValueError:
+                    end_position = 0
+
+                try:
+                    coverage_percent = float(get_field("% Coverage of reference", 15))
+                except ValueError:
+                    coverage_percent = 100.0
+
+                try:
+                    identity_percent = float(get_field("% Identity to reference", 16))
+                except ValueError:
+                    identity_percent = 100.0
 
                 if element_type == "VIRULENCE":
                     virulence_hits.append({
@@ -159,10 +204,10 @@ class AMRFinderPlusDetector(BaseAMRDetector):
                         "virulence_factor": subclass or protein_name,
                         "mechanism": "Unknown",
                         "contig_id": sequence_name,
-                        "start_position": 0,
-                        "end_position": 0,
-                        "identity_percent": 100.0,
-                        "coverage_percent": 100.0,
+                        "start_position": start_position,
+                        "end_position": end_position,
+                        "identity_percent": identity_percent,
+                        "coverage_percent": coverage_percent,
                         "database_source": "AMRFinderPlus"
                     })
                     continue
@@ -175,29 +220,19 @@ class AMRFinderPlusDetector(BaseAMRDetector):
                 else:
                     confidence = ConfidenceLevel.LOW
 
-                # Determine resistance class
-                resistance_class = ResistanceClass.OTHER
-                if "Aminoglycoside" in protein_name:
-                    resistance_class = ResistanceClass.AMINOGLYCOSIDES
-                elif "Beta-lactam" in protein_name:
-                    resistance_class = ResistanceClass.BETA_LACTAMS
-                elif "Fluoroquinolone" in protein_name:
-                    resistance_class = ResistanceClass.FLUOROQUINOLONES
-                elif "Tetracycline" in protein_name:
-                    resistance_class = ResistanceClass.TETRACYCLINES
-                elif "Macrolide" in protein_name:
-                    resistance_class = ResistanceClass.MACROLIDES
+                # Determine resistance class based on Class column
+                resistance_class = map_resistance_class(class_name)
 
                 hit = AMRHit(
                     gene_name=gene_symbol or protein_name,
                     gene_family=protein_name,
                     resistance_class=resistance_class,
                     contig_id=sequence_name,
-                    start_position=0,  # Not in AMRFinderPlus output
-                    end_position=0,
-                    gene_length=0,
-                    identity_percent=100.0,
-                    coverage_percent=100.0,
+                    start_position=start_position,
+                    end_position=end_position,
+                    gene_length=abs(end_position - start_position),
+                    identity_percent=identity_percent,
+                    coverage_percent=coverage_percent,
                     tool_name="amrfinderplus",
                     confidence=confidence,
                     phenotype=element_type,

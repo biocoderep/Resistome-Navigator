@@ -2,7 +2,7 @@ import type {
   AmrGene, ResistanceMutation, MechanismClassification, 
   PhenotypePrediction, VirulenceGene, ConfidenceScore, 
   AssemblyMetrics, SampleMetadata, ClustermapPayload, 
-  PcaPayload, RarefactionPayload 
+  PcaPayload, RarefactionPayload, OverviewSummaryPayload
 } from './types/amr';
 
 // A simple seeded random generator for consistent mocks
@@ -151,4 +151,21 @@ export const mockRarefactionPayload: RarefactionPayload = {
     ci_low: Math.log(i + 2) * 8,
     ci_high: Math.log(i + 2) * 12
   }))
+};
+
+export const mockOverviewSummary: OverviewSummaryPayload = {
+  total_isolates: mockSampleIds.length,
+  amr_genes_per_isolate_avg: 5.4,
+  phenotype_distribution: { S: 12, I: 5, R: 33 },
+  virulence_categories: {
+    'adhesin': 45,
+    'toxin': 12,
+    'biofilm': 28,
+    'invasion': 5
+  },
+  confidence_tiers: {
+    'HIGH': 40,
+    'MEDIUM': 8,
+    'LOW': 2
+  }
 };

@@ -152,3 +152,11 @@ export interface RarefactionPoint {
 export interface RarefactionPayload {
   points: RarefactionPoint[];
 }
+
+export interface OverviewSummaryPayload {
+  total_isolates: number;
+  amr_genes_per_isolate_avg: number;
+  phenotype_distribution: { S: number; I: number; R: number };
+  virulence_categories: Record<string, number>;
+  confidence_tiers: Record<string, number>;
+}

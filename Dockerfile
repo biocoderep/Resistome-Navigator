@@ -10,9 +10,10 @@ RUN conda config --add channels defaults && \
     conda config --add channels bioconda && \
     conda config --add channels conda-forge
 
-# Install bioinformatics tools (amrfinderplus, rgi, nextflow require java)
-RUN conda install -y -c bioconda ncbi-amrfinderplus rgi nextflow
-RUN conda install -y -c conda-forge openjdk=11
+# Copy conda environment file and install dependencies
+COPY environment.yml .
+RUN conda env update -n base -f environment.yml && conda clean -afy
+
 
 # Update AMRFinderPlus Database
 RUN amrfinder -u || true

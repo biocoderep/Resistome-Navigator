@@ -16,7 +16,7 @@ process aggregate_results {
     publishDir "${params.output}/${sample_id}/aggregation", mode: "copy"
     
     input:
-        tuple val(sample_id), path(amr_report), path(rgi_output), path(amrfinder_output), path(alignment_report), path(alignment_bam)
+        tuple val(sample_id), path(amr_report), val(rgi_output), val(amrfinder_output), path(alignment_report), path(alignment_bam)
     
     output:
         tuple val(sample_id), path("aggregated_results.json")

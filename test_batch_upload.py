@@ -7,12 +7,17 @@ API_URL = "http://127.0.0.1:8000/api/v1/batches"
 def run_test():
     print("Triggering Batch Upload Pipeline Test...")
     
-    # 1. Create 3 mock fasta files
+    # 1. Use the real downloaded E. coli FASTA
     files = []
-    for i in range(3):
-        filename = f"isolate_00{i+1}.fasta"
-        content = f">contig1\nATGCGTACGTAGCTAGCTAGCATCGATCGACTAGCTAGCTAGCTAGCTAGCTAGC{i}".encode('utf-8')
-        files.append(("files", (filename, content, "application/octet-stream")))
+    fasta_path = "data/ecoli_k12.fasta"
+    try:
+        with open(fasta_path, "rb") as f:
+            content = f.read()
+            files.append(("files", ("ecoli_k12.fasta", content, "application/octet-stream")))
+    except FileNotFoundError:
+        print(f"Could not find {fasta_path}. Ensure it exists!")
+        return
+
         
     data = {
         "project_id": "123e4567-e89b-12d3-a456-426614174000",
@@ -42,14 +47,14 @@ def run_test():
             status_data = status_res.json()
             state = status_data.get("status")
             completed = status_data.get("completed", 0)
-            total = status_data.get("total_isolates", 3)
+            total = status_data.get("total_isolates", 1)
             print(f"   Status: {state} | Progress: {completed}/{total} isolates completed")
             
-            if state in ["COMPLETED", "COHORT_FAILED", "PARTIAL_FAILED"]:
+            if state in ["COMPLETED", "FAILED", "COHORT_FAILED", "PARTIAL_FAILED"]:
                 break
         time.sleep(3)
         
-    print("\n🎉 Pipeline Execution Finished!")
+    print("\nPipeline Execution Finished!")
     print("\nTo view the results in your new publication-ready dashboard, run:")
     print('Rscript -e "shiny::runApp(\'r_dashboard/app.R\', port=8080, launch.browser=TRUE)"')
 

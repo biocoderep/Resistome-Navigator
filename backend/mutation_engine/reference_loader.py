@@ -135,19 +135,24 @@ def synthesize_references_from_kb(kb_entries: List[dict]) -> Dict[str, str]:
 def get_reference_sequences(
     fasta_path: Optional[str | Path] = None,
     kb_entries: Optional[List[dict]] = None,
+    species: Optional[str] = None
 ) -> Dict[str, str]:
-    """Return reference CDS keyed by gene, using the resolution order above.
+    """Return reference CDS keyed by gene, using the dual-mode resolution order.
 
     Args:
         fasta_path: Optional explicit path to a curated reference FASTA.
-        kb_entries: Knowledgebase entries used for the synthetic fallback. If
-            omitted, they are lazily loaded from the bundled knowledgebase.
+        kb_entries: Ignored (legacy parameter).
+        species: Optional species to dynamically fetch if no explicit FASTA provided.
     """
     candidates: List[Path] = []
     if fasta_path:
         candidates.append(Path(fasta_path))
-    candidates.append(DEFAULT_FASTA)
+    
+    # Check default bundled fasta
+    if DEFAULT_FASTA.exists():
+        candidates.append(DEFAULT_FASTA)
 
+    # Attempt to load local candidates
     for path in candidates:
         if path.exists():
             refs = load_references_from_fasta(path)
@@ -155,24 +160,27 @@ def get_reference_sequences(
                 logger.info("Loaded %d reference CDS from %s", len(refs), path)
                 return refs
 
-    if kb_entries is None:
-        from .knowledgebase import KnowledgebaseLoader
-
-        kb_entries = KnowledgebaseLoader().get_entries()
-
-    refs = synthesize_references_from_kb(kb_entries)
-    logger.warning(
-        "No curated reference FASTA found (looked in %s); synthesised %d "
-        "placeholder references from the knowledgebase. Provide a curated "
-        "reference_cds.fasta for production accuracy.",
-        ", ".join(str(c) for c in candidates),
-        len(refs),
-    )
-    return refs
+    # Dual-Mode dynamic fetch fallback
+    import os
+    from .ncbi_fetcher import fetch_reference, get_accession_for_species
+    
+    mode = os.getenv("REFERENCE_MODE", "B")
+    accession = get_accession_for_species(species)
+    cache_dir = Path("/app/data/references") if os.path.exists("/app/data") else Path("data/references")
+    cached_file = cache_dir / f"{accession}.fasta"
+    
+    try:
+        fetch_reference(species or "Unknown", cached_file, mode=mode)
+        refs = load_references_from_fasta(cached_file)
+        logger.info("Loaded %d reference CDS dynamically via mode %s from %s", len(refs), mode, cached_file)
+        return refs
+    except Exception as e:
+        logger.error("Failed to load reference sequences: %s", e)
+        # We explicitly fail rather than returning synthetic placeholder data
+        return {}
 
 
 __all__ = [
     "get_reference_sequences",
     "load_references_from_fasta",
-    "synthesize_references_from_kb",
 ]

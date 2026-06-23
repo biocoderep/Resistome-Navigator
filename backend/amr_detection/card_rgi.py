@@ -13,6 +13,7 @@ from backend.amr_detection.base import (
     BaseAMRDetector,
     ConfidenceLevel,
     ResistanceClass,
+    map_resistance_class,
 )
 
 
@@ -72,12 +73,11 @@ class CARDRGIDetector(BaseAMRDetector):
                 "-o",
                 str(output_prefix),
                 "-t",
-                "nucl",
+                "contig",
                 "-a",
                 "BLAST",
                 "-n",
                 str(self.config.threads),
-                "--include_loose",
             ]
 
             if progress_callback:
@@ -146,21 +146,71 @@ class CARDRGIDetector(BaseAMRDetector):
             with open(json_file) as f:
                 data = json.load(f)
 
-            # RGI output format: {"ORF#": {...}}
-            for orf_id, hit_data in data.items():
-                if not isinstance(hit_data, dict):
+            # RGI output format: {"ORF#": {"Blast_Hit_ID": {...}}}
+            for orf_id, orf_hits in data.items():
+                if not isinstance(orf_hits, dict):
                     continue
+                
+                best_hit = None
+                best_score = -1.0
+                best_type_rank = -1
+                
+                for _k, hit in orf_hits.items():
+                    if not isinstance(hit, dict):
+                        continue
+                        
+                    hittype = hit.get("type_match", "")
+                    if hittype not in ("Perfect", "Strict"):
+                        continue
+                        
+                    type_rank = 2 if hittype == "Perfect" else 1
+                    try:
+                        score = float(hit.get("pass_bitscore", 0.0))
+                    except ValueError:
+                        score = 0.0
+                        
+                    if type_rank > best_type_rank or (type_rank == best_type_rank and score > best_score):
+                        best_type_rank = type_rank
+                        best_score = score
+                        best_hit = hit
 
-                gene_name = hit_data.get("ARO_name", "Unknown")
-                gene_family = hit_data.get("ARO_category", "Unknown")
-                contig = hit_data.get("contig", "Unknown")
-                start = int(hit_data.get("start", 0))
-                stop = int(hit_data.get("stop", 0))
-                identity = float(hit_data.get("perc_identity", 0.0))
-                coverage = float(hit_data.get("query_coverage", 0.0))
-                hittype = hit_data.get("type_match", "Strict")
-                model_type = hit_data.get("model_type", "")
-                snps = hit_data.get("snps_in_isolate", [])
+                if not best_hit:
+                    continue
+                
+                hit = best_hit
+                
+                gene_name = hit.get("ARO_name", "Unknown")
+                
+                # Parse ARO_category for gene_family and drug_class
+                aro_category = hit.get("ARO_category", {})
+                gene_family = "Unknown"
+                drug_class = ""
+                
+                if isinstance(aro_category, dict):
+                    drug_classes = []
+                    for cat_id, cat_info in aro_category.items():
+                        if not isinstance(cat_info, dict):
+                            continue
+                        cat_name = cat_info.get("category_aro_name", "")
+                        cat_class = cat_info.get("category_aro_class_name", "")
+                        if cat_class == "AMR Gene Family":
+                            gene_family = cat_name
+                        elif cat_class == "Drug Class":
+                            drug_classes.append(cat_name)
+                    
+                    if drug_classes:
+                        drug_class = ", ".join(drug_classes)
+                        
+                if not drug_class:
+                    drug_class = gene_family
+                
+                contig = hit.get("orf_from", "Unknown")
+                start = int(hit.get("orf_start", 0))
+                stop = int(hit.get("orf_end", 0))
+                identity = float(hit.get("perc_identity", 0.0))
+                coverage = float(hit.get("query_coverage", 0.0))
+                model_type = hit.get("model_type", "")
+                snps = hit.get("snps_in_isolate", [])
 
                 if model_type == "protein variant model" or "Variant" in model_type:
                     # RGI SNP format: {"original": "S", "mutation": "L", "position": 83}
@@ -193,19 +243,9 @@ class CARDRGIDetector(BaseAMRDetector):
                     confidence = ConfidenceLevel.LOW
 
                 # Determine resistance class
-                resistance_class = ResistanceClass.OTHER
-                if "Aminoglycoside" in gene_family:
-                    resistance_class = ResistanceClass.AMINOGLYCOSIDES
-                elif "Beta-lactam" in gene_family:
-                    resistance_class = ResistanceClass.BETA_LACTAMS
-                elif "Fluoroquinolone" in gene_family:
-                    resistance_class = ResistanceClass.FLUOROQUINOLONES
-                elif "Tetracycline" in gene_family:
-                    resistance_class = ResistanceClass.TETRACYCLINES
-                elif "Macrolide" in gene_family:
-                    resistance_class = ResistanceClass.MACROLIDES
+                resistance_class = map_resistance_class(drug_class)
 
-                hit = AMRHit(
+                amr_hit = AMRHit(
                     gene_name=gene_name,
                     gene_family=gene_family,
                     resistance_class=resistance_class,
@@ -217,9 +257,9 @@ class CARDRGIDetector(BaseAMRDetector):
                     coverage_percent=coverage,
                     tool_name="card_rgi",
                     confidence=confidence,
-                    phenotype=hit_data.get("phenotype", None),
+                    phenotype=hit.get("phenotype", None),
                 )
-                hits.append(hit)
+                hits.append(amr_hit)
 
         except Exception as e:
             return [], []

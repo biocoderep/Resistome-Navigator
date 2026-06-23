@@ -21,7 +21,7 @@ process amr_detection {
         path amrfinder_db
     
     output:
-        tuple val(sample_id), path("amr_detection_report.json"), path("rgi*.json"), path("amrfinderplus*.tsv")
+        tuple val(sample_id), path("amr_detection_report.json"), path("rgi*.json", optional: true), path("amrfinderplus*.tsv", optional: true)
     
     script:
         """
@@ -64,14 +64,22 @@ process amr_detection {
         amrfinder_result = amrfinder_detector.detect(
             assembly_file=Path("${assembly_file}"),
             output_dir=output_dir,
-            sample_id="${sample_id}"
+            sample_id="${sample_id}",
+            species="${species}"
         )
         
         # Aggregate results
         all_hits = rgi_result.hits + amrfinder_result.hits
         unique_genes = len(set((h.gene_name, h.resistance_class) for h in all_hits))
         
+        # Belt-and-suspenders: Nextflow requires the files to exist even with optional: true
+        if not list(Path(".").glob("rgi*.json")):
+            with open("rgi_empty.json", "w") as f: json.dump({}, f)
+        if not list(Path(".").glob("amrfinderplus*.tsv")):
+            Path("amrfinderplus_empty.tsv").touch()
+        
         # Create master report
+        all_errors = rgi_result.errors + amrfinder_result.errors
         master_report = {
             "sample_id": "${sample_id}",
             "species": "${species}",
@@ -79,9 +87,9 @@ process amr_detection {
             "quality_score": validation.get("quality_score"),
             "total_amr_genes_detected": len(all_hits),
             "unique_gene_families": unique_genes,
-            "rgi_results": rgi_result.dict(),
-            "amrfinderplus_results": amrfinder_result.dict(),
-            "errors": rgi_result.errors + amrfinder_result.errors
+            "rgi_results": rgi_result.model_dump(),
+            "amrfinderplus_results": amrfinder_result.model_dump(),
+            "errors": all_errors
         }
         
         with open("amr_detection_report.json", "w") as f:
@@ -89,6 +97,13 @@ process amr_detection {
         
         print(f"Total AMR genes detected: {len(all_hits)}")
         print(f"Unique gene families: {unique_genes}")
+        
+        if all_errors:
+            print("ERROR: One or more AMR detection tools failed:", flush=True)
+            for err in all_errors:
+                print(f"  - {err}", flush=True)
+            import sys
+            sys.exit(1)
         EOF
         """
 }

@@ -17,8 +17,16 @@
 */
 import DashboardRouter from "./DashboardRouter";
 import App from "./App";
+import OverviewDashboard from "./overview/OverviewDashboard";
 
 const dashboardRoutes = [
+  {
+    path: "/overview",
+    name: "Overview",
+    icon: "nc-icon nc-layout-11",
+    component: OverviewDashboard,
+    layout: "/admin"
+  },
   {
     path: "/dashboard",
     name: "Results Dashboard",
